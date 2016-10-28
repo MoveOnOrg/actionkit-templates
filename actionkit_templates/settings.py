@@ -71,6 +71,9 @@ def index(request, name, page=None):
         cxt.update({
             'page': {'title':'Homepage'},
             'pagelinks': sorted(contexts.items())})
+    if request.GET.get('user_id'):
+        #for debugging tests based on user.id % 2, e.g.
+        context_data.setdefault('user', {}).update({'id': int(request.GET.get('user_id'))})
 
     template = request.GET.get('template',
                                context_data.get('filename', "homepagetest.html"))

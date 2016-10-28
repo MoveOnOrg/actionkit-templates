@@ -129,6 +129,9 @@ def is_in(value, arg):
 def nth(value, arg):
     return value[arg]
 
+@register.filter
+def mod(value, arg):
+    return int(value) % int(arg)
 
 @register.filter
 def escapeall(value):
