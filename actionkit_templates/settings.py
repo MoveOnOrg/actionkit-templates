@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 
 """
 try running with
-PYTHONPATH=./ django-admin runserver 0.0.0.0:1234 --settings=settings
+aktemplates runserver 0.0.0.0:1234
 """
 
 DEBUG = True
@@ -24,7 +24,6 @@ except:
 #one directory down
 APP_PATH = os.path.dirname(__file__)
 PROJECT_ROOT_PATH = os.path.abspath(os.getcwd())
-print(PROJECT_ROOT_PATH)
 #############
 # TEMPLATES
 #############
@@ -36,7 +35,6 @@ else:
     for d in ('./', './template_set', './_layouts', './_includes'):
         dd = os.path.join(PROJECT_ROOT_PATH, d)
         if os.path.exists(dd):
-            print (dd)
             DIR_TEMPLATES.append(dd)
 
 DIR_TEMPLATES.append(DEFAULT_TEMPLATES)

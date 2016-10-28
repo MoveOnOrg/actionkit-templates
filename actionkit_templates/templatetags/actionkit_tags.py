@@ -81,15 +81,25 @@ def hide_by_default(parser, token):
     "seems to take a field list and default-hides them"
     return NoContentNode()
 
+
+def _add_domain(path):
+    fallback = getattr(settings, 'STATIC_FALLBACK', False)
+    filename = path.rsplit('/', 1)[1]
+    if fallback:
+        return '%s/%s' % (fallback, filename)
+    elif path.startswith('//') or path.startswith('http'):
+        return path
+    return 'https://%s%s' % (client_domain(), path)
+
+
 @register.tag
 def load_css(parser, token):
     nodelist = parser.parse(('end',))
     parser.delete_first_token()
     source = nodelist[0].s
-    import re
     parsed = ''.join(["""
-    <link rel="stylesheet" href="https://%s%s" />
-    """ % (client_domain(), s)
+    <link rel="stylesheet" href="%s" />
+    """ % _add_domain(s)
         for s in re.findall(r'/[^\s]+css', source)])
     return StaticContentNode(parsed)
 
@@ -98,18 +108,9 @@ def load_js(parser, token):
     nodelist = parser.parse(('end',))
     parser.delete_first_token()
     source = nodelist[0].s
-    fallback = getattr(settings, 'STATIC_FALLBACK', False)
-    def add_domain(path):
-        filename = path.rsplit('/', 1)[1]
-        if fallback:
-            return '%s/%s' % (fallback, filename)
-        elif path.startswith('//') or path.startswith('http'):
-            return path
-        return 'https://%s%s' % (client_domain(), path)
-    import re
     parsed = ''.join(["""
     <script src="%s" ></script>
-    """ % add_domain(s)
+    """ % _add_domain(s)
         for s in re.findall(r'[^\s]+js', source)])
     return StaticContentNode(parsed)
 
@@ -183,12 +184,10 @@ def referring_akid(value, akid):
 
 @register.filter
 def collapse_spaces(value):
-    import re
     return re.sub(r'\s+', ' ', value)
 
 @register.filter
 def remove_blank_lines(value):
-    import re
     return re.sub(r'\n\s*\n', '\n', value)
 
 @register.filter

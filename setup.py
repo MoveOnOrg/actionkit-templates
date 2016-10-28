@@ -13,7 +13,7 @@ setup(
     long_description=textwrap.dedent(open('README.md', 'r').read()),
     entry_points={
         'console_scripts': [
-            'aktemplateserve = actionkit_templates.aktemplateserve:serve_templates',
+            'aktemplates = actionkit_templates.aktemplates:serve_templates',
         ],
     },
     install_requires=[
