@@ -3,7 +3,7 @@ ActionKit Template Renderer
 
 ### What this is
 
-If you use ActionKit and edit its templates, then you might want to see what they look like
+If you use [ActionKit](http://actionkit.com/) and edit its templates, then you might want to see what they look like
 locally.  If you install this (`pip install actionkit-templates`) then you can run
 
 ```
