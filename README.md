@@ -16,6 +16,16 @@ in a directory where you have a set of ActionKit templates (`wrapper.html`, etc)
 view them on from a local port.  This runs Django in a similar environment that ActionKit
 runs itself.
 
+Installation
+============
+
+The code is available from https://github.com/MoveOnOrg/actionkit-templates
+If you have python's pip program installed, you can just run (possibly in a virtualenv):
+
+   pip install actionkit-templates
+
+Please note that this package requires the version of Django used on ActionKit production,
+so use a virtualenv if you develop using Django on your computer so it doesn't change your local version.
 
 Environment
 ===========
@@ -78,3 +88,20 @@ If you make a context that's not covered already, please contribute with a patch
 `actionkit_templates/contexts/`  Note that these are also useful to browser, to see
 what variables you can access from a particular page context.
 
+License
+-------
+
+Copyright MoveOn.org written by Schuyler Duveen
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
