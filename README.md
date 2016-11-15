@@ -24,7 +24,7 @@ If you have python's pip program installed, you can just run (possibly in a virt
 
    pip install actionkit-templates
 
-Please note that this package requires the version of Django used on ActionKit production,
+Please note that this package installs the version of Django used on ActionKit production,
 so use a virtualenv if you develop using Django on your computer so it doesn't change your local version.
 
 Environment
@@ -77,7 +77,7 @@ Contributing When You Run Into Something Not Covered
 Template Tags
 -------------
 
-Usually, these are easy to add here `actionkit_templates/templatetags/actionkit_tags.py`
+Usually, these are easy to add here (actionkit_templates/templatetags/actionkit_tags.py)[https://github.com/MoveOnOrg/actionkit-templates/blob/master/actionkit_templates/templatetags/actionkit_tags.py]
 We should aim for support of all these:
   https://roboticdogs.actionkit.com/docs/manual/guide/customtags.html
 
@@ -85,7 +85,8 @@ Extra contexts
 --------------
 
 If you make a context that's not covered already, please contribute with a patch to
-`actionkit_templates/contexts/`  Note that these are also useful to browser, to see
+[actionkit_templates/contexts/](https://github.com/MoveOnOrg/actionkit-templates/tree/master/actionkit_templates/contexts)
+Note that these are also useful to browse, to see
 what variables you can access from a particular page context.
 
 License
