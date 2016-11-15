@@ -77,7 +77,7 @@ Contributing When You Run Into Something Not Covered
 Template Tags
 -------------
 
-Usually, these are easy to add here (actionkit_templates/templatetags/actionkit_tags.py)[https://github.com/MoveOnOrg/actionkit-templates/blob/master/actionkit_templates/templatetags/actionkit_tags.py]
+Usually, these are easy to add here [actionkit_templates/templatetags/actionkit_tags.py](https://github.com/MoveOnOrg/actionkit-templates/blob/master/actionkit_templates/templatetags/actionkit_tags.py)
 We should aim for support of all these:
   https://roboticdogs.actionkit.com/docs/manual/guide/customtags.html
 
