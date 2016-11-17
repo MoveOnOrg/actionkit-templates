@@ -9,7 +9,7 @@ setup(
     packages=find_packages(),
     package_data={'actionkit_templates': ['templates/*.html']},
     url='https://github.com/MoveOnOrg/actionkit-templates',
-    license='GPL3',
+    license='MIT',
     description="actionkit-templates allows you to view your ActionKit templates locally testing different configurations for each page type.  It also documents by-code many context variables for each page",
     long_description=textwrap.dedent(open('README.md', 'r').read()),
     entry_points={
