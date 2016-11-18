@@ -3,7 +3,7 @@ import textwrap
 
 setup(
     name='actionkit-templates',
-    version='0.1',
+    version='0.1.1',
     author='Schuyler Duveen',
     author_email='opensource@moveon.org',
     packages=find_packages(),
