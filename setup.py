@@ -5,7 +5,7 @@ setup(
     name='actionkit-templates',
     version='0.1',
     author='Schuyler Duveen',
-    author_email='sky.duveen@moveon.org',
+    author_email='opensource@moveon.org',
     packages=find_packages(),
     package_data={'actionkit_templates': ['templates/*.html']},
     url='https://github.com/MoveOnOrg/actionkit-templates',
