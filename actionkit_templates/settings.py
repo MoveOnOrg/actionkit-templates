@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 
@@ -57,6 +58,15 @@ def index(request, name, page=None):
     hostport = request.get_host().split(':')
     if len(hostport) > 1:
         port = hostport[1]
+
+    custom_contexts_file = os.path.join(PROJECT_ROOT_PATH,
+                                        os.environ.get('CUSTOM_CONTEXTS', 'contexts.json'))
+    if os.path.exists(custom_contexts_file):
+        try:
+            contexts.update({'Custom': json.loads(open(custom_contexts_file).read())})
+        except ValueError as e:
+            raise Exception("JSON Parsing Error for context file %s %s" % (
+                custom_contexts_file, e.message))
     #first use ?template= if there, otherwise name's template, otherwise homepage
     cxt = dict(
         devenv={'enabled': True, 'port':port},
