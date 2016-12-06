@@ -47,6 +47,27 @@ TEMPLATE_DIR
 
   it will also look in the directory `actionkittemplates/`
 
+CUSTOM_CONTEXTS
+: You can add additional test contexts and put them in either a file called `contexts.json` or
+  set this environment variable to the json file to use.  JSON files should be in the form:
+
+```json
+
+   {"name_of_context": {
+       "filename": "event_attend.html",
+       "all_the_context_keys_for_this_context": {
+       },
+       "page": {
+          "title": "My Page Title",
+          "type": "Event"
+       },
+       "event": {
+           "...": "..."
+       }
+   }
+
+```
+
 STATIC_ROOT
 : By default we serve the `./static/` directory at /static/  This goes well with code in your
   wrapper.html template like this:
