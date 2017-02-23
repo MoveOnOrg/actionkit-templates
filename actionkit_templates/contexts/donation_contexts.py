@@ -54,6 +54,8 @@ def user(recurring=1, payment_hash=False, customfields=None):
         "user": {
             "akid": 666,
             "name": "Morticia Addams",
+            "first_name": "Morticia",
+            "last_name": "Addams",
             "address": "1313 Cemetery Lane",
             "city": "Westfield",
             "state": "NJ",
@@ -147,7 +149,6 @@ def order(order_type='order', details=None, quickpay=False):
         rv['action']['custom_fields'].update({
             'payment_token': 'abc123999',
         })
-            
     rv.update(orderkey)
     rv['action'].update(orderkey)
     return rv
@@ -166,7 +167,7 @@ contexts = {
     'donate.3': compose([base('suggested_ask')], ["suggested_ask",]),
     'donate.4': compose([base('suggested_ask, recurring')], ["suggested_ask","donation_type"]),
     'donate.5': compose([base('other suggested_ask, single')], ["suggested_ask","donation_type"], -1),
-    'donate.6': compose([base('suggested_ask, payment_hash')], ["suggested_ask","payment_hash"]),
+    'donate.6': compose([base('suggested_ask, payment_hash'), user(0, payment_hash=True)], ["suggested_ask","payment_hash"]),
     'donate.7': compose([base('user'), user()]),
     'donate.8': compose([base('pac', entity='pac')]),
     'donate.9': compose([base('candidate suggested', entity='pac', layout='donate_5050_split'), candidates], ["suggested_ask"], -1),
