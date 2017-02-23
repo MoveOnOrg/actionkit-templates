@@ -166,6 +166,11 @@ def commify(value):
     return format(int(value), ",d")
 
 @register.filter
+def concatenate(value, arg):
+    "add commas for numeric values"
+    return '{}{}'.format(value, arg)
+
+@register.filter
 def is_defined(value):
     return bool(value)
 
