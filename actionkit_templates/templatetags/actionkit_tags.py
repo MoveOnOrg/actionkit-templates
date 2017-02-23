@@ -144,6 +144,11 @@ def json(value):
     return jjson.dumps(jjson.loads(value))
 
 @register.filter
+def load_json(value):
+    import json as jjson
+    return jjson.loads(value)
+
+@register.filter
 def ak_field_label(value, arg):
     return '%s|%s|' % (arg, value)
 
