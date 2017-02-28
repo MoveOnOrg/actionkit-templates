@@ -135,6 +135,14 @@ def mod(value, arg):
     return int(value) % int(arg)
 
 @register.filter
+def add(value, arg):
+    return float(value) + float(arg)
+
+@register.filter
+def multiply(value, arg):
+    return float(value) * float(arg)
+
+@register.filter
 def escapeall(value):
     return value
 
