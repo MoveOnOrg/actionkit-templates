@@ -142,6 +142,10 @@ def add(value, arg):
 def multiply(value, arg):
     return float(value) * float(arg)
 
+@register.simple_tag
+def divide(top, bottom, precision):
+    return '%.{}f'.format(precision) % (top/bottom)
+
 @register.filter
 def escapeall(value):
     return value

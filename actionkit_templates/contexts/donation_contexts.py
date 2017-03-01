@@ -83,7 +83,7 @@ candidates = {
     "has_candidates": True,
     "candidates": [
         {"name": "Seabright Cooley",
-         "portrait_url": "http://fr.web.img2.acsta.net/medias/nmedia/18/35/61/70/19013441.jpg",
+         "portrait_url": "https://fr.web.img2.acsta.net/medias/nmedia/18/35/61/70/19013441.jpg",
          "desc": "Seabright (Seab) Cooley from South Carolina and the book Advise and Consent",
          "id": "1959",
         }
