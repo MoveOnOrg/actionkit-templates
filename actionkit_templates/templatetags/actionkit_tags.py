@@ -23,7 +23,6 @@ class NoContentNode(Node):
     def render(self, context):
         return ''
 
-
 class StaticContentNode(Node):
     def __init__(self, staticcontent):
         self.staticcontent = staticcontent
@@ -31,6 +30,18 @@ class StaticContentNode(Node):
     def render(self, context):
         return self.staticcontent
 
+class OnceNode(Node):
+    rendered = False
+
+    def __init__(self, nodelist):
+        self.nodelist = nodelist
+
+    def render(self, context):
+        if not self.rendered:
+            self.rendered = True
+            return self.nodelist.render(context)
+        else:
+            return ''
 
 class SetVarNode(Node):
     var_name = "now"
@@ -39,6 +50,13 @@ class SetVarNode(Node):
         context[self.var_name] = datetime.datetime.now()
         return ''
 
+
+@register.tag
+def once(parser, token):
+    "undocumented AK tag that creates a {{now}} variable"
+    nodelist = parser.parse(('endonce',))
+    parser.delete_first_token()
+    return OnceNode(nodelist)
 
 @register.tag
 def right_now(parser, token):
