@@ -96,6 +96,8 @@ def login_context(request):
     coming_from = request.GET.get('url','')
     if 'event' in coming_from \
        or 'logged_in' in coming_from:
+        if not request.GET.get('login'):
+            del event_json['name']
         return HttpResponse(
             'actionkit.forms.onContextLoaded(%s)' % json.dumps(event_json))
     else:
