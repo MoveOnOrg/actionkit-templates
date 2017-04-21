@@ -227,6 +227,14 @@ def collapse_spaces(value):
     return re.sub(r'\s+', ' ', value)
 
 @register.filter
+def matches(value, regex):
+    return re.match(regex, value)
+
+@register.filter
+def strip_nondigits(value):
+    return re.sub(r'\D', '', value)
+
+@register.filter
 def remove_blank_lines(value):
     return re.sub(r'\n\s*\n', '\n', value)
 
