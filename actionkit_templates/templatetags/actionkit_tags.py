@@ -201,6 +201,11 @@ def concatenate(value, arg):
     return '{}{}'.format(value, arg)
 
 @register.filter
+def custom_hash(value):
+    "This creates a custom akid generation"
+    return '{}.{}'.format(value, 'fakehash')
+
+@register.filter
 def is_defined(value):
     return bool(value)
 

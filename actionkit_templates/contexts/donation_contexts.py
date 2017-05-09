@@ -53,6 +53,7 @@ def user(recurring=1, payment_hash=False, customfields=None):
     userbase = {
         "user": {
             "akid": 666,
+            "id": 666,
             "name": "Morticia Addams",
             "first_name": "Morticia",
             "last_name": "Addams",
