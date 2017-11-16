@@ -150,7 +150,7 @@ def nth(value, arg):
 
 @register.filter
 def mod(value, arg):
-    return int(value) % int(arg)
+    return int(value or 0) % int(arg)
 
 @register.filter
 def add(value, arg):
