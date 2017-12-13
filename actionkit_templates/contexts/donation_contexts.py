@@ -91,6 +91,22 @@ candidates = {
     ]
 }
 
+candidates2 = {
+    "has_candidates": True,
+    "candidates": [
+        {"name": "Seabright Cooley",
+         "portrait_url": "https://fr.web.img2.acsta.net/medias/nmedia/18/35/61/70/19013441.jpg",
+         "desc": "Seabright (Seab) Cooley from South Carolina and the book Advise and Consent",
+         "id": "1959",
+        },
+        {"name": "Mr. Burns",
+         "portrait_url": "https://vignette.wikia.nocookie.net/simpsons/images/2/25/Adult_burns.jpg/revision/latest?cb=20111012170021",
+         "desc": "A recurring character in the animated television series The Simpsons, and is voiced by Harry Shearer. Mr. Burns is the evil owner of the Springfield Nuclear Power Plant and is also Homer Simpson's boss.",
+         "id": "666",
+        }
+    ]
+}
+
 
 def base(title='', entity='c4', layout='', filename="donate.html", fields={}):
     rv = {
@@ -172,6 +188,7 @@ contexts = {
     'donate.7': compose([base('user'), user()]),
     'donate.8': compose([base('pac', entity='pac')]),
     'donate.9': compose([base('candidate suggested', entity='pac', layout='donate_5050_split'), candidates], ["suggested_ask"], -1),
+    'donate.10': compose([base('two candidates suggested', entity='pac', layout='donate_5050_split'), candidates2], ["suggested_ask"], -1),
     
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
