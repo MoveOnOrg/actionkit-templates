@@ -105,6 +105,9 @@ def login_context(request):
             #text key has all the generic error messages
             'actionkit.forms.onContextLoaded({"text": %s})' % json.dumps(event_json['text']))
 
+def user_password_forgot(request):
+    return HttpResponse('unimplemented')
+
 #############
 # STATIC DIRECTORY
 #############
@@ -122,6 +125,7 @@ ROOT_URLCONF = 'actionkit_templates.settings'
 
 urlpatterns = [
     url(r'^context', login_context),
-    url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index)
+    url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
+    url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
     # ... the rest of your URLconf goes here ...
 ] + static(STATIC_URL, document_root=STATIC_ROOT)
