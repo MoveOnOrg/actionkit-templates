@@ -85,7 +85,9 @@ def index(request, name, page=None):
 
     template = request.GET.get('template',
                                context_data.get('filename', "homepagetest.html"))
-    cxt.setdefault('args', {}).update(request.GET.dict())
+    args = cxt['args'].copy()
+    args.update(request.GET.dict())
+    cxt['args'] = args
 
     return render_to_response(template, cxt)
 
