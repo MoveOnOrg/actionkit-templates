@@ -25,6 +25,16 @@ except:
 #one directory down
 APP_PATH = os.path.dirname(__file__)
 PROJECT_ROOT_PATH = os.path.abspath(os.getcwd())
+
+#############
+# STATIC DIRECTORY
+#############
+
+#note this only works if DEBUG=True
+STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(PROJECT_ROOT_PATH, './static'))
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
+STATIC_FALLBACK = os.environ.get('STATIC_FALLBACK', False)
+
 #############
 # TEMPLATES
 #############
@@ -69,7 +79,11 @@ def index(request, name, page=None):
                 custom_contexts_file, e.message))
     #first use ?template= if there, otherwise name's template, otherwise homepage
     cxt = dict(
-        devenv={'enabled': True, 'port':port},
+        devenv={
+            'enabled': True,
+            'port':port,
+            'STATIC_URL': STATIC_URL
+        }
     )
     context_data = contexts.get(name,{})
     if page:
@@ -111,15 +125,6 @@ def user_password_forgot(request):
     return HttpResponse('unimplemented')
 
 #############
-# STATIC DIRECTORY
-#############
-
-#note this only works if DEBUG=True
-STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(PROJECT_ROOT_PATH, './static'))
-STATIC_URL = '/static/'
-STATIC_FALLBACK = os.environ.get('STATIC_FALLBACK', False)
-
-#############
 # URLS
 #############
 
@@ -130,4 +135,6 @@ urlpatterns = [
     url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
     # ... the rest of your URLconf goes here ...
-] + static(STATIC_URL, document_root=STATIC_ROOT)
+]
+if STATIC_ROOT:
+    urlpatterns = urlpatterns + static(STATIC_URL, document_root=STATIC_ROOT)
