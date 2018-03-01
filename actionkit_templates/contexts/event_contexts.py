@@ -156,7 +156,33 @@ contexts = {
         ],
         "form": {
             "signup_text": "<p>Signup text.</p>",
+            "ground_rules": "<p>Please follow these guidelines to ensure a good event:</p><ul><li>By RSVPing you agree to act non-violently and in accordance with the law.</li><li>Contact your host through this site to confirm the details of the event before you go.</li><li>Check this website if you have any questions.</li><li>If you've agreed to help the host, contact them through this site to coordinate with them.</li><li><em>Important Legal Note</em>:&nbsp;MoveOn.org Civic Action is an advocacy organization exempt from federal taxation under section 501(c)(4) of the Internal Revenue Code.</li></ul> "
         },
+        "context": {
+            "required": 'email'
+        },
+        'user_fields': [
+            {'field_name': 'name',
+             'label_text': 'Name',
+             'input_tag': '<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />',
+         },
+            {'field_name': 'email',
+             'label_text': 'Email Address',
+             'input_tag': '<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />',
+         },
+            {'field_name': 'address1',
+             'label_text': 'Street Address',
+             'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
+         },
+            {'field_name': 'zip',
+             'label_text': 'ZIP Code',
+             'input_tag': '<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />',
+         },
+            {'field_name': 'phone',
+             'label_text': 'Phone',
+             'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
+         },
+        ],
         "page": {
             "title": "Page Title",
             "type": "Event",
@@ -266,9 +292,6 @@ contexts = {
         "page": {
             "title": "Page Title",
         },
-    },
-    'event_search_with_results.html': {
-        "filename": "event_search.html",
         "campaign": {
             "local_title": "Campaign Title",
             "use_title": True,
@@ -276,9 +299,26 @@ contexts = {
             "show_title": True,
             "show_zip": True,
             "show_public_description": True,
+            "name": "resistandwin-volunteerday"
+        },
+    },
+    'event_search_with_results.html': {
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "campaign": {
+            "local_title": "Campaign Title",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "resistandwin-volunteerday"
         },
         "events": [
             {
+                "get_starts_at_display": "Saturday, August 20 at noon GMT",
                 "obj": {
                     "starts_at": datetime.datetime(2017, 12, 1, 1, 0, 0),
                     "eventsignup_set": {
@@ -326,6 +366,13 @@ contexts = {
         },
         'campaign': {
             'allow_private': True,
+            "local_title": "Campaign Title",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_address1": True,
+            "show_zip": True,
+            "show_public_description": True
         },
         'event_starts_at': {
             'name': 'event_starts_at',

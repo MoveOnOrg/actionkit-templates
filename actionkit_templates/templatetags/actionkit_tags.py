@@ -133,7 +133,7 @@ def load_js(parser, token):
     return StaticContentNode(parsed)
 
 @register.filter
-def split(value, arg):
+def split(value, arg=' '):
     return value.split(arg)
 
 @register.filter
