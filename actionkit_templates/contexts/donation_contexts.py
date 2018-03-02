@@ -190,8 +190,8 @@ contexts = {
     'donate.9': compose([base('candidate suggested', entity='pac', layout='donate_5050_split'), candidates], ["suggested_ask"], -1),
     'donate.10': compose([base('two candidates suggested', entity='pac', layout='donate_5050_split'), candidates2], ["suggested_ask"], -1),
     'donate.11': compose([base('two candidates suggested no 5050', entity='pac'), candidates2], ["suggested_ask"], -1),
-    'donate.12': compose([base('candidate, quickpay', user(0, payment_hash=True), entity='pac', layout='donate_5050_split'), candidates], ["payment_hash"], -1),
-    'donate.13': compose([base('two candidates quickpay', user(0, payment_hash=True), entity='pac', layout='donate_5050_split'), candidates2], ["payment_hash"], -1),
+    'donate.12': compose([base('candidate quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
+    'donate.13': compose([base('two candidates quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates2], ["payment_hash"], -1),
 
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
