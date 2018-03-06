@@ -108,14 +108,16 @@ def index(request, name, page=None):
 def login_context(request):
     import json
     from actionkit_templates.contexts.event_context_json import event_json
+    event_json_copy = event_json.copy()
     from django.http import HttpResponse
     coming_from = request.GET.get('url','')
     if 'event' in coming_from \
-       or 'logged_in' in coming_from:
-        if not request.GET.get('login'):
-            del event_json['name']
+       or 'logged_in' in coming_from \
+       or 'survey_logged_in' in coming_from:
+        if not request.GET.get('login') and 'survey_logged_in' not in coming_from:
+            del event_json_copy['name']
         return HttpResponse(
-            'actionkit.forms.onContextLoaded(%s)' % json.dumps(event_json))
+            'actionkit.forms.onContextLoaded(%s)' % json.dumps(event_json_copy))
     else:
         return HttpResponse(
             #text key has all the generic error messages

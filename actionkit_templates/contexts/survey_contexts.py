@@ -37,10 +37,20 @@ survey = {
      },
     ],
 }
+logged_in_data = {
+    "user": {
+        "akid": 666,
+        "id": 666,
+        "name": "Morticia Addams",
+        "first_name": "Morticia",
+        "last_name": "Addams",
+    }
+}
+logged_in_data.update(survey)
 
 contexts = {
     'survey.html': survey,
-    'survey_logged_in': survey,
+    'survey_logged_in': logged_in_data,
 
      #kinda silly, but avoid appending to the bottom because then git merge conflicts arise more often.
     #let's do the context values in alphabetical order.
