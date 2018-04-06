@@ -17,6 +17,7 @@ Scenarios:
 4. args.proxy (DSG) with logged_in_user.akid
 5. candidates (bundling)
 6. pac/c4 (page variables)
+7. products
 
 Variables:
 page.allow_international
@@ -27,6 +28,7 @@ page.custom_fields.layout_options
 page.derived.currency_accounts
 page.derived.use_account_switcher
 page.has_candidates
+page.has_products
 page.id
 page.name
 page.payment_processor_information as pp
@@ -106,6 +108,36 @@ candidates2 = {
         }
     ]
 }
+
+products = {
+    "has_products": True,
+    "has_shippable_products": True,
+    "products": [
+        {"name": "This fight is our fight: the battle to save america's middle class",
+         "desc": "This is a cool product that you should want",
+         "price": "55.23",
+         "id": "1",
+        }
+    ]
+}
+
+products2 = {
+    "has_products": True,
+    "has_shippable_products": True,
+    "products": [
+        {"name": "This fight is our fight: the battle to save america's middle class",
+         "desc": "This is a cool product that you should want",
+         "price": "55.23",
+         "id": "1"
+        },
+        {"name": "no desc max 1",
+         "price": "1",
+         "max": 1,
+         "id": "2"
+        }
+    ]
+}
+
 
 
 def base(title='', entity='c4', layout='', filename="donate.html", fields={}):
@@ -192,6 +224,8 @@ contexts = {
     'donate.11': compose([base('two candidates suggested no 5050', entity='pac'), candidates2], ["suggested_ask"], -1),
     'donate.12': compose([base('candidate, quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.13': compose([base('two candidates quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates2], ["payment_hash"], -1),
+    'donate.14': compose([base('1 product'), products]),
+    'donate.15': compose([base('2 products'), products2]),
 
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
