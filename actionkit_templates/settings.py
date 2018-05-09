@@ -34,6 +34,7 @@ PROJECT_ROOT_PATH = os.path.abspath(os.getcwd())
 STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(PROJECT_ROOT_PATH, './static'))
 STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 STATIC_FALLBACK = os.environ.get('STATIC_FALLBACK', False)
+STATIC_LOCAL = os.environ.get('STATIC_URL', None) # an explicit local or not
 
 #############
 # TEMPLATES
@@ -82,7 +83,8 @@ def index(request, name, page=None):
         devenv={
             'enabled': True,
             'port':port,
-            'STATIC_URL': STATIC_URL
+            'STATIC_URL': STATIC_URL,
+            'STATIC_LOCAL': STATIC_LOCAL
         }
     )
     context_data = contexts.get(name,{})
