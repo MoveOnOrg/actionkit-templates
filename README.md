@@ -26,7 +26,7 @@ Installation
 The code is available from https://github.com/MoveOnOrg/actionkit-templates
 If you have python's pip program installed, you can just run (possibly in a virtualenv):
 
-   pip install actionkit-templates
+   pip install -e git://github.com/MoveOnOrg/actionkit-templates#egg=actionkit-templates
 
 Please note that this package installs the version of Django used on ActionKit production,
 so use a virtualenv if you develop using Django on your computer so it doesn't change your local version.
