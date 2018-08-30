@@ -233,7 +233,7 @@ def collapse_spaces(value):
 
 @register.filter
 def matches(value, regex):
-    return re.match(regex, value)
+    return bool(re.search(regex, value))
 
 @register.filter
 def strip_nondigits(value):
