@@ -1,9 +1,10 @@
 import datetime
 import os
 import re
+from django.conf import settings
 from django.template import loader, Library, Node
 from django.template.defaultfilters import safe
-from django.conf import settings
+from django.utils.html import strip_tags
 
 """
 These are stub functions to avoid getting in the way of not having actionkit running.
@@ -208,6 +209,19 @@ def custom_hash(value):
 @register.filter
 def is_defined(value):
     return bool(value)
+
+@register.filter
+def is_nonblank(value):
+    """
+    The filter is_nonblank returns True if the string does not appear blank
+    when rendered - that is, it consists of more than just whitespace and invisible HTML.
+
+    For example the strings with spaces and \t , and &nbsp; ,
+    and <p></p><div class="lol">&nbsp;</div> would all return False.
+    """
+    if value:
+        return bool(re.sub(r'\s', '', strip_tags(value).replace('&nbsp;','')))
+    return False
 
 @register.filter
 def strip(value):
