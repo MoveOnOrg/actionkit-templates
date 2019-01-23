@@ -4,8 +4,11 @@
 
 <h1>MENU</h1>
   {% if pagelinks %}
+  <section>
   <h2>Loaded Page Contexts</h2>
   {% for section, pages in pagelinks %}    
+    <section>
+    <div>
     <h3>{{section}}</h3>
     <ul>
       {% for p,v in pages.items %}
@@ -18,7 +21,10 @@
        {% endif %}
       {% endfor %}
     </ul>
+    </div>
+    </section>
     {% endfor %}
+  </section>
   {% endif %}
 
 {% endblock %}

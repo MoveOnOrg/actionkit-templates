@@ -4,7 +4,9 @@ import sys
 
 from django.conf.urls import url
 from django.conf.urls.static import static
+from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.template.loader import render_to_string
 
 """
 try running with
@@ -59,11 +61,7 @@ TEMPLATES = [
 
 MIDDLEWARE_CLASSES = []
 
-#############
-# HOME PAGE TEST
-#############
-
-def index(request, name, page=None):
+def _get_context_data(request, name, page):
     from actionkit_templates.contexts.page_contexts import contexts
     port = '4000'
     hostport = request.get_host().split(':')
@@ -82,12 +80,12 @@ def index(request, name, page=None):
     cxt = dict(
         devenv={
             'enabled': True,
-            'port':port,
+            'port': port,
             'STATIC_URL': STATIC_URL,
             'STATIC_LOCAL': STATIC_LOCAL
         }
     )
-    context_data = contexts.get(name,{})
+    context_data = contexts.get(name, {})
     if page:
         context_data = contexts.get(name, {}).get(page, {})
     cxt.update(context_data)
@@ -98,20 +96,25 @@ def index(request, name, page=None):
     if request.GET.get('user_id'):
         #for debugging tests based on user.id % 2, e.g.
         context_data.setdefault('user', {}).update({'id': int(request.GET.get('user_id'))})
-
-    template = request.GET.get('template',
-                               context_data.get('filename', "homepagetest.html"))
     args = cxt.get('args', {}).copy()
     args.update(request.GET.dict())
     cxt['args'] = args
+    return cxt
+
+#############
+# HOME PAGE TEST
+#############
+
+def index(request, name, page=None):
+    cxt = _get_context_data(request, name, page)
+    template = request.GET.get('template',
+                               cxt.get('filename', "homepagetest.html"))
 
     return render_to_response(template, cxt)
 
 def login_context(request):
-    import json
     from actionkit_templates.contexts.event_context_json import event_json
     event_json_copy = event_json.copy()
-    from django.http import HttpResponse
     coming_from = request.GET.get('url','')
     if 'event' in coming_from \
        or 'logged_in' in coming_from \
@@ -128,6 +131,13 @@ def login_context(request):
 def user_password_forgot(request):
     return HttpResponse('unimplemented')
 
+def event_search_results(request, page):
+    # TODO: maybe set name depending on referer header or something else
+    cxt = _get_context_data(request, 'events', 'event_search_with_results')
+    search_results = render_to_string('event_search_results.html', cxt)
+    return HttpResponse('actionkit.forms.onEventSearchResults({})'
+                        .format(json.dumps(search_results)))
+
 #############
 # URLS
 #############
@@ -138,7 +148,7 @@ urlpatterns = [
     url(r'^context', login_context),
     url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
-    # ... the rest of your URLconf goes here ...
+    url(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results')
 ]
 if STATIC_ROOT:
     urlpatterns = urlpatterns + static(STATIC_URL, document_root=STATIC_ROOT)
