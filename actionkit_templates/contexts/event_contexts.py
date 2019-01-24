@@ -1,4 +1,6 @@
 import datetime
+from django.utils import timezone
+from django.utils import dateformat
 
 class signups(list):
     pass
@@ -41,6 +43,37 @@ cohosts = signups([
         ])
 cohosts.role = 'host'
 
+def event_create(days_from_now=7, localtime=15, id=343775):
+    today = datetime.date.today()
+    event_day = datetime.datetime.combine(today + datetime.timedelta(days=days_from_now),
+                                          datetime.time(localtime))
+    event_day = event_day.replace(tzinfo=timezone.FixedOffset(-300))
+    event_day_utc = event_day.astimezone(timezone.utc)
+
+    return {
+        "id": 343775,
+        "obj": {
+            "starts_at": event_day,
+            "hosts": user({
+                "first_name": "Host First",
+                "last_name": "Host-Last",
+                "phone": "123-456-7890",
+            })
+        },
+        # "longitude": 
+        # "latitude": 
+        "address1": "1 Main St.",
+        "city_etc": "Somewhere, OH 44444",
+        "directions": "Directions.",
+        "get_starts_at_display": dateformat.format(event_day, 'l, M j, g:i A'),  # "Monday, Jan 1, 1:00 AM",
+        "is_in_past": bool(days_from_now > 0),
+        "is_open_for_signup": bool(days_from_now > 0),
+        "note_to_attendees": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "title": "Event Title",
+        "venue": "Venue Name",
+    }
+
 contexts = {
     'event_host_tools.html': {
         "akid": "111111",
@@ -55,23 +88,14 @@ contexts = {
             },
             "title": "Page Title",
             "type": "Event",
+            "name": "fakecampaign_create"
         },
         "attendees": attendees,
         "cohosts": cohosts,
-        "event": {
-            "address1": "1 Main St.",
-            "city_etc": "Somewhere, OH 44444",
-            "directions": "Up up down down, left, then right, then left, then right. Press B A and then Select Start",
-            "get_starts_at_display": "Monday, Jan 1, 1:00 AM",
-            "is_in_past": False,
-            "is_open_for_signup": True,
-            "note_to_attendees": "Do hokey-pokey and turn yourself around.",
-            "public_description": "Public description. Ipso lorem....",
-            "title": "My Event Title",
-            "venue": "Venue Name",
-        },
+        "event": event_create(),
         "campaign": {
             "local_title": "Campaign Title",
+            "local_name": "fakecampaign_attend",
             "use_title": True,
         },
         "form": {
@@ -90,6 +114,7 @@ contexts = {
         "filename": "event_attend.html",
         "campaign": {
             "local_title": "Campaign Title",
+            "local_name": "fakecampaign_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
@@ -97,63 +122,8 @@ contexts = {
             "show_zip": True,
             "show_public_description": True,
         },
-        "event": {
-            "get_starts_at_display": "Saturday, August 20 at noon GMT",
-            "obj": {
-                "starts_at": datetime.datetime(2017, 12, 1, 1, 0, 0),
-                "eventsignup_set": {
-                    "all": [
-                        {
-                            "role": "host",
-                            "user": user({
-                                "first_name": "First",
-                                "last_name": "Last",
-                                "phone": "123-456-7890",
-                            }),
-                        },
-                    ],
-                },
-            },
-            "address1": "1 Main St.",
-            "city_etc": "Somewhere, OH 44444",
-            "directions": "Directions.",
-            "get_starts_at_display": "Monday, Jan 1, 1:00 AM",
-            "is_in_past": False,
-            "is_open_for_signup": True,
-            "note_to_attendees": "Note to attendees.",
-            "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "title": "Event Title",
-            "venue": "Venue Name",
-        },
-        "events": [
-            {
-                "obj": {
-                    "starts_at": datetime.datetime(2017, 12, 1, 1, 0, 0),
-                    "eventsignup_set": {
-                        "all": [
-                            {
-                                "role": "host",
-                                "user": user({
-                                    "first_name": "First",
-                                    "last_name": "Last",
-                                    "phone": "123-456-7890",
-                                }),
-                            },
-                        ],
-                    },
-                },
-                "address1": "1 Main St.",
-                "city_etc": "Somewhere, OH 44444",
-                "directions": "Directions.",
-                "get_starts_at_display": "Monday, Jan 1, 1:00 AM",
-                "is_in_past": False,
-                "is_open_for_signup": True,
-                "note_to_attendees": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "title": "Event Title",
-                "venue": "Venue Name",
-            },
-        ],
+        "event": event_create(),
+        "events": [event_create()],
         "form": {
             "signup_text": "<p>Signup text.</p>",
             "ground_rules": "<p>Please follow these guidelines to ensure a good event:</p><ul><li>By RSVPing you agree to act non-violently and in accordance with the law.</li><li>Contact your host through this site to confirm the details of the event before you go.</li><li>Check this website if you have any questions.</li><li>If you've agreed to help the host, contact them through this site to coordinate with them.</li><li><em>Important Legal Note</em>:&nbsp;MoveOn.org Civic Action is an advocacy organization exempt from federal taxation under section 501(c)(4) of the Internal Revenue Code.</li></ul> "
@@ -186,6 +156,7 @@ contexts = {
         "page": {
             "title": "Page Title",
             "type": "Event",
+            "name": "fakecampaign_attend"
         },
         "logged_in_user":user({
             "name": "Current user",
@@ -201,6 +172,7 @@ contexts = {
         "filename": "event_attendee_tools.html",
         "campaign": {
             "local_title": "Campaign Title",
+            "local_name": "fakecampaign_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
@@ -208,67 +180,14 @@ contexts = {
             "show_zip": True,
             "show_public_description": True,
         },
-        "event": {
-            "obj": {
-                "starts_at": datetime.datetime(2017, 12, 1, 1, 0, 0),
-                "eventsignup_set": {
-                    "all": [
-                        {
-                            "role": "host",
-                            "user": user({
-                                "first_name": "First",
-                                "last_name": "Last",
-                                "phone": "123-456-7890",
-                            }),
-                        },
-                    ],
-                },
-            },
-            "address1": "1 Main St.",
-            "city_etc": "Somewhere, OH 44444",
-            "directions": "Directions.",
-            "get_starts_at_display": "Monday, Jan 1, 1:00 AM",
-            "is_in_past": False,
-            "is_open_for_signup": True,
-            "note_to_attendees": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "title": "Event Title",
-            "venue": "Venue Name",
-        },
-        "events": [
-            {
-                "obj": {
-                    "starts_at": datetime.datetime(2017, 12, 1, 1, 0, 0),
-                    "eventsignup_set": {
-                        "all": [
-                            {
-                                "role": "host",
-                                "user": user({
-                                    "first_name": "First",
-                                    "last_name": "Last",
-                                    "phone": "123-456-7890",
-                                }),
-                            },
-                        ],
-                    },
-                },
-                "address1": "1 Main St.",
-                "city_etc": "Somewhere, OH 44444",
-                "directions": "Directions.",
-                "get_starts_at_display": "Monday, Jan 1, 1:00 AM",
-                "is_in_past": False,
-                "is_open_for_signup": True,
-                "note_to_attendees": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "title": "Event Title",
-                "venue": "Venue Name",
-            },
-        ],
+        "event": event_create(),
+        "events": [event_create()],
         "form": {
             "signup_text": "<p>Signup text.</p>",
         },
         "page": {
             "title": "Page Title",
+            "name": "fakecampaign_attend",
             "type": "Event",
             "pagefollowup": {
                 "send_taf": True,
@@ -291,9 +210,11 @@ contexts = {
         },
         "page": {
             "title": "Page Title",
+            "name": "fakecampaign_attend"
         },
         "campaign": {
             "local_title": "Campaign Title",
+            "local_name": "fakecampaign_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
@@ -302,13 +223,14 @@ contexts = {
             "name": "resistandwin-volunteerday"
         },
     },
-    'event_search_with_results.html': {
+    'event_search_with_results': {
         "filename": "event_search.html",
         "args": {
             "page": "event_search"
         },
         "campaign": {
             "local_title": "Campaign Title",
+            "local_name": "fakecampaign_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
@@ -316,43 +238,16 @@ contexts = {
             "show_public_description": True,
             "name": "resistandwin-volunteerday"
         },
-        "events": [
-            {
-                "get_starts_at_display": "Saturday, August 20 at noon GMT",
-                "obj": {
-                    "starts_at": datetime.datetime(2017, 12, 1, 1, 0, 0),
-                    "eventsignup_set": {
-                        "all": [
-                            {
-                                "role": "host",
-                                "user": user({
-                                    "first_name": "First",
-                                    "last_name": "Last",
-                                    "phone": "123-456-7890",
-                                }),
-                            },
-                        ],
-                    },
-                },
-                "address1": "1 Main St.",
-                "city_etc": "Somewhere, OH 44444",
-                "directions": "Directions.",
-                "distance_str": "1 mile",
-                "get_starts_at_display": "Monday, Jan 1, 1:00 AM",
-                "is_in_past": False,
-                "is_open_for_signup": True,
-                "note_to_attendees": "Note to attendees.",
-                "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "starts_at": "Monday, Jan 1, 1:00 AM",
-                "title": "Event Title",
-                "venue": "Venue Name",
-            },
-        ],
+        "events": [event_create(1, 10, 343123),
+                   event_create(1, 15, 343124),
+                   event_create(4, 15, 343125),
+               ],
         "form": {
             "search_page_text": "<p>Search page text.</p>",
         },
         "page": {
             "title": "Page Title",
+            "name": "fakecampaign_attend"
         },
     },
     'event_create.html': {
