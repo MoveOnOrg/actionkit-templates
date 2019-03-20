@@ -138,6 +138,13 @@ def event_search_results(request, page):
     return HttpResponse('actionkit.forms.onEventSearchResults({})'
                         .format(json.dumps(search_results)))
 
+def no_event_search_results(request, page):
+    # TODO: maybe set name depending on referer header or something else
+    cxt = _get_context_data(request, 'events', 'event_search_with_no_results')
+    search_results = render_to_string('event_search_results.html', cxt)
+    return HttpResponse('actionkit.forms.onEventSearchResults({})'
+                        .format(json.dumps(search_results)))
+
 #############
 # URLS
 #############
@@ -148,7 +155,9 @@ urlpatterns = [
     url(r'^context', login_context),
     url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
-    url(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results')
+    url(r'^cms/event/fakecampaign-with-future-events/search_results/', event_search_results, name='event_search_results'),
+    url(r'^cms/event/fakecampaign-with-no-events/search_results/', no_event_search_results, name='no_event_search_results')
+
 ]
 if STATIC_ROOT:
     urlpatterns = urlpatterns + static(STATIC_URL, document_root=STATIC_ROOT)

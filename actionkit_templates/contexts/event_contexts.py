@@ -210,6 +210,98 @@ contexts = {
         },
         "page": {
             "title": "Page Title",
+            "name": "fakecampaign-with-future-events_attend"
+        },
+        "campaign": {
+            "local_title": "Campaign Title",
+            "local_name": "fakecampaign-with-future-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-future-events"
+        },
+    },
+    'event_search_with_results': {
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "campaign": {
+            "local_title": "Campaign Title",
+            "local_name": "fakecampaign-with-future-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-future-events"
+        },
+        "events": [event_create(1, 10, 343123),
+                   event_create(1, 15, 343124),
+                   event_create(4, 15, 343125),
+               ],
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title",
+            "name": "fakecampaign-with-future-events_attend"
+        },
+    },
+    'event_search_noevents.html': {
+        # this doesn't render as expected - come back to this later
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title - Campaign with no events",
+            "name": "fakecampaign-with-no-events_attend"
+        },
+        "campaign": {
+            "local_title": "Campaign Title - no events",
+            "local_name": "fakecampaign-with-no-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-no-events"
+        },
+    },
+    'event_search_with_no_results': {
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "campaign": {
+            "local_title": "Campaign Title - no events",
+            "local_name": "fakecampaign-with-no-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-no-events"
+        },
+        "events": [],
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title",
+            "name": "fakecampaign-with-no-events_attend"
+        },
+    },
+    'event_search_past_events_only.html': {
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title - Past Events Only",
             "name": "fakecampaign_attend"
         },
         "campaign": {
@@ -223,7 +315,7 @@ contexts = {
             "name": "resistandwin-volunteerday"
         },
     },
-    'event_search_with_results': {
+    'event_search_with_results_past_events_only': {
         "filename": "event_search.html",
         "args": {
             "page": "event_search"
@@ -238,9 +330,9 @@ contexts = {
             "show_public_description": True,
             "name": "resistandwin-volunteerday"
         },
-        "events": [event_create(1, 10, 343123),
-                   event_create(1, 15, 343124),
-                   event_create(4, 15, 343125),
+        "events": [event_create(-1, 10, 343123),
+                   event_create(-7, 15, 343124),
+                   event_create(-5, 15, 343125),
                ],
         "form": {
             "search_page_text": "<p>Search page text.</p>",
