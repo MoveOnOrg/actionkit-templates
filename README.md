@@ -31,6 +31,10 @@ If you have python's pip program installed, you can just run (possibly in a virt
 Please note that this package installs the version of Django used on ActionKit production,
 so use a virtualenv if you develop using Django on your computer so it doesn't change your local version.
 
+For testing, you will also want to run:
+
+   pip install selenium==3.8.0 pyvirtualdisplay
+
 Environment
 ===========
 
@@ -95,6 +99,11 @@ STATIC_FALLBACK
   is present, then it will look for all the internet-external files in that directory.
   Note that this only works with `load_js` and `load_css` template tags.
 
+
+Adding Tests
+============
+
+See our documentation in [TESTING.md](./TESTING.md)
 
 Contributing When You Run Into Something Not Covered
 ====================================================
