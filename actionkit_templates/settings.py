@@ -1,12 +1,15 @@
 import json
 import os
 import sys
+import urlparse
 
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.loader import render_to_string
+
+from moveon_fakeapi import mo_event_data
 
 """
 try running with
@@ -61,12 +64,19 @@ TEMPLATES = [
 
 MIDDLEWARE_CLASSES = []
 
-def _get_context_data(request, name, page):
+def _get_context_data(request, name, page, use_referer=False):
     from actionkit_templates.contexts.page_contexts import contexts
     port = '4000'
     hostport = request.get_host().split(':')
     if len(hostport) > 1:
         port = hostport[1]
+
+    if use_referer:
+        paths = urlparse.urlparse(request.META['HTTP_REFERER']).path.split('/')
+        if paths and len(paths) > 1:
+            name = paths[1]
+            if len(paths) > 2:
+                page = paths[2]
 
     custom_contexts_file = os.path.join(PROJECT_ROOT_PATH,
                                         os.environ.get('CUSTOM_CONTEXTS', 'contexts.json'))
@@ -82,7 +92,8 @@ def _get_context_data(request, name, page):
             'enabled': True,
             'port': port,
             'STATIC_URL': STATIC_URL,
-            'STATIC_LOCAL': STATIC_LOCAL
+            'STATIC_LOCAL': STATIC_LOCAL,
+            'MO_EVENTS_API': '/fake/api/events'
         }
     )
     context_data = contexts.get(name, {})
@@ -132,18 +143,23 @@ def user_password_forgot(request):
     return HttpResponse('unimplemented')
 
 def event_search_results(request, page):
-    # TODO: maybe set name depending on referer header or something else
-    cxt = _get_context_data(request, 'events', 'event_search_with_results')
+    cxt = _get_context_data(request, 'events', 'WILL_USE_REFERER_HEADER', use_referer=True)
+    # special query results context:
+    all = cxt['args'].get('all') == '1'
+    cxt.update({'all': all})
+
     search_results = render_to_string('event_search_results.html', cxt)
     return HttpResponse('actionkit.forms.onEventSearchResults({})'
                         .format(json.dumps(search_results)))
 
-def no_event_search_results(request, page):
-    # TODO: maybe set name depending on referer header or something else
-    cxt = _get_context_data(request, 'events', 'event_search_with_no_results')
-    search_results = render_to_string('event_search_results.html', cxt)
-    return HttpResponse('actionkit.forms.onEventSearchResults({})'
-                        .format(json.dumps(search_results)))
+def event_api_moveon_fake(request):
+    """Fake representation of MoveOn events api"""
+    cxt = _get_context_data(request, 'events', 'WILL_USE_REFERER_HEADER', use_referer=True)
+    events = cxt.get('events', [])
+    search_results = []
+    for evt in events:
+        search_results.append(mo_event_data(evt))
+    return HttpResponse(json.dumps({'events': search_results}), content_type='application/json')
 
 #############
 # URLS
@@ -155,9 +171,8 @@ urlpatterns = [
     url(r'^context', login_context),
     url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
-    url(r'^cms/event/fakecampaign-with-future-events/search_results/', event_search_results, name='event_search_results'),
-    url(r'^cms/event/fakecampaign-with-no-events/search_results/', no_event_search_results, name='no_event_search_results')
-
+    url(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results'),
+    url(r'^fake/api/events', event_api_moveon_fake, name="event_api_moveon_fake"),
 ]
 if STATIC_ROOT:
     urlpatterns = urlpatterns + static(STATIC_URL, document_root=STATIC_ROOT)
