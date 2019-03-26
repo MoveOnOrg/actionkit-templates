@@ -156,9 +156,7 @@ def event_api_moveon_fake(request):
     """Fake representation of MoveOn events api"""
     cxt = _get_context_data(request, 'events', 'WILL_USE_REFERER_HEADER', use_referer=True)
     events = cxt.get('events', [])
-    search_results = []
-    for evt in events:
-        search_results.append(mo_event_data(evt))
+    search_results = [mo_event_data(evt) for evt in events]
     return HttpResponse(json.dumps({'events': search_results}), content_type='application/json')
 
 #############
