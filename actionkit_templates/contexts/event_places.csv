@@ -1,0 +1,1001 @@
+state,city,zip,address1,address2,latitude,longitude
+AK,Anchorage,99501,510 L St.,Suite 600,61.256,-149.920
+AK,Anchorage,99501,510 L St.,Suite 750,61.256,-149.920
+AK,Anchorage,99503,471 W. 36th Avenue,Suite 201,61.219,-149.913
+AK,Fairbanks,99701,"Federal Building, 101 12th Ave.",Suite 328,64.861,-147.880
+AK,Fairbanks,99707,"Key Bank Building, 100 Cushman St.",Suite 307,64.842,-147.724
+AK,Juneau,99801,800 Glacier Ave.,Suite 101,58.504,-134.787
+AK,Ketchikan,99901,1900 First Ave.,Suite 225,55.506,-133.152
+AK,Soldotna,99669,44539 Sterling Highway,Suite 204,60.537,-151.212
+AK,Wasilla,99654,851 E. Westpoint Dr.,Suite 307,61.682,-149.979
+AK,Wasilla,99654,851 E. Westpoint Dr.,Suite 309,61.682,-149.979
+AL,Anniston,36201,1129 Noble St.,# 104,33.732,-85.944
+AL,Birmingham,35203,"Robert S. Vance Federal Building, 1800 5th Avenue North",321,33.541,-86.877
+AL,Birmingham,35203,"Robert S. Vance Federal Building, 1800 5th Avenue North",,33.541,-86.877
+AL,Birmingham,35203,Two 20th Street North,Suite 1130,33.541,-86.877
+AL,Birmingham,35243,3535 Grandview Pkwy.,Suite 525,33.480,-86.776
+AL,Clanton,35045,703 2nd Ave North,Box 502,32.937,-86.774
+AL,Cullman,35055,205 4th Ave. NE,Suite 104,34.203,-86.872
+AL,Decatur,35601,302 Lee St.,Room 86,34.620,-87.052
+AL,Dothan,36305,217 Graceland Dr.,Suite 5,31.239,-85.518
+AL,Florence,35630,102 S. Court St.,Suite 310,34.881,-87.719
+AL,Gadsden,35901,600 Broad St.,Suite 107,34.150,-86.077
+AL,Huntsville,35805,2101 W. Clinton Ave.,Suite 302,34.733,-86.663
+AL,Jasper,35501,"Carl Elliott Building, 1710 Alabama Ave.",247,33.903,-87.568
+AL,Mobile,36602,11 N. Water St.,Suite 15290,30.694,-88.064
+AL,Mobile,36608,"BB&T Centre, 41 West I-65 Service Road North",Suite 2300-A,30.750,-88.395
+AL,Montgomery,36104,401 Adams Ave.,Suite 160,32.409,-86.346
+AL,Montgomery,36104,"Courthouse, 101 S. Lawrence St.",Annex 3,32.409,-86.346
+AL,Montgomery,36104,"Federal Courthouse, 1 Church St",500-B,32.409,-86.346
+AL,Oneonta,35121,"Blount County Courthouse, 220 2nd Ave E",,34.060,-86.579
+AL,Opelika,36801,"G.W. Andrews Federal Building, 701 Avenue A",Suite 300,32.734,-85.464
+AL,Selma,36701,"Federal Building, 908 Alabama Ave.",Suite 112,32.592,-87.153
+AL,Summerdale,36580,502 W. Lee Ave.,,30.530,-87.808
+AL,Tuscaloosa,35401,2005 University Blvd.,Suite 2100,33.362,-87.666
+AL,Tuscaloosa,35401,2501 7th St.,Suite 300,33.362,-87.666
+AR,Cabot,72023,112 S. 1st,,35.038,-92.169
+AR,Conway,72032,1105 Deer St.,Suite 12,35.149,-92.502
+AR,El Dorado,71730,101 N. Washington Ave.,Suite 406,33.324,-92.920
+AR,El Dorado,71730,106 W. Main St.,Suite 104,33.324,-92.920
+AR,Harrison,72601,303 N. Main St.,Suite 102,36.391,-93.293
+AR,Hot Springs,71901,101 Reserve St.,Suite 200,34.634,-93.085
+AR,Jonesboro,72401,2400 Highland Dr.,Suite 300,36.019,-90.772
+AR,Little Rock,72201,1401 W. Capitol Ave.,Suite 155,34.77,-92.318
+AR,Little Rock,72201,1401 W. Capitol Ave.,Suite 235,34.77,-92.318
+AR,Little Rock,72207,1501 N. University Ave.,Suite 630,34.788,-92.362
+AR,Mountain Home,72653,1001 Highway 62 E,Suite 9,36.484,-92.586
+AR,Mountain Home,72653,1001 Hwy 62 East,Suite 11,36.484,-92.586
+AR,Ozark,72949,211 W. Commercial St.,,35.690,-93.948
+AR,Pine Bluff,71601,100 E. 8th Ave.,Room 2521,34.251,-92.058
+AR,Rogers,72758,3333 Pinnacle Hls.,Suite 120,36.399,-94.222
+AR,Springdale,72764,1108 S. Old Missouri Rd.,Suite B,36.237,-94.250
+AR,Stuttgart,72160,620 E. 22nd St.,Suite 204,34.544,-91.604
+AZ,Avondale,85323,1412 N. Central Ave.,Suite B,33.462,-112.357
+AZ,Casa Grande,85122,211 N. Florence St.,Suite 1,32.982,-111.790
+AZ,Glendale,85308,7121 W Bell Rd,#200,33.683,-112.348
+AZ,Gold Canyon,85118,6499 S. Kings Ranch Rd.,#4,33.400,-111.531
+AZ,Mesa,85209,2509 S. Power Rd.,Suite 204,33.458,-111.687
+AZ,Phoenix,85004,411 N. Central Ave.,Suite 150,33.479,-112.346
+AZ,Prescott,86301,122 N. Cortez St.,Suite 104,34.655,-112.484
+AZ,Somerton,85350,146 N. State Ave.,,32.624,-114.767
+AZ,Tucson,85714,"El Pueblo Community Center, 101 W. Irvington Road",Buildings 4 and 5,32.177,-110.993
+AZ,Tucson,85741,3037 W. Ina Rd,Suite 101,32.431,-111.081
+CA,Alameda,94501,1550 Oak St.,2nd Floor Staff Room,37.789,-122.308
+CA,Albany,94706,"Albany Community Center, 1249 Marin Ave.",,37.899,-122.307
+CA,Apple Valley,92307,"Apple Valley Town Hall, 14955 Dale Evans Parkway",,34.637,-117.280
+CA,Auburn,95602,2399 Rickenbacker Way,,39.049,-121.188
+CA,Bakersfield,93309,4100 Empire Dr.,Suite 150,35.386,-119.092
+CA,Castro Valley,94546,3615 Castro Valley Blvd.,,37.726,-122.107
+CA,Chula Vista,91910,333 F St.,Suite A,32.655,-117.101
+CA,Claremont,91711,415 W. Foothill Blvd.,Suite 122,34.159,-117.750
+CA,Clovis,93612,264 Clovis Ave.,Suite 206,36.837,-119.731
+CA,Commerce,90040,500 Citadel Dr.,Suite 320,34.016,-118.176
+CA,Compton,90220,"Compton City Hall, 205 S. Willowbrook Ave.",,33.903,-118.265
+CA,Corona,92882,400 S. Vicentia Ave.,Suite 125,33.890,-117.647
+CA,Davis,95616,412 G St.,,38.590,-121.866
+CA,El Centro,92243,380 N. 8th St.,Suite 14,32.822,-115.691
+CA,El Monte,91731,4401 Santa Anita Ave.,Suite 201,34.096,-118.071
+CA,Fairfield,94533,1261 Travis Blvd.,Suite 130,38.900,-122.167
+CA,Fresno,93721,2500 Tulare Street,Suite 5290,36.743,-119.801
+CA,Fresno,93721,855 M St.,Suite 940,36.743,-119.801
+CA,Garden Grove,92840,12865 Main St.,Suite 200,33.802,-117.958
+CA,Hemet,92543,445 E. Florida Ave.,2nd Floor,33.771,-116.990
+CA,Long Beach,90802,"West Tower, 100 W. Broadway",Suite 600,33.881,-118.209
+CA,Los Angeles,90010,4929 Wilshire Blvd.,Suite 650,34.093,-118.391
+CA,Los Angeles,90017,350 S. Bixel St.,#120,34.091,-118.327
+CA,Los Angeles,90025,11111 Santa Monica Blvd.,Suite 915,34.096,-118.470
+CA,Los Angeles,90028,5500 Hollywood Blvd.,Suite #416,34.106,-118.382
+CA,Los Angeles,90036,5055 Wilshire Blvd.,Suite 310,34.296,-118.436
+CA,Manhattan Beach,90266,1600 Rosecrans Ave.,4th Floor,33.916,-118.421
+CA,Merced,95340,2222 M St.,Suite 305,37.377,-120.504
+CA,Norwalk,90650,12440 E. Imperial Hwy.,Suite 140,33.932,-118.110
+CA,Oakland,94612,1301 Clay St.,Suite 1000-N,37.842,-122.283
+CA,Ontario,91764,3200 Inland Empire Blvd.,Suite 200B,34.091,-117.650
+CA,Oxnard,93030,201 East Fourth St.,Suite 209B,34.218,-119.224
+CA,Palm Desert,92211,43875 Washington Street,Suite F,33.801,-116.386
+CA,Palo Alto,94301,698 Emerson St.,,37.457,-122.168
+CA,Panorama City,91402,9612 Van Nuys Blvd.,Suite 201,34.246,-118.466
+CA,Pasadena,91101,527 S. Lake Ave.,Suite 106,34.157,-118.183
+CA,Petaluma,94952,206 G St.,Unit #3,38.335,-122.930
+CA,Redding,96002,2885 Churn Creek Rd.,Suite C,40.628,-122.373
+CA,Rialto,92376,141 S. Riverside Ave.,,34.147,-117.405
+CA,Richmond,94804,440 Civic Center Plz.,2nd Floor,38.005,-122.379
+CA,Riverside,92501,3403 10th St.,Suite 610,34.018,-117.398
+CA,Roseville,95661,2200A Douglas Blvd,Suite 240,38.770,-121.288
+CA,Sacramento,95814,501 I Street,Suite 7-600,38.710,-121.506
+CA,Sacramento,95814,"Robert T. Matsui U.S. Courthouse, 501 I St.",Suite 12-600,38.710,-121.506
+CA,Sacramento,95826,"Building 3, 8950 Cal Center Dr.",Suite 100,38.570,-121.418
+CA,Salinas,93901,100 W. Alisal St.,,36.697,-121.684
+CA,San Bernardino,92408,685 E. Carnegie Dr.,Suite 100,34.104,-117.304
+CA,San Diego,92101,600 B Street,Suite 2240,32.809,-117.210
+CA,San Diego,92101,880 Front St.,Suite 4236,32.809,-117.210
+CA,San Diego,92116,2700 Adams Ave.,Suite 102,32.995,-117.256
+CA,San Diego,92121,4350 Executive Dr.,Suite 105,32.956,-117.242
+CA,San Francisco,94103,90 7th St.,Suite 2-800,37.790,-122.469
+CA,San Francisco,94104,One Post Street,Suite 2450,37.793,-122.407
+CA,San Jose,95112,635 N. First St.,Suite B,37.382,-121.919
+CA,San Leandro,94577,"Room C, 300 Estudillo Ave.",,37.742,-122.193
+CA,San Luis Obispo,93401,1411 Marsh St.,Suite 205,35.319,-120.849
+CA,San Mateo,94402,155 Bovet Rd.,Suite 780,37.571,-122.356
+CA,San Pedro,90731,302 W. Fifth St.,Suite 201,33.780,-118.313
+CA,San Rafael,94901,999 Fifth Ave.,Suite 290,38.033,-122.582
+CA,Santa Ana,92706,"Rancho Santiago Community College Building, 2323 N. Broadway",Suite 319,34.010,-118.465
+CA,Santa Barbara,93105,360 S. Hope Ave.,Suite C-301,34.560,-119.918
+CA,Santa Clara,95050,900 Lafayette St.,Suite 206,37.374,-121.969
+CA,Santa Cruz,95060,701 Ocean St.,Room 318C,37.132,-122.168
+CA,Santa Maria,93458,1619 S. Thornburg St.,,34.988,-120.496
+CA,Santa Rosa,95403,2300 County Center Dr.,Suite A100,38.548,-122.803
+CA,South Gate,90280,"South Gate City Hall, 8650 California Ave.",,33.964,-118.229
+CA,Stockton,95207,2222 Grand Canal Blvd.,#7,38.020,-121.356
+CA,Ukiah,95482,559 Low Gap Rd.,,39.266,-123.465
+CA,Vallejo,94590,420 Virginia St.,Suite 1C,38.156,-122.275
+CA,Visalia,93291,113 N. Church St.,Suite 208,36.444,-119.474
+CA,Walnut Creek,94597,3100 Oak Road,Suite 110,37.938,-122.099
+CA,Yucaipa,92399,34282 Yucaipa Boulevard,,34.075,-117.122
+CO,Alamosa,81101,609 Main St.,Suite 110,37.603,-106.039
+CO,Buena Vista,81211,415 Main St.,,39.048,-106.250
+CO,Castle Rock,80109,900 Castleton Rd.,Suite 112,39.417,-104.941
+CO,Colorado Springs,80903,102 S. Tejon St.,Suite 930,38.854,-104.835
+CO,Colorado Springs,80903,409 N. Tejon St.,Suite 107,38.854,-104.835
+CO,Colorado Springs,80920,1125 Kelly Johnson Blvd.,Suite 330,38.981,-104.811
+CO,Denver,80202,721 19th St.,Suite 150,39.907,-105.112
+CO,Denver,80203,600 Grant St.,Suite 202,39.771,-105.167
+CO,Denver,80204,"Cesar E. Chavez Memorial Building, 1244 Speer Blvd.",,39.839,-105.139
+CO,Durango,81301,835 E. 2nd Ave.,Suite 206,37.657,-108.003
+CO,Durango,81301,835 E. Second Ave.,Suite 230,37.657,-108.003
+CO,Durango,81303,329 S. Camino Del Rio,Suite I,37.351,-107.999
+CO,Fort Collins,80524,1200 S. College Ave.,Suite 211,40.781,-105.138
+CO,Fort Collins,80526,"Building H, Suite 104, 2001 S. Shields St.",,40.609,-105.188
+CO,Grand Junction,81501,225 N. 5th St.,Suite 702,39.097,-108.578
+CO,Grand Junction,81501,"Federal Bldg., 400 Rood Ave.",Suite 220,39.097,-108.578
+CO,Greeley,80631,801 8th St.,Suite 140A,40.498,-104.851
+CO,Greeley,80634,1023 39th Ave.,Unit B,40.442,-104.844
+CO,Lakewood,80215,12600 West Colfax Avenue,Suite B-400,39.761,-105.143
+CO,Pueblo,81003,503 N. Main St.,Suite 426,38.335,-104.791
+CO,Pueblo,81003,503 N. Main St.,Suite 658,38.335,-104.791
+CO,Yuma,80759,529 N. Albany St.,Suite 1220,40.344,-102.756
+CT,Bridgeport,06604,211 State St.,2nd Floor,41.225,-73.242
+CT,Bridgeport,06604,915 Lafayette Blvd.,Suite 304,41.225,-73.242
+CT,Enfield,06082,77 Hazard Ave.,Unit J,42.032,-72.611
+CT,Hartford,06103,90 State House Sq.,10th Floor,41.792,-72.771
+CT,Hartford,06106,221 Main St.,2nd Floor,41.764,-72.734
+CT,Hartford,06106,"Colt Gateway, 120 Huyshope Ave.",Suite 401,41.764,-72.734
+CT,New Haven,06510,59 Elm St.,,41.369,-73.097
+CT,Norwich,06360,55 Main St.,Suite 250,41.606,-72.140
+DE,Dover,19904,500 W. Loockerman St.,Suite 450,39.241,-75.670
+DE,Dover,19904,500 W. Loockerman St.,Suite 470,39.241,-75.670
+DE,Georgetown,19947,12 The Circle,,38.749,-75.535
+DE,Georgetown,19947,28 The Circle,Suite 2,38.749,-75.535
+FL,Aventura,33180,19200 West Country Club Drive,,25.974,-80.259
+FL,Boca Raton,33431,2500 N. Military Trl.,Suite 490,26.394,-80.136
+FL,Boca Raton,33434,7900 Glades Rd.,Suite 250,26.393,-80.202
+FL,Bradenton,34205,1051 Manatee Ave West,Suite 305,27.502,-82.710
+FL,Brooksville,34601,15 N. Main Street,Suite B,28.673,-82.467
+FL,Cape Coral,33990,1039 SE 9th Ave.,Suite 308,26.665,-82.022
+FL,Doral,33166,8669 NW. 36th St.,Suite 100,25.833,-80.337
+FL,Fort Lauderdale,33301,111 East Las Olas Blvd.,,26.170,-80.174
+FL,Fort Lauderdale,33311,2701 W. Oakland Park Blvd.,Suite 200,26.177,-80.250
+FL,Fort Myers,33901,2120 Main St.,Room 200,26.696,-81.977
+FL,Fort Walton Beach,32547,"Building 4, 1170 Martin Luther King, Jr. Blvd.",Room 454,30.469,-86.668
+FL,Gainesville,32606,5000 NW 27th Court,Suite E,29.704,-82.497
+FL,Haines City,33844,620 E Main St.,,28.158,-81.687
+FL,Inverness,34450,212 W. Main St.,Suite 208A,28.869,-82.349
+FL,Jacksonville,32202,"Bryan Simpson U.S. Courthouse, 300 North Hogan St.",Suite 8-111,30.350,-81.674
+FL,Jacksonville,32209,1010 N. Davis St.,Suite 206,30.391,-81.731
+FL,Lake Wales,33853,201 W Central Avenue,,27.916,-81.610
+FL,Mangonia Park,33407,"Town of Mangonia Park Municipal Center, 1755 E. Tiffany Dr.",,26.761,-80.085
+FL,Margate,33063,5790 Margate Blvd.,,26.274,-80.245
+FL,Melbourne,32940,"Building C, 2725 Judge Fran Jamieson Way",,28.264,-80.753
+FL,Miami,33173,7400 SW 87th Ave.,Suite 270,25.809,-80.382
+FL,Miami Gardens,33169,18425 NW 2nd Avenue,Suite 355,25.971,-80.259
+FL,Naples,34112,3299 Tamiami Trail East,Suite 105,26.147,-81.783
+FL,Naples,34116,4715 Golden Gate Pkwy.,Suite 1,26.210,-81.734
+FL,New Port Richey,34654,7132 Little Rd.,,28.334,-82.675
+FL,North Palm Beach,33408,420 U.S. Highway One,Suite 19,26.892,-80.095
+FL,Ocala,34471,115 SE 25th Ave,,29.225,-82.217
+FL,Orange Park,32065,35 Knight Boxx Rd.,Suite 1,30.187,-81.865
+FL,Orlando,32801,201 S. Orange Ave.,Suite 350,28.595,-81.444
+FL,Orlando,32801,225 E. Robinson,Suite 525,28.595,-81.444
+FL,Orlando,32835,2295 S. Hiawassee Rd.,Suite 301,28.549,-81.508
+FL,Palatka,32177,2509 Crill Ave.,Suite 200,29.813,-81.817
+FL,Palm Beach Gardens,33418,4580 PGA Blvd.,Suite 201,26.922,-80.271
+FL,Panama City,32401,840 W. 11th St.,Suite 2250,30.289,-86.040
+FL,Pensacola,32502,226 S Palafox Place,6th Floor,30.423,-87.242
+FL,Pensacola,32502,700 S. Palafox St.,Suite 125,30.423,-87.242
+FL,Port St. Lucie,34984,121 SW. Port St. Lucie Blvd.,,27.293,-80.365
+FL,Sanford,32771,110 W. First Street,Suite 210,28.838,-81.418
+FL,Sarasota,34236,111 S. Orange Ave.,"Floor 2R, Suite 202W",27.353,-82.586
+FL,St. Petersburg,33701,696 1st Ave N,Suite 203,27.898,-82.785
+FL,Stuart,34994,171 SW Flagler Ave.,,27.242,-80.289
+FL,Sunrise,33325,777 Sawgrass Corporate Parkway,,26.133,-80.346
+FL,Tallahassee,32301,300 S. Adams St.,,30.503,-84.319
+FL,Tallahassee,32301,435 N. Macomb St.,,30.503,-84.319
+FL,Tallahassee,32399,402 S. Monroe St.,Suite 2105E,30.497,-84.282
+FL,Tampa,33602,"Sam M. Gibbons U.S. Courthouse, 801 N. Florida Ave.",Suite 1130,28.058,-82.479
+FL,Tampa,33607,4144 N. Armenia Ave.,Suite 300,27.981,-82.571
+FL,Tarpon Springs,34689,"St. Petersburg College, 38500 U.S. Hwy 19 North",BB-038,28.181,-82.799
+FL,The Villages,32162,8015 E County Rd 466,Suite B,28.981,-82.036
+GA,Atlanta,30303,100 Peachtree St. NW,Suite 1920,33.906,-84.426
+GA,Atlanta,30305,3280 Peachtree Road NE,Suite 2640,33.879,-84.415
+GA,Atlanta,30339,600 Galleria Pkwy.,Suite 120,33.915,-84.484
+GA,Atlanta,30339,"One Overton Park, 3625 Cumberland Blvd.",Suite 970,33.915,-84.484
+GA,Augusta,30909,"Bldg. 200, 2743 Perimeter Pkwy",Suite 225,33.519,-82.143
+GA,Brunswick,31520,1510 Newcastle St.,Suite 200,31.453,-81.843
+GA,Cartersville,30120,135 W. Cherokee Ave.,Suite 122,34.300,-84.988
+GA,Columbus,31901,18 Ninth St.,Suite 201,32.493,-84.994
+GA,Dalton,30720,702 S. Thornton Ave.,,34.894,-85.027
+GA,Decatur,30035,5240 Snapfinger Park Dr.,Suite 130,33.761,-84.236
+GA,Dublin,31021,100 S. Church St.,,32.688,-83.071
+GA,Gainesville,30501,210 Washington St. NW,Suite 202,34.375,-83.868
+GA,Jonesboro,30236,173 N. Main St.,,33.583,-84.389
+GA,Macon,31201,300 Mulberry Street,Suite 502,32.902,-83.653
+GA,Milledgeville,31061,3015 Heritage Rd.,Suite 6,33.212,-83.404
+GA,Monroe,30655,100 Court St.,,33.858,-83.829
+GA,Newnan,30265,1601 E Hwy 34,Suite B,33.491,-84.765
+GA,Rome,30161,600 E. First St.,Suite 301,34.377,-85.387
+GA,Savannah,31405,6602 Abercorn St.,Suite 105B,32.074,-81.244
+GA,Smyrna,30080,888 Concord Rd.,Suite 100,33.911,-84.564
+GA,Statesboro,30458,50 E. Main St.,,33.544,-84.206
+GA,Thomson,30824,"City-County Administration, 210 Railroad St.",Room 2401,33.628,-82.598
+GA,Tifton,31794,127-B N. Central Ave.,,31.545,-83.552
+GA,Vidalia,30475,107 Old Airport Rd.,Suite A,32.211,-82.403
+GA,Warner Robins,31088,230 Margie Dr.,Suite 500,32.618,-83.719
+GA,Woodstock,30188,9898 Highway 92,Suite 100,34.167,-84.605
+HI,Honolulu,96850,300 Ala Moana Blvd.,Room 7-212,21.308,-157.863
+HI,Honolulu,96850,"Prince Kuhio Federal Building, 300 Ala Moana Blvd.",Rm. 3-106,21.308,-157.863
+IA,Ames,50010,1421 S. Bell Ave.,Suite 102,42.111,-93.684
+IA,Cedar Rapids,52401,111 Seventh Ave. SE,Suite 480,41.982,-91.669
+IA,Council Bluffs,51501,"Federal Building, 8 S. 6th St.",307,41.280,-95.915
+IA,Council Bluffs,51501,"Federal Building, 8 S 6th St",Suite 221,41.280,-95.915
+IA,Davenport,52801,201 W. 2nd St.,Suite 720,41.538,-90.582
+IA,Davenport,52801,201 W. Second St.,Suite 806,41.538,-90.582
+IA,Davenport,52801,209 W. 4th St.,#104,41.538,-90.582
+IA,Des Moines,50309,"733 Federal Building, 210 Walnut St.",,41.621,-93.717
+IA,Fort Dodge,50501,723 Central Ave.,,42.615,-94.312
+IA,Iowa City,52240,125 S. Dubuque St.,,41.750,-91.710
+IA,Mason City,50401,202-1st Street SE,Suite 126,43.242,-93.337
+IA,Sioux City,51101,"194 Federal Building, 320 Sixth St.",,42.526,-96.418
+IA,Sioux City,51101,"Federal Building, 320 6th St.",120,42.526,-96.418
+IA,Sioux City,51101,"Federal Building, 320 6th St",Room 122,42.526,-96.418
+IA,Spencer,51301,306 Grand Ave.,,43.241,-95.236
+IA,Waterloo,50701,"Waterloo Building, 531 Commercial St.",210,42.519,-92.429
+ID,Boise,83702,251 E. Front St.,Suite 205,43.663,-116.311
+ID,Boise,83702,350 N. 9th St.,Suite 302,43.663,-116.311
+ID,Boise,83702,802 W. Bannock,Suite 600,43.663,-116.311
+ID,Coeur d'Alene,83814,610 Hubbard Ave,Suite 209,47.729,-116.929
+ID,Coeur d'Alene,83814,"Harbor Plaza, 610 Hubbard",Suite 213,47.729,-116.929
+ID,Idaho Falls,83402,410 Memorial Dr.,Suite 203,43.632,-112.262
+ID,Idaho Falls,83402,410 Memorial Dr.,Suite 204,43.632,-112.262
+ID,Idaho Falls,83402,901 Pier View Dr.,Suite 202A,43.632,-112.262
+ID,Lewiston,83501,313 'D' St.,Suite 105,46.455,-117.046
+ID,Pocatello,83201,275 S. 5th Ave.,Suite 100,42.919,-112.494
+ID,Pocatello,83201,275 S. 5th Ave.,Suite 290,42.919,-112.494
+ID,Twin Falls,83301,1411 Falls Avenue East,Suite 201,42.621,-114.624
+ID,Twin Falls,83301,202 Falls Ave.,Suite 2,42.621,-114.624
+IL,Alton,62002,101 E. Third St.,,39.006,-90.211
+IL,Aurora,60502,2711 E. New York St.,Suite 204,41.820,-88.294
+IL,Bloomington,61704,3004 G.E. Rd.,Suite 1B,40.517,-89.094
+IL,Carbondale,62901,250 W. Cherry St.,Suite 115-D,37.893,-89.622
+IL,Chicago,60604,230 S. Dearborn St.,Suite 3892,41.962,-87.669
+IL,Chicago,60604,230 South Dearborn Street,Suite 3900,41.962,-87.669
+IL,Chicago,60612,2813-15 W. Fifth Ave.,,41.950,-87.716
+IL,Chicago,60628,1000 E. 111th St.,,41.851,-87.704
+IL,Chicago,60638,6245 S. Archer Ave.,,41.975,-87.801
+IL,Chicago,60640,5533 N. Broadway,,42.019,-87.772
+IL,Chicago,60641,"Portage Park Office, 4345 N. Milwaukee Ave.",,41.970,-87.779
+IL,Decatur,62523,243 S. Water St.,Suite 100,39.845,-88.958
+IL,Effingham,62401,101 N. 4th St.,Suite 303,39.213,-88.679
+IL,Glenview,60025,1852 Johns Dr.,,42.105,-87.877
+IL,Granite City,62040,"City Hall, 2000 Edison Ave.",,38.778,-90.176
+IL,Harrisburg,62946,110 E. Locust St.,Room 12,37.805,-88.652
+IL,Jacksonville,62650,201 W. Morgan St.,,39.862,-90.356
+IL,Joliet,60435,195 Springfield Ave.,Suite 102,41.593,-88.309
+IL,Kankakee,60901,"Kankakee City Hall, 304 S. Indiana Ave.",lower level,41.187,-88.018
+IL,Lincolnshire,60069,111 Barclay Blvd.,Suite 200,42.216,-87.959
+IL,Lockport,60441,"Central Square Building, 222 E. 9th St.",#109,41.644,-88.152
+IL,Maryville,62062,15 Professional Park Dr.,,38.744,-89.997
+IL,Matteson,60443,600 Holiday Plaza Dr.,Suite 505,41.527,-87.780
+IL,Mt. Vernon,62864,"Mt. Vernon City Hall, 1100 Main St.",,38.417,-89.022
+IL,Normal,61761,104 W. North St.,,40.561,-89.055
+IL,O'Fallon,62269,302 West State St.,,38.646,-89.965
+IL,Orland Park,60462,"Orland Park Village Hall, 14700 S. Ravinia Avenue",,41.652,-87.883
+IL,Ottawa,61350,628 Columbus St.,Suite 507,41.477,-88.982
+IL,Peoria,61602,100 NE Monroe St.,Room 100,40.721,-89.619
+IL,Peoria,61602,820 SW Adams St,,40.721,-89.619
+IL,Rockford,61101,119 N. Church St.,Suite 207 & 208,42.368,-89.222
+IL,Rock Island,61201,1504 Third Ave.,Suite 227,41.522,-90.623
+IL,Rock Island,61201,2401 4th Ave.,,41.522,-90.623
+IL,Round Lake Park,60073,433 E Washington St.,,42.364,-88.977
+IL,Schaumburg,60173,1701 E. Woodfield Rd.,Suite 704,42.077,-88.116
+IL,Springfield,62701,235 S. Sixth St.,,39.805,-89.656
+IL,Springfield,62701,8 South Old State Capitol Plaza,,39.805,-89.656
+IL,Springfield,62703,2833 S Grand Ave. East,,39.816,-89.659
+IL,Springfield,62703,525 S. 8th St.,,39.816,-89.659
+IL,St. Charles,60175,40 W310 LaFox Road,,41.985,-88.471
+IL,Taylorville,62568,108 W. Market St.,,39.647,-89.405
+IN,Anderson,46016,120 E. 8th St.,Suite 101,40.115,-85.710
+IN,Carmel,46032,11611 N. Meridian Street,Suite 415,40.017,-86.238
+IN,Evansville,47708,101 Martin Luther King Jr. Blvd,Suite 110,38.008,-87.575
+IN,Evansville,47708,420 Main St.,Suite 1402,38.008,-87.575
+IN,Fort Wayne,46802,1300 South Harrison Street,Suite 3161,41.083,-85.189
+IN,Indianapolis,46204,251 N. Illinois St.,Suite 120,39.925,-86.228
+IN,Indianapolis,46205,300 E. Fall Creek Pkwy N Dr.,Suite 300,39.847,-86.179
+IN,Jasper,47547,610 Main St.,First Floor Small Conference Room,38.420,-86.963
+IN,Jeffersonville,47130,321 Quartermaster Ct.,,40.387,-85.781
+IN,Merrillville,46410,7895 Broadway,Suite A,41.549,-87.412
+IN,Mishawaka,46544,202 Lincolnway East,Suite #101,41.673,-86.215
+IN,New Albany,47150,3602 Northgate Ct,Suite 15,38.386,-85.907
+IN,Rochester,46975,709 Main St.,,41.172,-86.439
+IN,Terre Haute,47807,901 Wabash Ave.,Suite 140,39.484,-87.430
+IN,Vincennes,47591,1500 N. Chestnut St.,,38.763,-87.602
+KS,Garden City,67846,816 Campus Dr.,Suite 500,38.206,-100.938
+KS,Manhattan,66502,923 Westport Pl.,Suite 210,39.278,-96.657
+KS,Overland Park,66210,11900 College Boulevard,Suite 203,39.021,-94.741
+KS,Pittsburg,66762,306 N. Broadway,Suite 125,37.486,-94.832
+KS,Salina,67401,200 E. Iron Ave.,,38.962,-97.793
+KS,Wichita,67202,100 North Broadway,Suite 210,37.714,-97.385
+KS,Wichita,67202,125 N. Market St.,Suite 1120,37.714,-97.385
+KS,Wichita,67207,7701 E Kellogg Ave,Suite 510,37.717,-97.385
+KY,Ashland,41101,1700 Greenup Ave.,Suite 505,38.514,-82.702
+KY,Bowling Green,42101,1029 State St.,,37.170,-86.667
+KY,Bowling Green,42101,"Federal Building, 241 E. Main St.",Room 102,37.170,-86.667
+KY,Bowling Green,42103,996 Wilkinson Trce.,Suite B2,37.008,-86.438
+KY,Crescent Springs,41017,541 Buttermilk Pike,Suite 208,39.069,-84.597
+KY,Fort Wright,41011,1885 Dixie Hwy.,Suite 345,39.072,-84.557
+KY,Hazard,41701,48 S. KY Hwy. 15,,37.393,-83.363
+KY,La Grange,40031,108 W. Jefferson St.,Suite 100,38.488,-85.464
+KY,Lexington,40503,771 Corporate Dr.,Suite 108,38.042,-84.569
+KY,Lexington,40509,2709 Old Rosebud Rd.,,38.054,-84.489
+KY,London,40741,300 S. Main St.,Suite 310,37.250,-84.257
+KY,Louisville,40202,601 W. Broadway,Room 630,38.264,-85.797
+KY,Louisville,40202,"Romano Mazzoli Federal Building, 600 Martin Luther King Jr Pl.",Suite 216,38.264,-85.797
+KY,Louisville,40258,"Southwest Government Center, 7219 Dixie Highway",,38.175,-85.898
+KY,Madisonville,42431,67 North Main St.,,37.412,-87.647
+KY,Paducah,42001,100 Fountain Ave.,Suite 300,37.107,-88.819
+KY,Paducah,42003,300 S. 3rd St.,,37.086,-88.671
+KY,Prestonsburg,41653,110 Resource Ct.,Suite A,37.728,-82.937
+KY,Radcliff,40160,411 W. Lincoln Trail Blvd.,,37.862,-85.971
+KY,Somerset,42503,551 Clifty St.,,37.335,-85.540
+KY,Tompkinsville,42167,200 N. Main St.,Suite F,36.829,-85.867
+LA,Alexandria,71301,2003 MacArthur Dr.,Bldg. 5,31.323,-92.493
+LA,Alexandria,71303,3600 Jackson St.,Suite 115A,31.343,-92.613
+LA,Alexandria,71303,6501 Coliseum Blvd,Suite 700A,31.343,-92.613
+LA,Baton Rouge,70802,1520 Thomas H Delpit Dr.,Suite 126,30.486,-91.193
+LA,Baton Rouge,70808,2351 Energy Dr.,Suite 1200,30.462,-91.180
+LA,Baton Rouge,70808,5555 Hilton Ave.,Suite 100,30.462,-91.180
+LA,Baton Rouge,70809,7932 Wrenwood Blvd,Suite A & B,30.446,-91.148
+LA,Bossier City,71111,2250 Hospital Dr.,Suite 248,32.629,-93.745
+LA,Gretna,70053,200 Derbigny St.,Suite 3200,29.937,-90.067
+LA,Hammond,70401,1514 Martens Dr.,Suite 10,30.563,-90.565
+LA,Houma,70360,8026 Main St.,Suite 700,29.663,-90.839
+LA,Houma,70360,"Government Towers, 8026 Main St",Suite 700,29.663,-90.839
+LA,Lafayette,70501,"Chase Building, 600 Jefferson Street",Suite 808,30.263,-92.065
+LA,Lafayette,70508,101 La Rue France,Suite 503,30.208,-92.082
+LA,Lake Charles,70629,1 Lakeshore Dr.,Suite 530,30.227,-93.251
+LA,Lake Charles,70629,"Capital One Building, 1 Lakeshore Drive",Suite 1670,30.227,-93.251
+LA,Leesville,71446,"Building 552, 3329 University Parkway",Room 24,31.335,-93.438
+LA,Livingston,70754,"Livingston Parish Government Building, 29261 Frost Rd.",2nd Floor,30.517,-90.808
+LA,Mandeville,70471,21454 Koop Drive,Suite 2C,30.455,-90.135
+LA,Mandeville,70471,"Building A, 21490 Koop Dr.",,30.455,-90.135
+LA,Metairie,70002,3421 N. Causeway Blvd.,Suite 204,30.020,-90.179
+LA,Metairie,70005,110 Veterans Blvd.,Suite 500,30.019,-90.147
+LA,Monroe,71201,1651 Louisville Ave.,Suite 148,32.563,-92.133
+LA,Monroe,71201,426 DeSiard St.,,32.563,-92.133
+LA,Natchitoches,71497,"South Hall, 444 Caspari Dr.",Room 224,31.755,-93.101
+LA,New Orleans,70113,500 Poydras St.,Suite 364,29.953,-90.092
+LA,New Orleans,70122,2021 Lakeshore Dr.,Suite 309,30.031,-90.104
+LA,Shreveport,71101,401 Market St.,Suite 1050,32.525,-93.776
+LA,Shreveport,71105,6425 Youree Dr.,Suite 415,32.488,-93.735
+LA,Thibodaux,70301,"NSU Campus, Candies Hall, 908 E. 1st St.",Suite 405,29.905,-90.951
+MA,Attleboro,02703,8 N. Main St.,Suite 200,41.983,-71.381
+MA,Boston,02203,"2400 JFK Federal Building, 15 Sudbury St.",,42.365,-71.070
+MA,Boston,02203,"JFK Federal Building, 15 Sudbury St.",975,42.365,-71.070
+MA,Boston,02210,One Harbor Street,Suite 304,42.354,-71.127
+MA,Brockton,02301,37 Belmont Street,"2nd Floor, Suite 3",42.114,-71.103
+MA,Cambridge,02138,701 Concord Ave.,Suite 101,42.394,-71.160
+MA,Fall River,02721,222 Milliken Blvd.,Suite 312,41.741,-71.174
+MA,Framingham,01702,116 Concord St.,Suite 1,42.321,-71.491
+MA,Hyannis,02601,259 Stevens St.,Suite E,41.678,-70.326
+MA,Leominster,01453,24 Church St.,Room 27,42.572,-71.819
+MA,New Bedford,02740,128 Union Street,Suite 103,41.680,-71.004
+MA,Newton,02458,29 Crafts St.,Suite 375,42.366,-71.253
+MA,Northampton,01060,94 Pleasant St.,,42.373,-72.711
+MA,Pittsfield,01201,78 Center St.,,42.515,-73.374
+MA,Quincy,02169,1245 Hancock St.,Suite 41,42.275,-71.044
+MA,Salem,01970,21 Front St.,,42.535,-70.937
+MA,Springfield,01103,1550 Main St.,4th Floor,42.107,-72.598
+MA,Springfield,01105,300 State St.,Suite 200,42.130,-72.587
+MA,Worcester,01604,12 E. Worcester St.,Suite 1,42.273,-71.821
+MD,Annapolis,21401,2666 Riva Rd,Suite 120,39.051,-76.603
+MD,Annapolis,21401,60 West Street,Suite 107,39.051,-76.603
+MD,Annapolis,21401,"Arundel Center, 44 Calvert St.",Suite 349,39.051,-76.603
+MD,Baltimore,21201,1010 Park Ave.,Suite 105,39.390,-76.768
+MD,Baltimore,21201,"Tower 1, 100 S. Charles St.",Suite 1710,39.390,-76.768
+MD,Baltimore,21218,1900 North Howard Street,Suite 100,39.382,-76.749
+MD,Bowie,20720,10201 Martin Luther King Jr. Highway,Suite 210,39.031,-76.828
+MD,Burtonsville,20866,"Marilyn J. Praisner Community Recreation Center, 14906 Old Columbia Pike",,39.131,-76.96
+MD,Cambridge,21613,204 Cedar Street,Suite 200C,38.699,-76.405
+MD,Catonsville,21228,754 Frederick Rd.,,39.371,-76.784
+MD,Ellicott City,21043,8267 Main St.,Room 102,39.312,-76.845
+MD,Hagerstown,21740,32 West Washington Street,Suite 203,39.721,-77.846
+MD,Largo,20774,9701 Apollo Dr.,Suite 103,38.940,-76.847
+MD,Rockville,20850,111 Rockville Pike,Suite 960,39.118,-77.253
+MD,Rockville,20850,451 Hungerford Dr.,Suite 230,39.118,-77.253
+MD,Rockville,20850,51 Monroe St.,Suite 503,39.118,-77.253
+MD,Salisbury,21801,100 E. Main St.,Suite 702,38.454,-75.707
+MD,Salisbury,21801,"Plaza Gallery Building, 212 W. Main St.",Suite 301C,38.454,-75.707
+MD,Timonium,21093,"The Atrium, 375 W. Padonia Rd.",Suite 200,39.468,-76.706
+MD,Towson,21204,600 Baltimore Ave.,Suite 303,39.420,-76.660
+ME,Augusta,04330,4 Gabriel Dr.,Suite 3,44.467,-69.831
+ME,Augusta,04330,68 Sewall St.,Room 507,44.467,-69.831
+ME,Bangor,04401,202 Harlow St.,Room 20100,44.931,-68.967
+ME,Bangor,04401,202 Harlow St.,Suite 20350,44.931,-68.967
+ME,Biddeford,04005,160 Main St.,,43.550,-70.607
+ME,Lewiston,04240,55 Lisbon St.,,44.155,-70.221
+ME,Portland,04101,2 Portland Fish Pier,Suite 304,43.746,-70.496
+ME,Portland,04101,One Canal Plaza,Suite 802,43.746,-70.496
+ME,Presque Isle,04769,169 Academy St.,Suite A,46.776,-68.053
+ME,Scarborough,04074,383 Route 1,Suite 1C,43.646,-70.476
+ME,Waterville,04901,1 Silver St.,,44.595,-70.702
+MI,Battle Creek,49017,70 W. Michigan Ave.,Suite 212,42.459,-85.520
+MI,Dearborn,48124,19855 West Outer Drive,Suite 103-E,42.342,-83.286
+MI,Detroit,48226,719 Griswold St.,Suite 700,42.445,-83.212
+MI,Detroit,48226,"Patrick V. McNamara Federal Building, 477 Michigan Ave.",Suite 1837,42.445,-83.212
+MI,East Lansing,48823,221 W. Lake Lansing Rd.,Suite 100,42.803,-84.508
+MI,Flint,48502,432 N. Saginaw St.,Suite 301,43.021,-83.696
+MI,Grand Haven,49417,1 S. Harbor Ave.,Suite 6B,43.068,-86.245
+MI,Grand Rapids,49503,110 Michigan St. NW,Suite 460,42.984,-85.715
+MI,Grand Rapids,49525,3280 E. Beltline Ct. NE,Suite 400,43.061,-85.659
+MI,Grandville,49418,4555 Wilson Ave. SW,Suite 3,42.922,-85.829
+MI,Jackson,49201,401 W. Michigan Ave.,,42.378,-84.531
+MI,Kalamazoo,49007,350 E. Michigan Ave.,Suite 130,42.328,-85.610
+MI,Lansing,48933,124 W. Allegan St.,Suite 1400,42.741,-84.572
+MI,Marquette,49855,1500 W. Washington St.,Suite 2,46.794,-87.705
+MI,Marquette,49855,1901 W. Ridge,Suite 7,46.794,-87.705
+MI,Marquette,49855,857 W. Washington St.,Suite 308,46.794,-87.705
+MI,Midland,48640,200 E. Main St.,Suite 230,43.655,-84.488
+MI,Rochester,48307,407 6th St.,Suite C,42.696,-83.181
+MI,Shelby Township,48317,48701 Van Dyke Avenue,,42.668,-83.091
+MI,Southfield,48033,26700 Lahser Road,Suite 330,42.492,-83.318
+MI,Traverse City,49684,3335 S. Airport Road West,Suite 6B,44.910,-85.855
+MI,Traverse City,49684,818 Red Dr.,Suite 40,44.910,-85.855
+MI,Traverse City,49696,1396 Douglas Drive,Suite 22B,44.816,-85.601
+MI,Ypsilanti,48197,301 W. Michigan Ave.,Suite 400,42.266,-83.698
+MN,Detroit Lakes,56501,714 Lake Ave.,Suite 101,46.969,-96.022
+MN,Duluth,55802,515 W 1st Street,104,46.823,-92.217
+MN,Marshall,56258,1420 E. College Dr.,,44.467,-95.917
+MN,Minneapolis,55415,1200 Washington Avenue South,Room 250,45.038,-93.497
+MN,Moorhead,56560,121 4th Street South,,47.028,-96.815
+MN,Otsego,55330,9201 Quaday Ave. NE,Suite 206,45.343,-93.661
+MN,Redwood Falls,56283,230 E. 3rd St.,,44.585,-95.278
+MN,Rochester,55901,1130 1/2 7th Street NW,Room 212,44.129,-92.571
+MN,Rochester,55901,1202-1/2 7th Street NW,213,44.129,-92.571
+MN,Saint Paul,55107,60 Plato Blvd. East,220,44.948,-93.106
+MN,Virginia,55792,"Olcott Plaza, 820 9th Street North",Room 105,47.683,-92.574
+MO,Ballwin,63011,301 Sovereign Ct.,Suite 201,38.624,-90.639
+MO,Cape Girardeau,63701,338 Broadway,Suite 303,37.449,-89.729
+MO,Cape Girardeau,63703,2502 Tanner Dr.,Suite 205,37.315,-89.576
+MO,Columbia,65201,1123 Wilkes Blvd,Suite 320,39.047,-92.397
+MO,Farmington,63640,22 E. Columbia St.,,37.888,-90.495
+MO,Florissant,63031,1281 Graham Rd.,Suite 202,38.841,-90.387
+MO,Hannibal,63401,906 Broadway,,39.765,-91.542
+MO,Harrisonville,64701,1909 N. Commercial St.,,38.728,-94.440
+MO,Higginsville,64037,1923 Main St,,39.161,-93.801
+MO,Jefferson City,65109,2117 Missouri Blvd.,,39.824,-94.812
+MO,Kansas City,64106,1000 Walnut St.,Suite 1560,39.113,-94.603
+MO,Kansas City,64108,101 W. 31 St.,,39.096,-94.600
+MO,Kansas City,64153,11724 NW Plaza Circle,Suite 900,39.302,-94.824
+MO,Lebanon,65536,219 N. Adams St.,,37.822,-92.908
+MO,Poplar Bluff,63901,2725 N. Westwood Blvd.,Suite 5A,36.896,-90.618
+MO,Rolla,65401,830A S. Bishop,,38.060,-91.902
+MO,Springfield,65804,2740 B E. Sunshine,,37.203,-93.346
+MO,Springfield,65804,3232 E. Ridgeview St.,,37.203,-93.346
+MO,St. Joseph,64501,411 Jules St.,Room 111,39.780,-94.860
+MO,St. Louis,63102,111 S. 10th St.,Suite 24.344,38.641,-90.403
+MO,Washington,63090,516 Jefferson St.,,38.594,-91.136
+MO,Wentzville,63385,113 E. Pearce Blvd.,,38.875,-90.928
+MO,West Plains,65775,35 Court Sq.,Suite 300,36.908,-92.043
+MS,Bolton,39041,107 W. Madison St.,,32.518,-90.509
+MS,Columbus,39701,318 N. 7th St.,Suite D,33.537,-88.657
+MS,Eupora,39744,855 S. Dunn St.,,33.671,-89.357
+MS,Greenwood,38930,728 Main Street,Suite A,33.656,-90.257
+MS,Gulfport,39501,2012 15th Street,#451,30.419,-89.142
+MS,Gulfport,39501,2909 13th St.,"3rd Floor, Suite 303",30.419,-89.142
+MS,Hattiesburg,39401,641 Main St.,Suite 142,31.443,-89.934
+MS,Hernando,38632,2565 Caffey St.,#200,34.876,-90.197
+MS,Hernando,38632,321 Losher St.,,34.876,-90.197
+MS,Jackson,39201,190 East Capitol St.,#550,32.331,-90.260
+MS,Jackson,39201,"U.S. Federal Courthouse, 501 E. Court St.",Suite 3-500,32.331,-90.260
+MS,Jackson,39213,3607 Medgar Evers Blvd.,,32.481,-90.273
+MS,Marks,38646,263 E. Main St.,,34.319,-90.367
+MS,Mound Bayou,38762,106 Green Avenue,Suite 106,33.922,-90.739
+MS,Oxford,38655,911 Jackson Ave.,#249,34.466,-89.694
+MS,Pascagoula,39567,3118 Pascagoula St.,Suite 181,30.447,-88.754
+MS,Tupelo,38804,330 W. Jefferson St.,Suite B,34.385,-88.854
+MS,Tupelo,38804,431 W. Main St.,,34.385,-88.854
+MT,Billings,59101,222 North 32nd Street,Suite 900,45.839,-108.668
+MT,Billings,59101,"Judge Jameson Federal Building, 2900 4th Ave. N",Suite 201,45.839,-108.668
+MT,Bozeman,59715,"Avant Courier Building, 1 E. Main St.",Suite 202,45.879,-111.146
+MT,Bozeman,59718,13 S. Willson Ave.,Suite 8,45.765,-111.266
+MT,Butte,59701,"Silver Bow Center, 125 W. Granite",Suite 200,46.147,-112.660
+MT,Great Falls,59401,104 4th Street North,Suite 302,47.530,-111.331
+MT,Great Falls,59401,119 1st Ave. N,Suite 102,47.530,-111.331
+MT,Great Falls,59401,710 Central Ave,,47.530,-111.331
+MT,Hardin,59034,310 N Ctr.,,45.749,-107.630
+MT,Helena,59601,7 West 6th Ave,Suite 3B,46.720,-112.270
+MT,Helena,59601,"Capital One Center, 208 N. Montana Ave.",Suite 202,46.720,-112.270
+MT,Kalispell,59901,8 Third St. E,,48.338,-114.533
+MT,Kalispell,59901,"KM Building, 40 2nd St East",Suite 211,48.338,-114.533
+MT,Missoula,59802,130 W. Front St.,,46.934,-114.018
+MT,Missoula,59802,218 E. Front St.,Suite 103,46.934,-114.018
+NC,Advance,27006,128 Peachtree Ln.,Suite A,36.057,-80.507
+NC,Asheboro,27203,222 Sunset Ave.,Suite 101,35.771,-79.831
+NC,Asheville,28801,"Federal Building, 151 Patton Ave.",Suite 204,35.652,-82.630
+NC,Asheville,28804,"Woodfin Town Hall, 90 Elk Mountain Rd.",,35.694,-82.629
+NC,Black Mountain,28711,160 Midland Ave.,,35.666,-82.423
+NC,Bolivia,28422,310 Government Center Dr.,Unit 1,34.096,-78.257
+NC,Boone,28607,400 Shadowline Dr.,Suite 205,36.312,-81.786
+NC,Bryson City,28713,"Swain County Administration Building, 101 Mitchell St.",,35.479,-83.627
+NC,Burnsville,28714,"Burnsville Town Hall, 2 Town Sq.",,36.288,-82.475
+NC,Chapel Hill,27514,1777 Fordham Blvd.,Suite 204,36.036,-80.711
+NC,Charlotte,28202,801 E. Morehead St.,Suite 150,35.318,-80.941
+NC,Charlotte,28269,9300 Harris Corners Pkwy.,Suite 170,35.401,-80.908
+NC,Cherokee,28719,"Ginger Lynn Welch Building, 810 Acquoni Rd.",,35.568,-83.378
+NC,Clemmons,27012,3540 Clemmons Rd.,Suite 125,36.077,-80.454
+NC,Concord,28027,"325 Mcgill Ave, NW",Suite 500,35.493,-80.757
+NC,Durham,27705,"Bldg. 400, 2741 Campus Walk Ave.",Suite 300,36.099,-79.044
+NC,Fayetteville,28301,225 Green Street,Suite 202,35.159,-78.975
+NC,Four Oaks,27524,4001 US Hwy. 301 South,Suite 106,35.520,-78.525
+NC,Franklin,28734,"Macon County Courthouse, 5 W. Main St.",Room 332,36.103,-83.586
+NC,Gastonia,28052,"Gaston County Administrative Building, 128 W. Main Ave.",Suite 115,35.296,-81.293
+NC,Graham,27253,219 B West Elm Street,,36.088,-79.430
+NC,Greensboro,27408,809 Green Valley Rd.,Suite 104,36.125,-79.847
+NC,Greenville,27858,1694 E. Arlington Blvd.,Suite B,35.663,-77.409
+NC,Hayesville,28904,"Clay County Courthouse, 261 Courthouse Dr.",Paul Jordan Conference Room,35.101,-83.910
+NC,Hendersonville,28792,1 Historic Courthouse Square,Suite 112,35.486,-82.521
+NC,Hendersonville,28792,"Henderson County Courthouse, 200 N. Grove St.",Suite 90,35.486,-82.521
+NC,High Point,27265,4000 Piedmont Pkwy,Suite 131,36.078,-80.137
+NC,Lenoir,28645,"Health and Human Services Bldg., 2345 Morganton Blvd.",,36.220,-81.705
+NC,Marion,28752,"McDowell County Senior Center, 100 Spaulding Road",,35.904,-82.152
+NC,Mars Hill,28754,"Mars Hill Town Hall, 280 N. Main St.",,35.982,-82.677
+NC,Morganton,28655,"City of Morganton Town Hall, 305 E. Union St.",Suite A100,35.887,-81.862
+NC,Murphy,28906,"Murphy Power Board, 107 Peachtree St.",,35.229,-84.319
+NC,Pinehurst,28374,"Sandhills Community College Van Dusen Building, 3395 Airport Rd",Suite 114,35.235,-79.527
+NC,Raleigh,27601,310 New Bern Ave.,Suite 122,35.785,-78.647
+NC,Raleigh,27603,436 N. Harrington St.,Suite 100,35.897,-78.734
+NC,Raleigh,27615,6404 Falls of Neuse Rd.,Suite 103,35.941,-78.685
+NC,Robbinsville,28771,"Graham County Courthouse, 12 N. Main St.",,35.444,-83.956
+NC,Spruce Pine,28777,"Mitchell Country Chamber of Commerce Building, 11 Crystal St.",,35.973,-82.152
+NC,Waynesville,28786,"Haywood County Justice Center, 285 N. Main St.",Suite 1300,35.595,-83.086
+NC,Wilmington,28403,230 Government Center Dr.,Suite 113,34.245,-77.927
+NC,Wilson,27893,216 NE Nash St.,Suite B,35.860,-78.059
+NC,Winston-Salem,27104,2000 W. First St.,Suite 508,36.120,-80.380
+ND,Bismarck,58501,"328 Federal Building, 220 E. Rosser Ave.",,46.830,-100.816
+ND,Bismarck,58501,"U.S. Federal Building, 220 E. Rosser Ave.",Room 312,46.830,-100.816
+ND,Fargo,58102,123 Broadway North,Suite 201,46.973,-96.924
+ND,Fargo,58103,3217 Fiechtner Dr.,Suite D,46.916,-96.891
+ND,Grand Forks,58202,4200 James Ray Dr.,Office 600,47.929,-97.087
+ND,Grand Forks,58203,"Federal Building, 102 N. Fourth St.",Room 108,48.008,-97.377
+ND,Minot,58701,100 1st St. SW,Suite 107,48.427,-101.403
+ND,Minot,58701,315 Main St.,Suite 203,48.427,-101.403
+ND,Watford City,,,,47.802,-103.283
+NE,Fremont,68026,641 N. Broad St.,,41.440,-97.289
+NE,Grand Island,68803,1811 W. Second St.,Suite 275,41.025,-98.482
+NE,Kearney,68845,4111 Fourth Ave.,Suite 26,40.773,-99.254
+NE,Kearney,68847,20 W. 23rd St.,,40.839,-99.084
+NE,Lincoln,68508,1128 Lincoln Mall,Suite 305,40.871,-96.723
+NE,Lincoln,68508,301 S. 13th St.,Suite 100,40.871,-96.723
+NE,Lincoln,68508,440 N. 8th St.,Suite 120,40.871,-96.723
+NE,Norfolk,68701,506 W. Madison Ave.,Suite 2,42.102,-97.736
+NE,Omaha,68144,13906 Gold Circle,Suite 101,41.248,-96.158
+NE,Omaha,68154,11819 Miracle Hills Drive,Suite 205,41.277,-96.157
+NE,Scottsbluff,69361,115 Railway St.,Suite C102,41.977,-103.723
+NE,Scottsbluff,69361,120 East 16th St.,Suite 203,41.977,-103.723
+NE,Scottsbluff,69361,416 Valley View Dr.,Suite 600,41.977,-103.723
+NH,Berlin,03570,961 Main St.,,44.523,-71.218
+NH,Berlin,03570,"Berlin City Hall, 168 Main Street",Lower Level,44.523,-71.218
+NH,Claremont,03743,50 Opera House Sq.,,43.425,-72.389
+NH,Concord,03301,18 N. Main St.,Fourth Floor,43.299,-71.621
+NH,Concord,03301,"James C. Cleveland Federal Building, 53 Pleasant Street",,43.299,-71.621
+NH,Dover,03820,340 Central Ave.,Suite 205,43.252,-70.962
+NH,Keene,03431,12 Gilbo Ave.,Suite C,43.039,-72.378
+NH,Littleton,03561,33 Main St.,Suite 202,44.394,-71.922
+NH,Manchester,03101,1589 Elm Street,Third Floor,43.002,-71.485
+NH,Manchester,03101,2 Wall St.,Suite 220,43.002,-71.485
+NH,Nashua,03060,142 Main Street,Suite 520,42.766,-71.519
+NH,Nashua,03060,184 Main Street,Suite 222,42.766,-71.519
+NH,Nashua,03060,60 Main St.,Suite 217,42.766,-71.519
+NH,Portsmouth,03801,14 Manchester Square,Suite 140,43.110,-70.848
+NJ,Barrington,08007,208 White Horse Pike,Suite 18,39.875,-75.064
+NJ,Camden,08101,"One Port Center, 2 Riverside Dr.",Suite 505,39.940,-75.126
+NJ,Cherry Hill,08003,10 Melrose Ave.,Suite 210,39.931,-75.048
+NJ,Elizabeth,07201,800 Anna St.,,40.686,-74.215
+NJ,Englewood,07631,2-10 N. Van Brunt St.,,40.914,-73.994
+NJ,Ewing,08628,850 Bear Tavern Rd.,Suite 201,40.293,-74.852
+NJ,Freehold,07728,"Raintree Shopping Center, 112 Village Center Dr.",Second Floor,40.292,-74.388
+NJ,Hackensack,07601,65 Central Ave,,40.912,-74.073
+NJ,Hamilton,08620,4573 S. Broad St.,,40.203,-74.704
+NJ,Hillside,07205,1455 Liberty Ave.,,40.710,-74.246
+NJ,Jersey City,07302,257 Cornelison Ave.,Suite 4408,40.749,-74.089
+NJ,Newark,07102,"LeRoy F. Smith, Jr. Public Safety Building, 60 Nelson Pl.",14th Floor,40.865,-74.226
+NJ,Newark,07102,One Gateway Center,23rd Floor,40.865,-74.226
+NJ,Newark,07102,One Gateway Center,Suite 1100,40.865,-74.226
+NJ,New Brunswick,08901,67/69 Church St.,,40.507,-74.485
+NJ,Passaic,07055,"1st Street, 330 Passaic St.",,40.878,-74.146
+NJ,Paterson,07505,"Robert A. Roe Federal Building, 200 Federal Plz.",Suite 500,40.953,-74.177
+NJ,Ringwood,07456,60 Margaret King Ave.,,41.139,-74.329
+NJ,Washington,07882,100 Belvidere Ave,,40.823,-75.084
+NM,Albuquerque,87102,400 Gold Ave.,Suite 300,35.141,-106.671
+NM,Farmington,87401,800 Municipal Dr.,,36.860,-108.305
+NM,Farmington,87402,7450 E. Main St.,Suite A,36.819,-108.171
+NM,Las Cruces,88001,201 N. Church St.,Suite 201B,32.343,-106.783
+NM,Las Cruces,88001,"Loretto Towne Center, 505 S. Main St.",Suite 148,32.343,-106.783
+NM,Portales,88130,100 South Avenue A,Suite 113,34.303,-103.458
+NM,Rio Rancho,87144,3200 Civic Center NE,Suite 330,35.369,-106.809
+NM,Roswell,88201,200 E. 4th St.,Suite 300,33.639,-104.663
+NM,Santa Fe,87501,120 S. Federal Pl.,Suite 302,35.821,-105.990
+NM,Santa Fe,87501,123 E. Marcy St.,Suite 103,35.821,-105.990
+NM,Santa Fe,87505,1611 Calle Lorca,Suite A,35.901,-106.048
+NM,Tucumcari,88401,404 W. Route 66 Blvd.,,35.231,-103.775
+NV,Elko,89801,905 Railroad St.,Suite 104 D,40.905,-115.889
+NV,Las Vegas,89101,333 Las Vegas Boulevard South,Suite 8016,36.187,-115.277
+NV,Las Vegas,89101,495 South Main St.,3rd Floor,36.187,-115.277
+NV,Reno,89501,"Courthouse and Federal Building, 400 South Virginia Street",Suite 902,39.536,-119.820
+NV,Reno,89511,5310 Kietzke Ln.,Suite 103,39.529,-119.885
+NY,Albany,12207,"Leo O'Brien Building, 1 Clinton Ave.",Room 420,42.705,-73.861
+NY,Albany,12207,"Leo W. O’Brien Federal Office Building, 11A Clinton Avenue",Room 821,42.705,-73.861
+NY,Albany,12210,19 Dove St.,Suite 302,42.737,-73.864
+NY,Amsterdam,12010,61 Church St.,Room 309,43.046,-74.304
+NY,Arverne,11692,67-12 Rockaway Beach Blvd.,,40.599,-73.818
+NY,Binghamton,13901,15 Henry St.,Room. 100 A-F,42.230,-75.942
+NY,Bronx,10458,2530 Grand Concourse Avenue,Ground Floor,40.879,-73.923
+NY,Bronx,10463,3655 Johnson Ave.,,40.898,-73.923
+NY,Bronx,10474,1231 Lafayette Ave.,4th Floor,40.822,-73.894
+NY,Bronx,10475,177 Dreiser Loop,Rm 3,40.889,-73.896
+NY,Brooklyn,11211,266 Broadway,Suite 201,40.731,-74.032
+NY,Brooklyn,11217,55 Hanson Pl.,Suite 603,40.711,-74.025
+NY,Brooklyn,11219,6605 Fort Hamilton Pkwy.,,40.645,-74.011
+NY,Brooklyn,11224,445 Neptune Ave,"1st Floor, Community Room 2C",40.726,-74.012
+NY,Brooklyn,11226,222 Lenox Rd.,Suites 1 & 2,40.693,-74.004
+NY,Buffalo,14202,130 S. Elmwood Ave.,#660,42.965,-78.889
+NY,Buffalo,14210,"Larkin At Exchange, 726 Exchange St.",Suite 511,42.881,-78.859
+NY,Buffalo,14210,"Larkin at Exchange, 726 Exchange St.",Suite 601,42.881,-78.859
+NY,Flushing,11358,40-13 159th St.,Suite A,40.776,-73.813
+NY,Forest Hills,11375,118-35 Queens Blvd.,17th Floor,40.739,-73.857
+NY,Garden City,11530,229 7th St.,Suite 300,40.743,-73.688
+NY,Geneseo,14454,128 Main St.,,42.861,-77.824
+NY,Geneva,14456,433 Exchange St.,,42.949,-77.103
+NY,Huntington,11743,478A Park Avenue,,40.937,-73.489
+NY,Jamaica,11432,153-01 Jamaica Ave.,2nd floor,40.728,-73.835
+NY,Jamestown,14701,2 E. 2nd St.,Suite 208,42.184,-79.361
+NY,Little Neck,11362,250-02 Northern Boulevard,,40.772,-73.772
+NY,Lowville,13367,PO Box 273,,43.931,-75.698
+NY,Lyons,14489,7376 State Route 31,,43.176,-77.064
+NY,Massapequa Park,11762,1003 Park Blvd.,,40.704,-73.463
+NY,Melville,11747,145 Pine Lawn Rd.,Suite 300,40.816,-73.446
+NY,Melville,11747,155 Pinelawn Rd.,Suite 250 North,40.816,-73.446
+NY,New City,10956,67 N. Main St.,#101,41.188,-74.033
+NY,New York,10007,500 Pearl St.,Suite 973,40.758,-74.120
+NY,New York,10014,201 Varick St.,Suite 669,40.777,-74.132
+NY,New York,10017,780 Third Ave.,Suite 2301,40.813,-74.010
+NY,New York,10017,780 Third Ave.,Suite 2601,40.813,-74.010
+NY,New York,10027,"Harlem State Office Building, 163 West 125th Street",#507,40.823,-74.012
+NY,Niagara Falls,14301,800 Main St.,Suite 3C,43.103,-79.059
+NY,Oswego,13126,13 W. Oneida St.,2nd Floor,43.524,-76.616
+NY,Patchogue,11772,31 Oak St.,Suite 20,40.796,-73.045
+NY,Peekskill,10566,One Park Place,Suite 100,41.306,-73.939
+NY,Plattsburgh,12901,23 Durkee St.,Suite C,44.818,-73.566
+NY,Riverhead,11901,30 W. Main St.,Suite 201,40.988,-72.826
+NY,Rochester,14614,100 State St.,Room 3040,43.161,-77.619
+NY,Rochester,14614,"Federal Building, 100 State St.",Room 3120,43.161,-77.619
+NY,Rochester,14614,"Kenneth B. Keating Federal Office Building, 100 State St.",Room 4195,43.161,-77.619
+NY,Schenectady,12305,105 Jay St.,Room 15,42.821,-73.952
+NY,Syracuse,13202,440 S. Warren St.,"7th Floor, Suite 711",43.068,-76.237
+NY,Watertown,13601,88 Public Sq.,Suite A,44.113,-76.046
+NY,White Plains,10605,222 Mamaroneck Ave.,#312,41.034,-73.781
+OH,Akron,44310,1030 Tallmadge Ave.,,41.121,-81.524
+OH,Akron,44320,1225 Lawton St.,,41.126,-81.618
+OH,Ashland,44805,110 Cottage St.,,40.992,-82.444
+OH,Bowling Green,43402,1045 N. Main St.,Suite 6,41.488,-83.784
+OH,Bucyrus,44820,500 S. Sandusky Ave.,,40.906,-83.092
+OH,Cambridge,43725,116 Southgate Pkwy.,,40.132,-81.703
+OH,Canton,44702,110 Central Plaza South,,40.808,-81.382
+OH,Cincinnati,45202,312 Walnut St.,Suite 3425,39.132,-84.521
+OH,Cincinnati,45202,425 Walnut St.,Suite 2310,39.132,-84.521
+OH,Cincinnati,45202,441 Vine St.,Rm. 3003,39.132,-84.521
+OH,Cincinnati,45245,4350 Aicholtz Rd.,,39.342,-84.311
+OH,Cincinnati,45255,7954 Beechmont Ave.,Suite 200,39.091,-84.367
+OH,Cleveland,44111,17021 Lorain,,41.487,-81.824
+OH,Cleveland,44113,801 W. Superior Ave.,Suite 1400,41.505,-81.802
+OH,Cleveland,44199,1240 E. 9th St.,Room 3061,41.556,-81.693
+OH,Columbus,43215,200 N. High St.,Room 614,40.915,-84.058
+OH,Columbus,43215,471 E. Broad St.,Suite 1100,40.915,-84.058
+OH,Dayton,45402,120 W. 3rd St.,Suite 305,39.770,-84.252
+OH,Defiance,43512,101 Clinton St.,Suite 1200,41.427,-84.518
+OH,Findlay,45840,318 Dorney Plz.,Room 302,41.126,-83.797
+OH,Ironton,45638,202 Park Ave.,Suite C,38.633,-82.823
+OH,Lancaster,43130,104 East Main St.,,39.809,-82.765
+OH,Lebanon,45036,11 S. Broadway,,39.540,-84.320
+OH,Lima,45805,3121 W. Elm Plz.,,40.775,-84.218
+OH,Lorain,44052,200 W. Erie Ave.,Suite 312,41.482,-82.205
+OH,Lorain,44052,200 W. Erie,Room 310,41.482,-82.205
+OH,Marietta,45750,246 Front St.,,39.533,-81.586
+OH,Norwalk,44857,13 B E. Main St.,,41.300,-82.676
+OH,Peebles,45660,170 N. Main St.,,39.156,-83.512
+OH,Salem,44460,192 E. State St.,,40.993,-81.272
+OH,Springfield,45502,76 E. High St.,3rd Floor,41.658,-83.953
+OH,Toledo,43604,420 Madison Ave.,Room 1210,41.667,-83.665
+OH,Toledo,43604,One Maritime Plaza,Room 600,41.667,-83.665
+OH,Troy,45373,20 Dotcom Drive,,40.107,-84.314
+OH,Twinsburg,44087,"Twinsburg Gov. Center, 10075 Ravenna Road",,41.349,-81.487
+OH,Warren,44481,197 W. Market St.,,41.348,-80.925
+OH,Warrensville Heights,44128,4834 Richmond Rd.,Suite 150,41.445,-81.555
+OH,West Chester,45069,8857 Cincinnati-Dayton Rd.,Suite #102,39.373,-84.552
+OH,Wilmington,45177,69 N. South St.,,39.566,-83.982
+OH,Youngstown,44503,241 W. Federal St.,,41.103,-80.654
+OK,Ada,74820,100 E. 13th St.,Suite 213,34.897,-96.824
+OK,Enid,73701,302 N. Independence,#104,36.506,-97.961
+OK,Lawton,73501,711 SW. D Ave.,Suite 201,34.612,-98.483
+OK,McAlester,74501,1 E. Choctaw,Suite 175,35.058,-95.952
+OK,McAlester,74501,215 E. Choctaw Ave.,#106,35.058,-95.952
+OK,Oklahoma City,73102,1015 N. Broadway Ave.,Suite 310,35.555,-97.614
+OK,Oklahoma City,73112,3817 NW Expressway,#780,35.536,-97.601
+OK,Tulsa,74103,224 South Boulder,Suite 210,36.162,-96.002
+OK,Tulsa,74137,2448 E. 81st St.,Suite 5150,36.046,-95.961
+OK,Yukon,73099,10952 NW Expressway,Suite B,35.638,-97.853
+OR,Beaverton,97005,12725 SW Millikan Way,Suite 220,45.523,-122.877
+OR,Bend,97701,1051 NW. Bond St.,Suite 400,44.266,-121.519
+OR,Bend,97701,131 NW. Hawthorne Ave.,Suite 208,44.266,-121.519
+OR,Bend,97701,"The Jamison Building, 131 NW. Hawthorne Ave.",Suite 107,44.266,-121.519
+OR,Coos Bay,97420,125 Central Ave.,Suite 350,43.512,-124.357
+OR,Eugene,97401,405 E. 8th Ave.,#2030,44.092,-123.120
+OR,Eugene,97401,405 E. 8th Ave.,Suite 2020,44.092,-123.120
+OR,La Grande,97850,1211 Washington Ave.,,45.421,-118.407
+OR,La Grande,97850,"SAC Annex Building, 105 Fir St.",Suite 201,45.421,-118.407
+OR,Medford,97501,14 N. Central Ave.,Suite 112,42.386,-122.977
+OR,Medford,97501,"Federal Courthouse, 310 W. 6th St.",Room 118,42.386,-122.977
+OR,Oregon City,97045,621 High St.,,45.396,-122.657
+OR,Pendleton,97801,310 SE. Second St.,Suite 105,45.834,-118.932
+OR,Portland,97204,121 SW Salmon St.,Suite 1400,45.601,-122.745
+OR,Portland,97232,911 N.E. 11th Ave.,Suite 200,45.570,-122.677
+OR,Portland,97232,911 NE 11th Ave.,Suite 630,45.570,-122.677
+OR,Roseburg,97470,612 SE. Jackson St.,Room 9,43.317,-123.393
+OR,Salem,97301,161 High St. SE,Suite 250,44.984,-123.043
+OR,Salem,97301,530 Center St. NE,Suite 415,44.984,-123.043
+OR,Salem,97301,707 13th St. SE,Suite 285,44.984,-123.043
+PA,Allentown,18101,840 Hamilton St.,Suite 301,40.608,-75.498
+PA,Allentown,18103,1150 S. Cedar Crest Blvd,Suite 101,40.657,-75.548
+PA,Bellefonte,16823,3555 Benner Pike.,Suite 101,41.014,-77.914
+PA,Bellefonte,16823,817 E. Bishop St.,Suite C,41.014,-77.914
+PA,Butler,16001,101 E. Diamond St.,Suite 218,41.020,-80.024
+PA,Erie,16501,"United States Federal Building, 17 S. Park Row.",Suite B-120,42.130,-80.110
+PA,Hanover,17331,118 Carlise Street,,41.226,-80.458
+PA,Harrisburg,17101,200 N. Third St.,Suite 14A,40.266,-76.889
+PA,Harrisburg,17101,"United States Federal Building, 228 Walnut St.",Suite 1104,40.266,-76.889
+PA,Johnstown,15904,"Richland Square III, 1397 Eisenhower Blvd",Suite 302,40.376,-78.918
+PA,Langhorne,19047,1717 Langhorne-Newtown Rd.,Suite 400,40.222,-74.980
+PA,McKeesport,15132,627 Lysle Blvd.,,40.362,-79.879
+PA,Philadelphia,19103,2000 Market St.,Suite 610,40.040,-75.201
+PA,Philadelphia,19106,"US Custom House, 200 Chestnut Street",Suite 600,40.048,-75.180
+PA,Philadelphia,19120,"One & Olney Shopping Center, 5675 N. Front St.",Suite 180,40.052,-75.159
+PA,Philadelphia,19138,7174 Ogontz Ave.,,40.070,-75.194
+PA,Philadelphia,19152,8572 Bustleton Ave.,,40.076,-75.239
+PA,Pittsburgh,15203,2637 E. Carson St.,,40.509,-80.125
+PA,Pittsburgh,15219,"Grant Building, 310 Grant St.",Suite 2415,40.552,-80.126
+PA,Scranton,18503,226 Wyoming Ave.,,41.442,-75.670
+PA,Sharon,16146,33 Chestnut Ave.,,41.252,-80.519
+PA,Wilkes-Barre,18702,7 North Wilkes-Barre Boulevard,Suite 406,41.299,-75.948
+PA,Wormleysburg,17043,730 N. Front St.,,40.267,-76.911
+RI,Cranston,02920,1000 Chapel View Blvd.,Suite 290,41.847,-71.496
+RI,Pawtucket,02860,1070 Main St.,Suite 300,41.894,-71.421
+RI,Providence,02903,170 Westminster St.,Suite 200,41.857,-71.489
+SC,Aiken,29801,1930 University Pky.,Suite 1600,33.674,-81.808
+SC,Anderson,29625,303 W. Beltline Blvd.,,34.613,-82.827
+SC,Clinton,29325,100 Plaza Circle,Suite A1,34.565,-81.964
+SC,Columbia,29201,1225 Lady St.,Suite 200,34.133,-81.062
+SC,Columbia,29201,1901 Main St.,Suite 1425,34.133,-81.062
+SC,Columbia,29201,508 Hampton St.,Suite 202,34.133,-81.062
+SC,Florence,29501,1831 W. Evans St.,Suite 300,34.273,-79.912
+SC,Florence,29501,"McMillan Federal Building, 401 W. Evans St.",Suite 111,34.273,-79.912
+SC,Gaffney,29340,"Cherokee Admin. Building, 110 Railroad Ave.",,35.105,-81.749
+SC,Greenville,29601,104 S. Main St.,Suite 803,34.880,-82.422
+SC,Greenville,29601,130 S. Main St.,7th Floor,34.880,-82.422
+SC,Kingstree,29556,130 W. Main St.,,33.743,-79.936
+SC,Myrtle Beach,29577,2411 N. Oak St.,Suite 405,33.743,-78.974
+SC,North Charleston,29406,2500 City Hall Ln.,3rd Floor Suite,32.984,-80.291
+SC,Pendleton,29670,124 Exchange St.,Suite A,34.700,-82.812
+SC,Rock Hill,29730,235 E. Main St.,Suite 100,34.970,-81.162
+SC,Rock Hill,29730,454 South Anderson Rd.,Suite 302 B,34.970,-81.162
+SC,Santee,29142,176 Brooks Blvd.,,33.522,-80.611
+SC,West Columbia,29169,1700 Sunset Blvd. (US 378),Suite 1,34.022,-81.148
+SD,Aberdeen,57401,320 S. 1st St.,Suite 101,45.567,-98.660
+SD,Aberdeen,57401,514 S. Main St.,Suite 100,45.567,-98.660
+SD,Pierre,57501,111 W. Capitol Ave.,Suite 210,44.750,-100.507
+SD,Rapid City,57701,1313 W. Main St.,,44.199,-103.253
+SD,Rapid City,57701,246 Founders Park Dr.,Suite 102,44.199,-103.253
+SD,Sioux Falls,57104,320 N. Main Ave.,Suite A,43.651,-96.786
+SD,Sioux Falls,57108,5015 S. Bur Oak Place,,43.615,-96.787
+TN,Athens,37303,6 E. Madison Ave.,,35.552,-84.824
+TN,Blountville,37617,"Tri-Cities Regional Airport, 2525 Highway 75",Suite 101,36.594,-82.457
+TN,Chattanooga,37402,10 West M. L. King Blvd,6th Floor,35.072,-85.321
+TN,Chattanooga,37402,900 Georgia Ave.,Suite 126,35.072,-85.321
+TN,Chattanooga,37402,"Joel E. Soloman Federal Building, 900 Georgia Ave.",#260,35.072,-85.321
+TN,Cleveland,37311,301 Keith St.,Suite 212,35.195,-84.974
+TN,Columbia,38401,711 N. Garden St.,,35.818,-87.216
+TN,Jackson,38301,117 North Liberty Street,,35.692,-89.062
+TN,Jackson,38305,111 Murray Guard Dr.,Suite D,35.795,-88.968
+TN,Kingsport,37660,205 Revere St.,,36.594,-82.654
+TN,Knoxville,37902,"Howard H. Baker, Jr., U.S. Courthouse, 800 Market St.",#112,35.970,-83.926
+TN,Memphis,38103,"Clifford Davis-Odell Horton Federal Building, 167 N. Main St.",#1068,35.181,-90.070
+TN,Memphis,38103,"The Clifford Davis/Odell Horton Federal Building, 167 N. Main St.",Suite 369,35.181,-90.070
+TN,Memphis,38119,5900 Poplar Ave.,Suite 202,35.108,-89.895
+TN,Morristown,37813,1609 Walters State CC Dr.,Suite 4,36.237,-83.382
+TN,Murfreesboro,37130,305 W. Main St.,,36.512,-86.874
+TN,Nashville,37203,3322 W. End Ave.,#120,36.190,-86.822
+TN,Nashville,37219,605 Church St.,,36.173,-86.872
+TN,Oak Ridge,37830,200 Administration Rd.,Suite 100,36.059,-84.429
+TN,Winchester,37398,"Federal Building, 200 S. Jefferson St.",Suite 311,35.286,-86.346
+TX,Abilene,79602,500 Chestnut St.,Suite 819,32.448,-99.749
+TX,Alice,78332,500 E. Main,,27.890,-98.234
+TX,Amarillo,79101,620 S. Taylor St.,Suite 200,35.228,-101.856
+TX,Austin,78701,1005 Congress Ave.,Suite 925,30.514,-97.822
+TX,Austin,78701,300 E. 8th St.,Suite 763,30.514,-97.822
+TX,Austin,78701,300 E 8th,Suite 961,30.514,-97.822
+TX,Austin,78701,"Chase Tower, 221 W. Sixth St.",Suite 1530,30.514,-97.822
+TX,Austin,78728,14205 Burnet Rd,Suite 230,30.477,-97.732
+TX,Beaumont,77701,505 Orleans St.,Suite 103,30.094,-94.137
+TX,Benavides,78341,131 W. Main St.,,27.600,-98.414
+TX,Brenham,77833,2000 S. Market St.,Suite 303,30.342,-96.552
+TX,Brownwood,76801,"Brownwood City Hall, 501 Center Ave.",,31.998,-99.171
+TX,Bryan,77802,3000 Briarcrest Dr.,Suite 406,30.691,-96.367
+TX,Corpus Christi,78401,101 N. Shoreline Blvd.,Suite 300,27.804,-97.411
+TX,Dallas,75207,1825 Market Center Blvd.,Suite 440,32.981,-96.929
+TX,Dallas,75208,"JP Morgan Chase Building, 1881 Sylvan Ave.",Suite 108,32.777,-96.856
+TX,Dallas,75219,"Lee Park Tower II, 3626 N. Hall St.",Suite 410,32.823,-96.854
+TX,Dallas,75244,5001 Spring Valley Rd.,Suite 1125 E,32.946,-96.855
+TX,Deer Park,77536,203 Ivy Ave.,Suite 600,29.709,-95.142
+TX,Del Rio,78840,1104 West 10th,,29.617,-101.036
+TX,Eagle Pass,78852,100 S. Monroe St.,,28.774,-100.512
+TX,Falfurrias,78355,217 E. Miller St.,Suite 200,27.289,-98.156
+TX,Fort Stockton,79735,"Pecos County Courthouse, 103 West Callaghan",First Floor,30.954,-102.907
+TX,Fort Worth,76107,1701 River Run Rd.,Suite 407,32.806,-97.462
+TX,Fort Worth,76112,6707 Brentwood Stair Rd.,Suite 200,32.778,-97.245
+TX,Harlingen,78550,222 E. Van Buren,Suite 404,26.281,-97.793
+TX,Houston,77002,"The Mickey Leland Federal Building, 1919 Smith St.",Suite 9047,29.783,-95.425
+TX,Houston,77007,5300 Memorial Dr.,Suite 980,29.880,-95.644
+TX,Houston,77020,4300 Lyons Ave.,,29.793,-95.351
+TX,Houston,77054,3003 South Loop West,Suite 460,29.796,-95.436
+TX,Huntsville,77340,1300 11th St.,Suite 400,30.752,-95.738
+TX,Irving,75063,9901 E. Valley Ranch Pkwy.,Suite 2060,32.948,-97.019
+TX,Katy,77449,"Katy Commerce Center, 1773 Westborough Dr.",Suite 223,29.879,-95.775
+TX,Lake Dallas,75065,2000 S. Stemmons Fwy.,Suite 200,33.143,-97.058
+TX,Laredo,78041,602 E. Calton Rd.,Suite 2,27.615,-99.520
+TX,Lubbock,79401,1312 Texas Ave.,Suite 219,33.655,-101.963
+TX,Lubbock,79401,"Wells Fargo Center, 1500 Broadway",Suite 1230,33.655,-101.963
+TX,Lufkin,75901,300 E. Shepherd,Suite 210,31.453,-94.751
+TX,Marshall,75670,102 W. Houston St.,,32.674,-94.507
+TX,McAllen,78501,200 S. 10th St.,Suite 1603,26.299,-98.278
+TX,Midland,79705,6 Desta Dr.,Suite 2000,32.079,-102.134
+TX,Mission,78572,117 E. Tom Landry,,27.615,-99.288
+TX,Nacogdoches,75961,101 W. Main,Suite 160,31.704,-94.710
+TX,Odessa,79761,"City Hall, 411 W. 8th St.",5th Floor,31.880,-102.387
+TX,Orange,77630,1201 Childers Rd.,,30.130,-93.979
+TX,Round Rock,78664,1717 North IH 35,Suite 303,30.562,-97.688
+TX,San Angelo,76903,33 E. Twohig,Suite 307,31.532,-100.478
+TX,San Antonio,78205,217 W. Travis St.,,29.435,-98.497
+TX,San Antonio,78205,600 Navarro,Suite 210,29.435,-98.497
+TX,San Antonio,78205,615 E. Houston St.,Suite 563,29.435,-98.497
+TX,San Antonio,78230,9901 Ih-10w,Suite 950,29.579,-98.594
+TX,San Benito,78586,1390 W. Expressway 83,,26.188,-97.804
+TX,San Diego,78384,404 S. Mier St.,,27.768,-98.254
+TX,Sherman,75090,100 W. Houston St.,1st Floor,33.700,-96.643
+TX,Socorro,79927,124 S. Horizon,,31.689,-106.306
+TX,Temple,76502,6544 S General Bruce Dr,B,31.203,-97.500
+TX,Texarkana,75599,"Texarkana College – Health Science Building, 2600 N. Robison Rd.",Suite 190,33.447,-94.077
+TX,Tomball,77375,"Rosewood Professional Building, 990 Village Sq.",Suite B,30.163,-95.643
+TX,Tyler,75701,1121 ESE Loop 323,Suite 206,32.344,-95.341
+TX,Tyler,75702,305 S. Broadway,Suite 501,32.387,-95.349
+TX,Tyler,75702,"Regions Bank Building, 100 E. Ferguson St.",Suite 1004,32.387,-95.349
+TX,Victoria,77904,5606 N. Navarro St.,Suite 203,28.986,-97.086
+TX,Waco,76701,400 Austin Ave.,Suite 302,31.561,-97.149
+TX,Weslaco,78596,301 W. Railroad,,26.27,-98.021
+TX,Wichita Falls,76308,2525 Kell Blvd.,Suite 406,33.889,-98.561
+TX,Woodville,75979,"Tyler County Courthouse, 100 W. Bluff Dr.",,30.848,-94.547
+UT,Brigham City,84302,6 N. Main St.,,41.624,-112.096
+UT,Ogden,84401,"Federal Building, 324 25th St.",1017,41.296,-112.101
+UT,Ogden,84401,"James V. Hansen Federal Building, 324 25th St.",Suite 1410,41.296,-112.101
+UT,Salt Lake City,84111,420 East South Temple,#390,40.775,-111.923
+UT,St. George,84770,285 W. Tabernacle,Suite 200,37.449,-113.641
+UT,Vernal,84078,152 E. 100 N.,,40.577,-109.722
+VA,Abingdon,24210,121 Russell Rd.,Suite 2,36.835,-82.166
+VA,Abingdon,24210,323 W. Main St.,,36.835,-82.166
+VA,Big Stone Gap,24219,"Federal Courthouse, 322 E. Wood Ave",,36.906,-82.847
+VA,Christiansburg,24073,17 W. Main St.,,37.203,-80.525
+VA,Danville,24541,308 Craghead Street,Suite 102A,36.685,-79.617
+VA,Manassas,20110,9408 Grant Avenue,Suite 202,38.782,-77.537
+VA,Mechanicsville,23111,6501 Mechanicsville Tpke,Suite 102,37.660,-77.399
+VA,Newport News,23607,2600 Washington Ave.,Suite 1010,37.077,-76.488
+VA,Norfolk,23510,101 W. Main St.,Suite 7771,36.914,-76.305
+VA,Richmond,23219,919 E. Main St.,Suite 630,37.645,-77.550
+VA,Richmond,23219,919 E. Main St.,Suite 970,37.645,-77.550
+VA,Richmond,23220,110 North Robinson Street,Suite 401,37.619,-77.626
+VA,Roanoke,24011,110 Kirk Ave. SW,,37.272,-79.944
+VA,Roanoke,24011,611 S. Jefferson St.,Suite 5B,37.272,-79.944
+VA,Stafford,22556,95 Dunn Dr.,Suite 201,38.526,-77.574
+VA,Suffolk,23434,131 N. Saratoga Street,Suite B,36.852,-76.712
+VA,Vienna,22182,8000 Towers Crescent Dr.,Suite 200,38.976,-77.315
+VA,Virginia Beach,23462,222 Central Park Ave.,Suite 120,36.889,-76.193
+VA,Woodbridge,22192,2241-D Tacketts Mill Drive,,38.717,-77.378
+VT,Burlington,05401,128 Lakeside Ave.,Suite 235,44.528,-73.272
+VT,Burlington,05401,1 Church St.,3rd Floor,44.528,-73.272
+VT,Montpelier,05602,87 State St.,Room 338,44.342,-72.678
+VT,St. Johnsbury,05819,357 Western Ave.,Suite 1B,44.504,-72.086
+WA,Bellingham,98225,119 N. Commercial St.,Suite 275,48.795,-122.578
+WA,Bothell,98021,"Canyon Park Business Center, Bldg E, 22121 17th Ave SE",Suite 220,47.812,-122.265
+WA,Bremerton,98337,345 6th St.,Suite 500,47.577,-122.647
+WA,Chehalis,98532,"Chehalis City Hall Building, 350 N. Market Blvd.",,46.715,-123.296
+WA,Colville,99114,555 S. Main St.,,48.992,-118.050
+WA,Everett,98201,2930 Wetmore Ave.,Suite 9B,48.027,-122.243
+WA,Everett,98201,2930 Wetmore Ave.,Suite 9D,48.027,-122.243
+WA,Everett,98201,"Wall Street Building, 2930 Wetmore Ave.",Suite 9F,48.027,-122.243
+WA,Lacey,98503,"Lacey City Hall, 420 College St. SE",Suite 3000,47.053,-122.895
+WA,Mount Vernon,98273,204 W. Montgomery St.,,48.498,-122.482
+WA,Port Angeles,98362,332 E. 5th St.,,48.135,-123.525
+WA,Renton,98057,"Evergreen Building, 15 S. Grady Way",Suite 101,47.499,-122.246
+WA,Richland,99352,825 Jadwin Ave.,Suite 206,46.284,-119.360
+WA,Richland,99354,3100 George Washington Way,#130,46.349,-119.337
+WA,Seattle,98101,1904 3rd Ave.,Suite 510,47.701,-122.507
+WA,Seattle,98174,915 Second Ave.,Suite 3206,47.676,-122.338
+WA,Seattle,98174,"Jackson Federal Building, 915 2nd Ave.",#2988,47.676,-122.338
+WA,Spokane,99201,10 North Post Street,Suite 625,47.673,-117.461
+WA,Spokane,99201,10 N. Post St.,Suite 600,47.673,-117.461
+WA,Spokane,99201,920 W. Riverside Ave.,Suite 697,47.673,-117.461
+WA,Tacoma,98402,950 Pacific Ave.,Suite 1230,47.297,-122.506
+WA,Tacoma,98402,950 Pacific Ave.,Suite 615,47.297,-122.506
+WA,Tacoma,98402,950 Pacific Ave.,Suite 650,47.297,-122.506
+WA,Vancouver,98661,1313 Officers Row,,45.678,-122.682
+WA,Vancouver,98661,"O.O. Howard House (Officers' Row), 750 Anderson St.",Suite B,45.678,-122.682
+WA,Vancouver,98661,"The Marshall House, 1323 Officer's Row",,45.678,-122.682
+WA,Walla Walla,99362,26 E. Main St.,Suite 2,46.191,-118.580
+WA,Yakima,98901,402 E Yakima Ave,Suite 1000,46.755,-120.514
+WA,Yakima,98901,402 E. Yakima Ave.,Suite 420,46.755,-120.514
+WI,Beloit,53511,100 State St.,3rd floor,43.135,-89.431
+WI,Eau Claire,54701,131 S. Barstow St.,Suite 301,44.820,-91.662
+WI,Eau Claire,54701,500 South Barstow St.,Suite LL2,44.820,-91.662
+WI,Fond du Lac,54935,24 W. Pioneer Rd.,,43.820,-88.507
+WI,Green Bay,54303,1039 W. Mason,Suite 119,44.568,-89.656
+WI,Hayward,54843,15569 Railroad St.,Suite 302,46.138,-91.626
+WI,La Crosse,54601,205 5th Avenue South,Room 216,43.863,-91.268
+WI,La Crosse,54601,205 Fifth Ave. S.,Suite 400,43.863,-91.268
+WI,Madison,53703,10 E. Doty St.,Suite 405,43.266,-89.826
+WI,Madison,53703,30 W. Mifflin St.,Suite 700,43.266,-89.826
+WI,Madison,53718,5315 Wall St.,Suite 110,43.211,-89.542
+WI,Milwaukee,53202,316 N. Milwaukee St.,Suite 406,43.187,-89.513
+WI,Milwaukee,53202,517 E. Wisconsin Ave.,Suite 408,43.187,-89.513
+WI,Milwaukee,53203,633 W. Wisconsin Ave.,Suite 1920,43.180,-89.387
+WI,Oshkosh,54901,219 Washington Ave.,Suite 100,44.109,-88.563
+WI,Somers,53171,"Somers Village/Town Hall, 7511 12th Street",,42.639,-87.909
+WI,Wausau,54401,2100 Stewart Ave.,Suite 250 B,45.046,-89.799
+WI,Wausau,54403,208 Grand Ave.,,45.104,-89.655
+WV,Beckley,25801,220 N. Kanawha St.,Suite 1,37.933,-81.371
+WV,Charleston,25301,405 Capitol St.,Suite 514,38.364,-81.708
+WV,Charleston,25301,500 Virgina Street East,Suite 950,38.364,-81.708
+WV,Fairmont,26554,230 Adams St.,,39.563,-80.243
+WV,Martinsburg,25401,300 Foxcroft Ave.,Suite 101,39.494,-78.024
+WV,Martinsburg,25401,300 Foxcroft Ave.,Suite 202A,39.494,-78.024
+WV,Martinsburg,25404,261 Aikens Ctr.,Suite 305,39.543,-77.969
+WV,Morgantown,26501,48 Donley St.,Suite 504,39.719,-80.108
+WV,Morgantown,26505,709 Beechurst Ave.,Suite 29,39.678,-79.990
+WV,Parkersburg,26101,408 Market St.,,39.324,-81.635
+WV,Wheeling,26003,"Horne Building, 1100 Main St.",Suite 101,40.176,-80.736
+WY,Casper,82601,100 E. B St.,Suite 2004,43.112,-106.460
+WY,Casper,82601,"Dick Cheney Federal Building, 100 E. B St.",Suite 3201,43.112,-106.460
+WY,Casper,82602,100 East B Street,Room 4003,42.889,-106.357
+WY,Cheyenne,82001,2120 Capitol Ave.,Suite 2013,41.162,-104.871
+WY,Cheyenne,82001,2120 Capitol Ave.,Suite 8005,41.162,-104.871
+WY,Cody,82414,1285 Sheridan Ave.,Suite 210,44.870,-109.710
+WY,Gillette,82716,300 S. Gillette Ave.,Suite 2001,44.899,-105.794
+WY,Jackson,83002,"P.O. Box 12470, 1110 Maple Way",Suite G,43.593,-110.819
+WY,Riverton,82501,324 E. Washington Ave.,,43.302,-108.677
+WY,Rock Springs,82901,"Commerce Bank, 1575 Dewar Drive",Suite 218,41.698,-109.333
+WY,Sheridan,82801,45 E. Loucks St.,Suite 300 F,44.966,-107.177

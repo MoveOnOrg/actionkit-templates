@@ -1,4 +1,8 @@
+import csv
 import datetime
+import os
+import random
+
 from django.utils import timezone
 from django.utils import dateformat
 
@@ -43,36 +47,57 @@ cohosts = signups([
         ])
 cohosts.role = 'host'
 
-def event_create(days_from_now=7, localtime=15, id=343775):
+# 1000 based off of congressional district offices.  lat/lng are not accurate, but nearby
+places_list = list(csv.DictReader(open(os.path.dirname(__file__) + '/event_places.csv')))
+
+def event_create(days_from_now=7, localtime=15, id=343775,
+                 max_attendees=100, attendee_count=20,
+                 place_index=None):
     today = datetime.date.today()
     event_day = datetime.datetime.combine(today + datetime.timedelta(days=days_from_now),
                                           datetime.time(localtime))
     event_day = event_day.replace(tzinfo=timezone.FixedOffset(-300))
     event_day_utc = event_day.astimezone(timezone.utc)
+    place_loc = {}
+    if place_index:
+        place_loc = places_list[place_index]
+    else:
+        place_loc = places_list[random.randint(0, len(places_list) -1)]
 
-    return {
+    evt_obj = {
         "id": 343775,
         "obj": {
             "starts_at": event_day,
+            "starts_at_utc": event_day_utc,
             "hosts": user({
                 "first_name": "Host First",
                 "last_name": "Host-Last",
                 "phone": "123-456-7890",
-            })
+            }),
         },
+        "starts_at": event_day,
+        "starts_at_utc": event_day_utc,
+        "max_attendees": max_attendees,
+        "attendee_count": attendee_count,
+
+        # all overridden by place_loc
+        "address1": "1 Main St.",
+        "city": "Somewhere, OH 44444",
         # "longitude": 
         # "latitude": 
-        "address1": "1 Main St.",
-        "city_etc": "Somewhere, OH 44444",
+
         "directions": "Directions.",
         "get_starts_at_display": dateformat.format(event_day, 'l, M j, g:i A'),  # "Monday, Jan 1, 1:00 AM",
-        "is_in_past": bool(days_from_now > 0),
+        "is_in_past": bool(days_from_now < 0),
+        "is_full": bool(attendee_count >= max_attendees),
         "is_open_for_signup": bool(days_from_now > 0),
         "note_to_attendees": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "title": "Event Title",
         "venue": "Venue Name",
     }
+    evt_obj.update(place_loc)
+    return evt_obj
 
 contexts = {
     'event_host_tools.html': {
@@ -210,8 +235,104 @@ contexts = {
         },
         "page": {
             "title": "Page Title",
+            "name": "fakecampaign-with-future-events_attend"
+        },
+        "campaign": {
+            "local_title": "Campaign Title",
+            "local_name": "fakecampaign-with-future-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-future-events"
+        },
+    },
+    'event_search_with_results': {
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "campaign": {
+            "local_title": "Campaign Title",
+            "local_name": "fakecampaign-with-future-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-future-events"
+        },
+        "events": [event_create(1, 10, 343123),
+                   event_create(1, 15, 343124),
+                   event_create(4, 15, 343125),
+               ],
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title",
+            "name": "fakecampaign-with-future-events_attend"
+        },
+    },
+    'event_search_noevents.html': {
+        # this doesn't render as expected - come back to this later
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title - Campaign with no events",
+            "name": "fakecampaign-with-no-events_attend"
+        },
+        "campaign": {
+            "local_title": "Campaign Title - no events",
+            "local_name": "fakecampaign-with-no-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-no-events"
+        },
+    },
+    'event_search_with_no_results': {
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "campaign": {
+            "local_title": "Campaign Title - no events",
+            "local_name": "fakecampaign-with-no-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-no-events"
+        },
+        "events": [],
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title",
+            "name": "fakecampaign-with-no-events_attend"
+        },
+    },
+    'event_search_past_events_only.html': {
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text.</p>",
+        },
+        "page": {
+            "title": "Page Title - Past Events Only",
             "name": "fakecampaign_attend"
         },
+        "events": [event_create(-1, 10, 343123),
+                   event_create(-7, 15, 343124),
+                   event_create(-5, 15, 343125),
+               ],
         "campaign": {
             "local_title": "Campaign Title",
             "local_name": "fakecampaign_attend",
@@ -223,7 +344,7 @@ contexts = {
             "name": "resistandwin-volunteerday"
         },
     },
-    'event_search_with_results': {
+    'event_search_with_results_past_events_only': {
         "filename": "event_search.html",
         "args": {
             "page": "event_search"
@@ -238,9 +359,9 @@ contexts = {
             "show_public_description": True,
             "name": "resistandwin-volunteerday"
         },
-        "events": [event_create(1, 10, 343123),
-                   event_create(1, 15, 343124),
-                   event_create(4, 15, 343125),
+        "events": [event_create(-1, 10, 343123),
+                   event_create(-7, 15, 343124),
+                   event_create(-5, 15, 343125),
                ],
         "form": {
             "search_page_text": "<p>Search page text.</p>",
