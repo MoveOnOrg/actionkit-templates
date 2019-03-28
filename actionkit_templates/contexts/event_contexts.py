@@ -54,6 +54,7 @@ def event_create(days_from_now=7, localtime=15, id=343775,
                  max_attendees=100, attendee_count=20,
                  place_index=None):
     today = datetime.date.today()
+    # localtime = hour of the day
     event_day = datetime.datetime.combine(today + datetime.timedelta(days=days_from_now),
                                           datetime.time(localtime))
     event_day = event_day.replace(tzinfo=timezone.FixedOffset(-300))
@@ -231,22 +232,27 @@ contexts = {
     'event_search.html': {
         "filename": "event_search.html",
         "form": {
-            "search_page_text": "<p>Search page text.</p>",
+            "search_page_text": "<p>Search page text for campaign with only future events.</p>",
         },
         "page": {
-            "title": "Page Title",
+            "title": "Page Title - Future Events Only",
             "name": "fakecampaign-with-future-events_attend"
         },
         "campaign": {
-            "local_title": "Campaign Title",
+            "local_title": "Campaign Title for campaign with only future events",
             "local_name": "fakecampaign-with-future-events_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
             "show_zip": True,
             "show_public_description": True,
-            "name": "fakecampaign-with-future-events"
+            "name": "fakecampaign-with-future-events",
+            "public_create_page": True
         },
+        "events": [event_create(1, 10, 343123),
+                   event_create(1, 15, 343124),
+                   event_create(4, 15, 343125),
+               ],
     },
     'event_search_with_results': {
         "filename": "event_search.html",
@@ -254,21 +260,22 @@ contexts = {
             "page": "event_search"
         },
         "campaign": {
-            "local_title": "Campaign Title",
+            "local_title": "Campaign Title for campaign with only future events",
             "local_name": "fakecampaign-with-future-events_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
             "show_zip": True,
             "show_public_description": True,
-            "name": "fakecampaign-with-future-events"
+            "name": "fakecampaign-with-future-events", 
+            "public_create_page": True
         },
         "events": [event_create(1, 10, 343123),
                    event_create(1, 15, 343124),
                    event_create(4, 15, 343125),
                ],
         "form": {
-            "search_page_text": "<p>Search page text.</p>",
+            "search_page_text": "<p>Search page text for campaign with only future events.</p>",
         },
         "page": {
             "title": "Page Title",
@@ -279,7 +286,7 @@ contexts = {
         # this doesn't render as expected - come back to this later
         "filename": "event_search.html",
         "form": {
-            "search_page_text": "<p>Search page text.</p>",
+            "search_page_text": "<p>Search page text for campaign with no events.</p>",
         },
         "page": {
             "title": "Page Title - Campaign with no events",
@@ -287,13 +294,14 @@ contexts = {
         },
         "campaign": {
             "local_title": "Campaign Title - no events",
-            "local_name": "fakecampaign-with-no-events_attend",
+            "local_name": "fakecampaign-with-no-events",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
             "show_zip": True,
             "show_public_description": True,
-            "name": "fakecampaign-with-no-events"
+            "name": "fakecampaign-with-no-events",
+            "public_create_page": True
         },
     },
     'event_search_with_no_results': {
@@ -303,7 +311,7 @@ contexts = {
         },
         "campaign": {
             "local_title": "Campaign Title - no events",
-            "local_name": "fakecampaign-with-no-events_attend",
+            "local_name": "fakecampaign-with-no-events",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
@@ -313,7 +321,7 @@ contexts = {
         },
         "events": [],
         "form": {
-            "search_page_text": "<p>Search page text.</p>",
+            "search_page_text": "<p>Search page text for campaign with no events.</p>",
         },
         "page": {
             "title": "Page Title",
@@ -323,11 +331,11 @@ contexts = {
     'event_search_past_events_only.html': {
         "filename": "event_search.html",
         "form": {
-            "search_page_text": "<p>Search page text.</p>",
+            "search_page_text": "<p>Search page text for campaign with only past events.</p>",
         },
         "page": {
             "title": "Page Title - Past Events Only",
-            "name": "fakecampaign_attend"
+            "name": "fakecampaign-past-events-only_attend"
         },
         "events": [event_create(-1, 10, 343123),
                    event_create(-7, 15, 343124),
@@ -335,7 +343,7 @@ contexts = {
                ],
         "campaign": {
             "local_title": "Campaign Title",
-            "local_name": "fakecampaign_attend",
+            "local_name": "fakecampaign-past-events-only_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
@@ -351,7 +359,7 @@ contexts = {
         },
         "campaign": {
             "local_title": "Campaign Title",
-            "local_name": "fakecampaign_attend",
+            "local_name": "fakecampaign-past-events-only_attend",
             "use_title": True,
             "show_venue": True,
             "show_title": True,
@@ -364,7 +372,64 @@ contexts = {
                    event_create(-5, 15, 343125),
                ],
         "form": {
-            "search_page_text": "<p>Search page text.</p>",
+            "search_page_text": "<p>Search page text for campaign with only past events.</p>",
+        },
+        "page": {
+            "title": "Page Title",
+            "name": "fakecampaign_attend"
+        },
+    },
+    'event_search_past_and_future_events.html': {
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with past and future events.</p>",
+        },
+        "page": {
+            "title": "Page Title - Past and Future Events",
+            "name": "fakecampaign-past-and_future_events_attend"
+        },
+        "events": [event_create(-1, 10, 343123),
+                   event_create(-7, 15, 343124),
+                   event_create(-5, 15, 343125),
+                   event_create(1, 15, 343126),
+                   event_create(3, 15, 343127),
+                   event_create(3, 10, 343128)
+               ],
+        "campaign": {
+            "local_title": "Campaign Title - Campaign with past and future events",
+            "local_name": "fakecampaign-past-and_future_events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "resistandwin-volunteerday"
+        },
+    },
+    'event_search_with_results_past_and_future_events': {
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "campaign": {
+            "local_title": "Campaign Title",
+            "local_name": "fakecampaign-past-and_future_events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "resistandwin-volunteerday"
+        },
+        "events": [event_create(-1, 10, 343123),
+                   event_create(-7, 15, 343124),
+                   event_create(-5, 15, 343125),
+                   event_create(1, 15, 343126),
+                   event_create(3, 15, 343127),
+                   event_create(3, 10, 343128)
+               ],
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with only past events.</p>",
         },
         "page": {
             "title": "Page Title",
