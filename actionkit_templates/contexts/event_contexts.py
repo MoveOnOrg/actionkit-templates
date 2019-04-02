@@ -165,8 +165,8 @@ contexts = {
             "show_zip": True,
             "show_public_description": True,
         },
-        "event": event_create(),
-        "events": [event_create()],
+        "event": event_create(place_index=20),
+        "events": [event_create(place_index=20)],
         "form": {
             "signup_text": "<p>Signup text.</p>",
             "ground_rules": "<p>Please follow these guidelines to ensure a good event:</p><ul><li>By RSVPing you agree to act non-violently and in accordance with the law.</li><li>Contact your host through this site to confirm the details of the event before you go.</li><li>Check this website if you have any questions.</li><li>If you've agreed to help the host, contact them through this site to coordinate with them.</li><li><em>Important Legal Note</em>:&nbsp;MoveOn.org Civic Action is an advocacy organization exempt from federal taxation under section 501(c)(4) of the Internal Revenue Code.</li></ul> "
