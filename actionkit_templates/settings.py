@@ -157,6 +157,9 @@ def event_api_moveon_fake(request):
     cxt = _get_context_data(request, 'events', 'WILL_USE_REFERER_HEADER', use_referer=True)
     events = cxt.get('events', [])
     search_results = [mo_event_data(evt) for evt in events]
+    # FIXME: sleep 300ms to avoid race conditions in the test env b/c the API returns so quickly that
+    # it returns before the map renders, and then no points get rendered into the map. This happens when 
+    # we call it 1000 times in the mueller test case.
     return HttpResponse(json.dumps({'events': search_results}), content_type='application/json')
 
 #############
