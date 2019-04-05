@@ -4,6 +4,7 @@ import re
 from django.conf import settings
 from django.template import loader, Library, Node
 from django.template.defaultfilters import safe
+from django.utils import timezone
 from django.utils.html import strip_tags
 
 """
@@ -48,7 +49,7 @@ class SetVarNode(Node):
     var_name = "now"
     
     def render(self, context):
-        context[self.var_name] = datetime.datetime.now()
+        context[self.var_name] = datetime.datetime.now(timezone.utc)
         return ''
 
 
