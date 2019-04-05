@@ -11,7 +11,7 @@
     <div>
     <h3>{{section}}</h3>
     <ul>
-      {% for p,v in pages.items %}
+      {% for p,v in pages %}
        {% if p %}
         <li><a href="/{{section}}/{{p}}">{{p}}</a>
           {% if v.page.title %}
