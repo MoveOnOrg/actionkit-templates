@@ -158,6 +158,18 @@ def add(value, arg):
     return float(value) + float(arg)
 
 @register.filter
+def date_add(value, arg):
+    # https://roboticdogs.actionkit.com/docs/manual/guide/customtags.html#date-add
+    kwargs = {}
+    args = arg.split(' ')
+    for a in args:
+        if '=' in a:
+            k, val = a.split('=')
+            if k and val:
+                kwargs[k] = int(val)
+    return value + datetime.timedelta(**kwargs)
+
+@register.filter
 def multiply(value, arg):
     return float(value) * float(arg)
 
