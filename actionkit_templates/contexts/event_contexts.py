@@ -69,6 +69,8 @@ def event_create(days_from_now=7, localtime=15, id=343775,
         set days_from_now=0 and minutes_from_now to an integer, and
         choose a place_index with an MST locale.
     """
+    now_utc = datetime.datetime.now(timezone.utc)
+
     if days_from_now == 0 and minutes_from_now:
         event_day = datetime.datetime.now(MST()) + datetime.timedelta(minutes = minutes_from_now)
         event_day = event_day.replace(tzinfo=timezone.FixedOffset(-420)) # matches MST
@@ -108,7 +110,7 @@ def event_create(days_from_now=7, localtime=15, id=343775,
 
         "directions": "Directions.",
         "get_starts_at_display": dateformat.format(event_day, 'l, M j, g:i A'),  # "Monday, Jan 1, 1:00 AM",
-        "is_in_past": bool(days_from_now < 0),
+        "is_in_past": bool(now_utc > event_day_utc),
         "is_full": bool(attendee_count >= max_attendees),
         "is_open_for_signup": bool(days_from_now > 0 and not attendee_count >= max_attendees),
         "is_inactive": is_inactive,
