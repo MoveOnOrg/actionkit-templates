@@ -101,15 +101,19 @@ def _get_context_data(request, name, page, use_referer=False):
         context_data = contexts.get(name, {}).get(page, {})
     cxt.update(context_data)
     if not context_data:
+        sections = []
+        for section, pages in sorted(contexts.items()):
+            sections.append([section, sorted(pages.items())])
         cxt.update({
             'page': {'title':'Homepage'},
-            'pagelinks': sorted(contexts.items())})
+            'pagelinks': sections})
     if request.GET.get('user_id'):
         #for debugging tests based on user.id % 2, e.g.
         context_data.setdefault('user', {}).update({'id': int(request.GET.get('user_id'))})
     args = cxt.get('args', {}).copy()
     args.update(request.GET.dict())
     cxt['args'] = args
+    cxt['request'] = request
     return cxt
 
 #############
