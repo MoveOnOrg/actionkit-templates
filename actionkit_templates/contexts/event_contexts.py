@@ -633,6 +633,31 @@ contexts = {
             "name": "fakecampaign_attend"
         },
     },
+    'event_search_with_api_broken': {
+        "500_API": True,
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "campaign": {
+            "local_title": "Campaign Title - no events",
+            "local_name": "fakecampaign-with-no-events",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-no-events"
+        },
+        "events": [],
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with no events.</p>",
+        },
+        "page": {
+            "title": "Event Search - API Failure (should gracefully degrade)",
+            "name": "fakecampaign-with-no-events_attend"
+        },
+    },
     'event_search_with_mueller_load.html': {
         "filename": "event_search.html",
         "form": {
@@ -676,6 +701,50 @@ contexts = {
         "page": {
             "title": "Event Search - Mueller Load of Events all in Past",
             "name": "fakecampaign_attend"
+        },
+    },
+    'event_search_with_mueller_load_slow_api.html': {
+        "SLOW_API": True,
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with 1000 events.</p>",
+        },
+        "page": {
+            "title": "Event Search - A Mueller Load of Events (slow api race test)",
+            "name": "fakecampaign-mueller_load_events_attend"
+        },
+        "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
+        "campaign": {
+            "local_title": "Campaign Title - Campaign with a Mueller Load of events",
+            "local_name": "fakecampaign-mueller_load_events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-mueller_load_events"
+        },
+    },
+    'event_search_with_mueller_load_slow_search.html': {
+        "SLOW_SEARCH": True,
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with 1000 events.</p>",
+        },
+        "page": {
+            "title": "Event Search - A Mueller Load of Events (slow search race test)",
+            "name": "fakecampaign-mueller_load_events_attend"
+        },
+        "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
+        "campaign": {
+            "local_title": "Campaign Title - Campaign with a Mueller Load of events",
+            "local_name": "fakecampaign-mueller_load_events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-mueller_load_events"
         },
     },
     'event_create.html': {

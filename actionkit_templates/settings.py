@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import time
 import urlparse
 
 from django.conf.urls import url
@@ -151,7 +152,9 @@ def event_search_results(request, page):
     # special query results context:
     all = cxt['args'].get('all') == '1'
     cxt.update({'all': all})
-
+    if cxt.get('SLOW_SEARCH'):
+        # This allows us to test for race conditions
+        time.sleep(2)
     search_results = render_to_string('event_search_results.html', cxt)
     return HttpResponse('actionkit.forms.onEventSearchResults({})'
                         .format(json.dumps(search_results)))
@@ -160,6 +163,11 @@ def event_api_moveon_fake(request):
     """Fake representation of MoveOn events api"""
     cxt = _get_context_data(request, 'events', 'WILL_USE_REFERER_HEADER', use_referer=True)
     events = cxt.get('events', [])
+    if cxt.get('SLOW_API'):
+        # This allows us to test for race conditions
+        time.sleep(2)
+    if cxt.get('500_API'):
+        raise Exception('Cause failure to allow graceful degradation')
     search_results = [mo_event_data(evt) for evt in events]
     return HttpResponse(json.dumps({'events': search_results}), content_type='application/json')
 
