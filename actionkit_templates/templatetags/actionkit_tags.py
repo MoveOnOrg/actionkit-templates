@@ -114,13 +114,34 @@ def _add_domain(path):
 
 @register.tag
 def load_css(parser, token):
+    """
+    Return an absolute <link rel=stylesheet> 
+    for each non-empty line in the block, e.g.
+
+    {% load_css %}
+    https://example.com/mystyles.css
+    //example.com/morestyles.css
+    /static/yetmorestyles.css
+    https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700
+
+    {% end %}
+
+    should render
+
+    <link rel="stylesheet" href="https://example.com/mystyles.css" />
+    <link rel="stylesheet" href="https://mydomain.actionkit.com/example.com/morestyles.css" />
+    <link rel="stylesheet" href="https:///static/yetmorestyles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" />
+    """
+    
     nodelist = parser.parse(('end',))
     parser.delete_first_token()
     source = nodelist[0].s
-    parsed = ''.join(["""
-    <link rel="stylesheet" href="%s" />
-    """ % _add_domain(s)
-        for s in re.findall(r'/[^\s]+css', source)])
+    parsed = ''.join([
+        """<link rel="stylesheet" href="%s" />""" % _add_domain(s.strip())
+        for s in source.strip().splitlines()
+        if s and s.strip()
+    ])
     return StaticContentNode(parsed)
 
 @register.tag
