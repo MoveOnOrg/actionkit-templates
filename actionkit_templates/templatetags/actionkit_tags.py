@@ -277,7 +277,11 @@ def referring_akid(value, akid):
 
 @register.filter
 def collapse_spaces(value):
-    return re.sub(r'\s+', ' ', value)
+    """
+    First replace multiple newlines with a single newline, 
+    then collapse multiple non-newline whitespace characters
+    """
+    return re.sub(r'(?![\r\n])\s+', ' ', re.sub(r'[\r\n]+', '\n', value))
 
 @register.filter
 def matches(value, regex):
