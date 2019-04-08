@@ -172,12 +172,20 @@ def nth(value, arg):
     return value[arg]
 
 @register.filter
+def get(value, arg):
+    return value[arg]
+
+@register.filter
 def mod(value, arg):
     return int(value or 0) % int(arg)
 
 @register.filter
 def add(value, arg):
     return float(value) + float(arg)
+
+@register.filter
+def subtract(value, arg):
+    return float(value) - float(arg)
 
 @register.filter
 def date_add(value, arg):
