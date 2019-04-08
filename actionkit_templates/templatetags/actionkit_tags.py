@@ -204,6 +204,18 @@ def multiply(value, arg):
     return float(value) * float(arg)
 
 @register.simple_tag
+def authnet_js_libs():
+    return ''
+
+@register.simple_tag
+def braintree_js_libs():
+    return ''
+
+@register.simple_tag
+def client_domain_url(path):
+    return '%s/%s' % (client_domain(), path)
+
+@register.simple_tag
 def divide(top, bottom, precision):
     return '%.{}f'.format(precision) % (top/bottom)
 
