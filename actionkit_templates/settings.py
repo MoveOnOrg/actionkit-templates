@@ -63,6 +63,9 @@ TEMPLATES = [
   },
 ]
 
+from django.template.base import add_to_builtins
+add_to_builtins('actionkit_templates.templatetags.actionkit_tags')
+
 MIDDLEWARE_CLASSES = []
 
 def _get_context_data(request, name, page, use_referer=False):
