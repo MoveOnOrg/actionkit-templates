@@ -55,14 +55,19 @@ class SetVarNode(Node):
 
 @register.tag
 def once(parser, token):
-    "undocumented AK tag that creates a {{now}} variable"
+    """
+    Use the tag once to wrap template code that will only be rendered one time.
+    """
     nodelist = parser.parse(('endonce',))
     parser.delete_first_token()
     return OnceNode(nodelist)
 
 @register.tag
 def right_now(parser, token):
-    "undocumented AK tag that creates a {{now}} variable"
+    """
+    The tag right_now creates the variable {{ now }} 
+    that contains the Python datetime object datetime.now().
+    """
     return SetVarNode()
 
 @register.simple_tag
