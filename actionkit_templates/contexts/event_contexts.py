@@ -61,7 +61,8 @@ def event_create(days_from_now=7, localtime=15, id=343775,
                  max_attendees=100, attendee_count=20,
                  is_inactive=False,
                  is_awaiting_confirmation=False,
-                 place_index=None, minutes_from_now=False):
+                 place_index=None, minutes_from_now=False,
+                 attend_page=False):
 
     """ 
         localtime = hour of the day
@@ -86,9 +87,9 @@ def event_create(days_from_now=7, localtime=15, id=343775,
     else:
         place_loc = places_list[random.randint(0, len(places_list) -1)]
 
-    evt_obj = {
-        "id": id,
-        "obj": {
+    objobj = None
+    if not attend_page:
+        objobj = {
             "starts_at": event_day,
             "starts_at_utc": event_day_utc,
             "hosts": user({
@@ -96,7 +97,10 @@ def event_create(days_from_now=7, localtime=15, id=343775,
                 "last_name": "Host-Last",
                 "phone": "123-456-7890",
             }),
-        },
+        }
+    evt_obj = {
+        "id": id,
+        "obj": objobj,
         "starts_at": event_day,
         "starts_at_utc": event_day_utc,
         "max_attendees": max_attendees,
@@ -172,7 +176,7 @@ contexts = {
             "show_zip": True,
             "show_public_description": True,
         },
-        "event": event_create(place_index=20),
+        "event": event_create(place_index=20, attend_page=True),
         "events": [event_create(place_index=20)],
         "form": {
             "signup_text": "<p>Signup text.</p>",
@@ -229,7 +233,7 @@ contexts = {
             "show_zip": True,
             "show_public_description": True,
         },
-        "event": event_create(place_index=20, is_inactive=True),
+        "event": event_create(place_index=20, is_inactive=True, attend_page=True),
         "events": [event_create(place_index=20, is_inactive=True)],
         "form": {
             "signup_text": "<p>Signup text.</p>",
@@ -286,7 +290,7 @@ contexts = {
             "show_zip": True,
             "show_public_description": True,
         },
-        "event": event_create(-2, place_index=20),
+        "event": event_create(-2, place_index=20, attend_page=True),
         "events": [event_create(-2, place_index=20)],
         "form": {
             "signup_text": "<p>Signup text for past event.</p>",
@@ -343,7 +347,7 @@ contexts = {
             "show_zip": True,
             "show_public_description": True,
         },
-        "event": event_create(0, 15, place_index=20, minutes_from_now=-20),
+        "event": event_create(0, 15, place_index=20, minutes_from_now=-20, attend_page=True),
         "events": [event_create(0, 15, place_index=20, minutes_from_now=-20)],
         "form": {
             "signup_text": "<p>Signup text for past event.</p>",
