@@ -1,3 +1,5 @@
+from django.utils.html import format_html
+
 survey = {
     'filename': 'survey.html',
     'page': {
@@ -10,6 +12,7 @@ survey = {
             'all': [
                 {'question_label': "How do you feel?",
                  'question_html': '<input type="text" name="action_howfeel" />',
+                 'input_html': format_html('<input type="text" name="action_howfeel" />'),
              },
             ],
         },
@@ -18,22 +21,27 @@ survey = {
         {'field_name': 'name',
          'label_text': 'Name',
          'input_tag': '<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />',
-             },
+         'input_html': format_html('<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />'),
+        },
         {'field_name': 'email',
          'label_text': 'Email Address',
          'input_tag': '<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />',
-     },
+         'input_html': format_html('<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />'),
+        },
         {'field_name': 'address1',
          'label_text': 'Street Address',
          'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
-     },
+         'input_html': format_html('<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />'),
+        },
         {'field_name': 'zip',
          'label_text': 'ZIP Code',
          'input_tag': '<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />',
-     },
+         'input_html': format_html('<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />'),
+        },
         {'field_name': 'phone',
          'label_text': 'Phone',
          'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
+         'input_html': format_html('<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />'),
      },
     ],
 }
