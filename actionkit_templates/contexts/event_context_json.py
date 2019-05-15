@@ -85,6 +85,7 @@ event_json = {
         "region"
     ],
     "form_name": "act",
+    "move_fields": [],
     "lang_id": 100,
     "name": "Stephen King",
     "page": {

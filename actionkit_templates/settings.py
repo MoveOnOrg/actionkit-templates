@@ -7,7 +7,7 @@ import urlparse
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template.loader import render_to_string
 
 from moveon_fakeapi import mo_event_data
@@ -147,6 +147,11 @@ def login_context(request):
 def user_password_forgot(request):
     return HttpResponse('unimplemented')
 
+def logout(request):
+    if request.GET.get('next'):
+        return redirect(request.GET.get('next'))
+    return redirect('/logout.html')
+
 def event_search_results(request, page):
     cxt = _get_context_data(request, 'events', 'WILL_USE_REFERER_HEADER', use_referer=True)
     # special query results context:
@@ -179,6 +184,7 @@ ROOT_URLCONF = 'actionkit_templates.settings'
 
 urlpatterns = [
     url(r'^context', login_context),
+    url(r'^logout', logout, name="logout"),
     url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
     url(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results'),

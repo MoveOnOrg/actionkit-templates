@@ -15,6 +15,9 @@ contexts = {
                 'thank_you_text': '<p>Thanks!</p>'
             }
         },
+        'logout.html': {
+            'filename': 'logout.html'
+        }
     }
     #kinda silly, but avoid appending to the bottom because then git merge conflicts arise more often.
     #let's do the context values in alphabetical order.
