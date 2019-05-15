@@ -91,6 +91,15 @@ def url(lookup):
 def load_ak_context(somestring, *args, **kwargs):
     return ''
 
+@register.simple_tag
+def braintree_js_libs():
+    return '''
+    <script src="https://js.braintreegateway.com/web/3.27.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.27.0/js/hosted-fields.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.27.0/js/data-collector.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.27.0/js/us-bank-account.min.js"></script>
+    '''
+
 @register.tag
 def field_order(parser, token):
     "takes a set of fields and sets the order for the form"
@@ -134,6 +143,7 @@ def load_js(parser, token):
         for s in re.findall(r'[^\s]+js', source)])
     return StaticContentNode(parsed)
 
+
 @register.filter
 def split(value, arg=' '):
     return value.split(arg)
@@ -157,6 +167,10 @@ def mod(value, arg):
 @register.filter
 def add(value, arg):
     return float(value) + float(arg)
+
+@register.filter
+def subtract(value, arg):
+    return float(value) - float(arg)
 
 @register.filter
 def date_add(value, arg):
@@ -257,6 +271,13 @@ def referring_akid(value, akid):
 @register.filter
 def collapse_spaces(value):
     return re.sub(r'\s+', ' ', value)
+
+@register.filter
+def get(value, key):
+    if hasattr(value, 'get'):
+        return value.get(key)
+    elif hasattr(value, key):
+        return getattr(value, key)
 
 @register.filter
 def matches(value, regex):
