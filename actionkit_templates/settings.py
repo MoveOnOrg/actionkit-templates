@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect
 from django.template.loader import render_to_string
-
+from django.template.base import add_to_builtins
 from moveon_fakeapi import mo_event_data
 
 """
@@ -64,6 +64,8 @@ TEMPLATES = [
 ]
 
 MIDDLEWARE_CLASSES = []
+
+add_to_builtins('actionkit_templates.templatetags.actionkit_tags')
 
 def _get_context_data(request, name, page, use_referer=False):
     from actionkit_templates.contexts.page_contexts import contexts
@@ -191,4 +193,6 @@ urlpatterns = [
     url(r'^fake/api/events', event_api_moveon_fake, name="event_api_moveon_fake"),
 ]
 if STATIC_ROOT:
-    urlpatterns = urlpatterns + static(STATIC_URL, document_root=STATIC_ROOT)
+    urlpatterns = (urlpatterns
+                   + static(STATIC_URL, document_root=STATIC_ROOT)
+                   + static('/resources/', document_root=os.path.join(STATIC_ROOT, './resources')))

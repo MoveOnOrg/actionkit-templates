@@ -3,6 +3,7 @@ import os
 import re
 from django.conf import settings
 from django.template import loader, Library, Node
+from django.template.base import Context
 from django.template.defaultfilters import safe
 from django.utils import timezone
 from django.utils.html import strip_tags
@@ -55,7 +56,7 @@ class SetVarNode(Node):
 
 @register.tag
 def once(parser, token):
-    "undocumented AK tag that creates a {{now}} variable"
+    "undocumented AK tag that only creates the content once per full-page"
     nodelist = parser.parse(('endonce',))
     parser.delete_first_token()
     return OnceNode(nodelist)
@@ -98,6 +99,13 @@ def braintree_js_libs():
     <script src="https://js.braintreegateway.com/web/3.27.0/js/hosted-fields.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.27.0/js/data-collector.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.27.0/js/us-bank-account.min.js"></script>
+    '''
+
+@register.simple_tag
+def authnet_js_libs():
+    return '''
+    <script type="text/javascript" src="https://jstest.authorize.net/v1/Accept.js" charset="utf-8">
+    </script>
     '''
 
 @register.tag
