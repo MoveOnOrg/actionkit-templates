@@ -459,6 +459,7 @@ contexts = {
         "args": {
             "page": "event_search"
         },
+        "hide_map": False,
         "campaign": {
             "local_title": "Campaign Title for campaign with only future events",
             "local_name": "fakecampaign-with-future-events_attend",
@@ -466,6 +467,7 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_zip": True,
+            "show_address1": True, # to support map in Original template
             "show_public_description": True,
             "name": "fakecampaign-with-future-events", 
             "public_create_page": True
