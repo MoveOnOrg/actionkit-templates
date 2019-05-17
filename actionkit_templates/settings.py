@@ -6,10 +6,11 @@ import urlparse
 
 from django.conf.urls import url
 from django.conf.urls.static import static
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response, redirect
 from django.template.loader import render_to_string
 from django.template.base import add_to_builtins
+from django.views.static import serve
 from moveon_fakeapi import mo_event_data
 
 """
@@ -178,6 +179,23 @@ def event_api_moveon_fake(request):
     search_results = [mo_event_data(evt) for evt in events]
     return HttpResponse(json.dumps({'events': search_results}), content_type='application/json')
 
+def proxy_serve(request, path, document_root=None, show_indexes=False):
+    try_proxy = True
+    try:
+        import requests
+    except ImportError:
+        try_proxy = False
+    try:
+        return serve(request, path, document_root, show_indexes)
+    except Http404:
+        if try_proxy:
+            prefix = request.path.split('/')[1]
+            content = requests.get('https://roboticdogs.actionkit.com/{}/{}'.format(prefix, path), verify=False)
+            if content.status_code == 200:
+                return HttpResponse(content.content, content_type=content.headers['Content-Type'])
+    raise Http404
+
+
 #############
 # URLS
 #############
@@ -195,6 +213,10 @@ urlpatterns = [
 if STATIC_ROOT:
     urlpatterns = (urlpatterns
                    + static(STATIC_URL, document_root=STATIC_ROOT)
-                   + static('/resources/', document_root=os.path.join(STATIC_ROOT, './resources'))
-                   + static('/media/', document_root=os.path.join(STATIC_ROOT, './media'))
+                   + static('/resources/',
+                            view=proxy_serve,
+                            document_root=os.path.join(STATIC_ROOT, './resources'))
+                   + static('/media/',
+                            view=proxy_serve,
+                            document_root=os.path.join(STATIC_ROOT, './media'))
     )

@@ -19,6 +19,7 @@ setup(
     },
     install_requires=[
         'Django==1.8',
+        'requests==2.22.0',
     ],
     keywords = "python actionkit",
     classifiers=['Development Status :: 4 - Beta', 'Environment :: Console', 'Intended Audience :: Developers', 'Natural Language :: English', 'Operating System :: OS Independent', 'Topic :: Internet :: WWW/HTTP'],
