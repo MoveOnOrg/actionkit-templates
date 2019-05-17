@@ -195,4 +195,6 @@ urlpatterns = [
 if STATIC_ROOT:
     urlpatterns = (urlpatterns
                    + static(STATIC_URL, document_root=STATIC_ROOT)
-                   + static('/resources/', document_root=os.path.join(STATIC_ROOT, './resources')))
+                   + static('/resources/', document_root=os.path.join(STATIC_ROOT, './resources'))
+                   + static('/media/', document_root=os.path.join(STATIC_ROOT, './media'))
+    )

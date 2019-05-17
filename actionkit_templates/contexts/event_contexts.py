@@ -5,6 +5,7 @@ import random
 
 from django.utils import timezone
 from django.utils import dateformat
+from django.utils.html import format_html
 
 class signups(list):
     pass
@@ -189,22 +190,27 @@ contexts = {
             {'field_name': 'name',
              'label_text': 'Name',
              'input_tag': '<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />',
+             'input_html': format_html('<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />'),
          },
             {'field_name': 'email',
              'label_text': 'Email Address',
              'input_tag': '<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />',
+             'input_html': format_html('<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />'),
          },
             {'field_name': 'address1',
              'label_text': 'Street Address',
              'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
+             'input_html': format_html('<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />'),
          },
             {'field_name': 'zip',
              'label_text': 'ZIP Code',
              'input_tag': '<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />',
+             'input_html': format_html('<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />'),
          },
             {'field_name': 'phone',
              'label_text': 'Phone',
              'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
+             'input_html': format_html('<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />'),
          },
         ],
         "page": {
@@ -467,9 +473,39 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_zip": True,
-            "show_address1": True, # to support map in Original template
             "show_public_description": True,
             "name": "fakecampaign-with-future-events", 
+            "public_create_page": True
+        },
+        "events": [event_create(1, 10, 343123),
+                   event_create(1, 15, 343124),
+                   event_create(4, 15, 343125),
+                   event_create(0, 15, 343130, place_index=57, minutes_from_now=5)
+               ],
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with only future events.</p>",
+        },
+        "page": {
+            "title": "Event Search - with results",
+            "name": "fakecampaign-with-future-events_attend"
+        },
+    },
+    'event_search_with_results_showaddress1': {
+        "filename": "event_search.html",
+        "args": {
+            "page": "event_search"
+        },
+        "hide_map": False,
+        "campaign": {
+            "local_title": "Campaign Title for campaign with only future events show_address1",
+            "local_name": "fakecampaign-with-future-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_zip": True,
+            "show_address1": True, # to support map in Original template
+            "show_public_description": True,
+            "name": "fakecampaign-with-future-events",
             "public_create_page": True
         },
         "events": [event_create(1, 10, 343123),
