@@ -56,14 +56,19 @@ class SetVarNode(Node):
 
 @register.tag
 def once(parser, token):
-    "undocumented AK tag that only creates the content once per full-page"
+    """
+    Use the tag once to wrap template code that will only be rendered one time.
+    """
     nodelist = parser.parse(('endonce',))
     parser.delete_first_token()
     return OnceNode(nodelist)
 
 @register.tag
 def right_now(parser, token):
-    "undocumented AK tag that creates a {{now}} variable"
+    """
+    The tag right_now creates the variable {{ now }}
+    that contains the Python datetime object datetime.now().
+    """
     return SetVarNode()
 
 @register.simple_tag
@@ -131,13 +136,34 @@ def _add_domain(path):
 
 @register.tag
 def load_css(parser, token):
+    """
+    Return an absolute <link rel=stylesheet>
+    for each non-empty line in the block, e.g.
+
+    {% load_css %}
+    https://example.com/mystyles.css
+    //example.com/morestyles.css
+    /static/yetmorestyles.css
+    https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700
+
+    {% end %}
+
+    should render
+
+    <link rel="stylesheet" href="https://example.com/mystyles.css" />
+    <link rel="stylesheet" href="https://mydomain.actionkit.com/example.com/morestyles.css" />
+    <link rel="stylesheet" href="https:///static/yetmorestyles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" />
+    """
+    
     nodelist = parser.parse(('end',))
     parser.delete_first_token()
     source = nodelist[0].s
-    parsed = ''.join(["""
-    <link rel="stylesheet" href="%s" />
-    """ % _add_domain(s)
-        for s in re.findall(r'/[^\s]+css', source)])
+    parsed = ''.join([
+        """<link rel="stylesheet" href="%s" />""" % _add_domain(s.strip())
+        for s in source.strip().splitlines()
+        if s and s.strip()
+    ])
     return StaticContentNode(parsed)
 
 @register.tag
@@ -169,6 +195,10 @@ def nth(value, arg):
     return value[arg]
 
 @register.filter
+def get(value, arg):
+    return value[arg]
+
+@register.filter
 def mod(value, arg):
     return int(value or 0) % int(arg)
 
@@ -195,6 +225,18 @@ def date_add(value, arg):
 @register.filter
 def multiply(value, arg):
     return float(value) * float(arg)
+
+@register.simple_tag
+def authnet_js_libs():
+    return ''
+
+@register.simple_tag
+def braintree_js_libs():
+    return ''
+
+@register.simple_tag
+def client_domain_url(path):
+    return '%s/%s' % (client_domain(), path)
 
 @register.simple_tag
 def divide(top, bottom, precision):
@@ -278,7 +320,11 @@ def referring_akid(value, akid):
 
 @register.filter
 def collapse_spaces(value):
-    return re.sub(r'\s+', ' ', value)
+    """
+    First replace multiple newlines with a single newline,
+    then collapse multiple non-newline whitespace characters
+    """
+    return re.sub(r'(?![\r\n])\s+', ' ', re.sub(r'[\r\n]+', '\n', value))
 
 @register.filter
 def get(value, key):
