@@ -7,7 +7,7 @@ setup(
     author='Schuyler Duveen',
     author_email='opensource@moveon.org',
     packages=find_packages(),
-    package_data={'actionkit_templates': ['templates/*.html']},
+    package_data={'actionkit_templates': ['templates/*.html', 'contexts/*.csv']},
     url='https://github.com/MoveOnOrg/actionkit-templates',
     license='MIT',
     description="actionkit-templates allows you to view your ActionKit templates locally testing different configurations for each page type.  It also documents by-code many context variables for each page",
