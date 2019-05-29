@@ -18,7 +18,7 @@ setup(
         ],
     },
     install_requires=[
-        'Django==1.8',
+        'Django==2.2.1',
         'requests==2.22.0',
     ],
     keywords = "python actionkit",
