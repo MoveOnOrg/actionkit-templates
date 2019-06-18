@@ -126,12 +126,6 @@ def include_tmpl(field, *args):
     return safe('%s' % field)
 
 @register.simple_tag
-def url(lookup):
-    #override default django url
-    return '/someurl/blah/%s' % lookup
-
-
-@register.simple_tag
 def load_ak_context(somestring, *args, **kwargs):
     return ''
 
