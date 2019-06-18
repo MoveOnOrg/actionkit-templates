@@ -258,6 +258,10 @@ def date_add(value, arg):
 def multiply(value, arg):
     return float(value) * float(arg)
 
+@register.filter
+def percent_of(value, arg):
+    return '%.1f' % (100 * (float(value) / float(arg)))
+
 @register.simple_tag
 def authnet_js_libs():
     return ''
