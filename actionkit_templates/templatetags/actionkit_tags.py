@@ -276,7 +276,7 @@ def client_domain_url(path):
 
 @register.simple_tag
 def divide(top, bottom, precision):
-    return '%.{}f'.format(precision) % (top/bottom)
+    return '%.{}f'.format(precision) % (float(top)/float(bottom))
 
 @register.filter
 def escapeall(value):
