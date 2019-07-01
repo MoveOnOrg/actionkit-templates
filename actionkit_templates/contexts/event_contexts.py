@@ -519,9 +519,9 @@ contexts = {
             "name": "fakecampaign-with-future-events",
             "public_create_page": True
         },
-        "events": [event_create(1, 10, 343123),
-                   event_create(1, 15, 343124),
-                   event_create(4, 15, 343125),
+        "events": [event_create(1, 10, 343123, place_index=126),
+                   event_create(1, 15, 343124, place_index=43),
+                   event_create(4, 15, 343125, place_index=645),
                    event_create(0, 15, 343130, place_index=57, minutes_from_now=5)
                ],
         "form": {
