@@ -227,7 +227,7 @@ contexts = {
     'donate.14': compose([base('1 product'), products]),
     'donate.15': compose([base('2 products'), products2]),
     'donate.16': compose([base('weekly recurring checkbox', layout="make_weekly_checkbox")]),
-
+    'donate.17': compose([base('quickpay)]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
