@@ -76,7 +76,12 @@ def _get_context_data(request, name, page, use_referer=False):
         port = hostport[1]
 
     if use_referer:
-        paths = urlparse.urlparse(request.META['HTTP_REFERER']).path.split('/')
+        paths = None
+        if request.META.get('HTTP_REFERER'):
+            paths = urlparse.urlparse(request.META['HTTP_REFERER']).path.split('/')
+        elif request.GET.get('path'):
+            # e.g. &path=/events/event_search.html
+            paths = request.GET['path'].split('/')
         if paths and len(paths) > 1:
             name = paths[1]
             if len(paths) > 2:

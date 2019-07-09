@@ -15,4 +15,5 @@ def mo_event_data(event):
             'tzo': timezone_offset,
             'f': full,
             # this is not a perfect reflection of the api, but we are lazy so we send titles with the main batch
+            'city_etc': '{}, {}'.format(event['city'], event['state']),
             'title': event['title']}

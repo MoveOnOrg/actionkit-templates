@@ -2,7 +2,7 @@ import datetime
 import os
 import re
 from django.conf import settings
-from django.template import loader, Library, Node
+from django.template import loader, Library, Node, Variable
 from django.template.base import Context
 from django.template.defaultfilters import safe
 from django.utils import timezone
@@ -54,6 +54,24 @@ class SetVarNode(Node):
         return ''
 
 
+class RecordNode(Node):
+    def __init__(self, item, ary, reportresult=False):
+        self.item = Variable(item)
+        self.ary = Variable(ary)
+        self.reportresult = reportresult
+
+    def render(self, context):
+        ary = self.ary.resolve(context)
+        if not ary:
+            context[self.ary] = []
+        item = self.item.resolve(context)
+        if self.reportresult:
+            found = re.search(r'\d+', str(item))
+            if found:
+                item = int(found.group(1))
+        ary.append(item)
+        return ''
+
 @register.tag
 def once(parser, token):
     """
@@ -62,6 +80,26 @@ def once(parser, token):
     nodelist = parser.parse(('endonce',))
     parser.delete_first_token()
     return OnceNode(nodelist)
+
+@register.tag
+def record(parser, token):
+    """
+    https://roboticdogs.actionkit.com/docs/manual/guide/customtags.html#record
+    {% with "[ ]"|load_json as user_quiz_score %}
+      {% for field in action.custom_fields %}
+        {% if field == [THE RIGHT ANSWER FOR THIS QUESTION] %}
+          {% record 1 in user_quiz_score %}
+        {% endif %}
+      {% endfor %}
+      Your final score was {{ user_quiz_score|length }}
+    {% endwith %}
+    """
+    reportresult = False
+    tokens = token.split_contents()
+    if tokens[0] == 'reportresult':
+        reportresult = True
+        tokens = tokens[1:]
+    return RecordNode(item=tokens[1], ary=tokens[3], reportresult=reportresult)
 
 @register.tag
 def right_now(parser, token):
@@ -86,12 +124,6 @@ def client_domain():
 @register.simple_tag
 def include_tmpl(field, *args):
     return safe('%s' % field)
-
-@register.simple_tag
-def url(lookup):
-    #override default django url
-    return '/someurl/blah/%s' % lookup
-
 
 @register.simple_tag
 def load_ak_context(somestring, *args, **kwargs):
@@ -226,6 +258,10 @@ def date_add(value, arg):
 def multiply(value, arg):
     return float(value) * float(arg)
 
+@register.filter
+def percent_of(value, arg):
+    return '%.1f' % (100 * (float(value) / float(arg)))
+
 @register.simple_tag
 def authnet_js_libs():
     return ''
@@ -240,7 +276,7 @@ def client_domain_url(path):
 
 @register.simple_tag
 def divide(top, bottom, precision):
-    return '%.{}f'.format(precision) % (top/bottom)
+    return '%.{}f'.format(precision) % (float(top)/float(bottom))
 
 @register.filter
 def escapeall(value):
@@ -271,7 +307,13 @@ def tag_links(value, arg):
 @register.filter
 def commify(value):
     "add commas for numeric values"
-    return format(int(value), ",d")
+    try:
+        return format(int(value), ",d")
+    except ValueError:
+        if isinstance(value, float):
+            value = str(value)
+        parts = value.split('.')
+        return '{}.{}'.format(format(int(parts[0]), ",d"), parts[1])
 
 @register.filter
 def concatenate(value, arg):

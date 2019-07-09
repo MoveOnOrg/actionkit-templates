@@ -87,6 +87,9 @@ def event_create(days_from_now=7, localtime=15, id=343775,
         place_loc = places_list[place_index]
     else:
         place_loc = places_list[random.randint(0, len(places_list) -1)]
+    place_loc['city_etc_no_postal'] = '{}, {}'.format(place_loc['city'], place_loc['state'])
+    place_loc['city_etc'] = '{} {}'.format(place_loc['city_etc_no_postal'], place_loc['zip'])
+
 
     objobj = None
     if not attend_page:
@@ -174,6 +177,7 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_address1": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
         },
@@ -236,6 +240,7 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_address1": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
         },
@@ -293,6 +298,7 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_address1": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
         },
@@ -350,6 +356,7 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_address1": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
         },
@@ -408,6 +415,7 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_address1": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
         },
@@ -449,6 +457,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-with-future-events",
@@ -472,6 +481,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-with-future-events", 
@@ -502,15 +512,16 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_address1": True, # to support map in Original template
             "show_public_description": True,
             "name": "fakecampaign-with-future-events",
             "public_create_page": True
         },
-        "events": [event_create(1, 10, 343123),
-                   event_create(1, 15, 343124),
-                   event_create(4, 15, 343125),
+        "events": [event_create(1, 10, 343123, place_index=126),
+                   event_create(1, 15, 343124, place_index=43),
+                   event_create(4, 15, 343125, place_index=645),
                    event_create(0, 15, 343130, place_index=57, minutes_from_now=5)
                ],
         "form": {
@@ -537,6 +548,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-with-no-events",
@@ -554,6 +566,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-with-no-events"
@@ -587,6 +600,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "resistandwin-volunteerday"
@@ -603,6 +617,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "resistandwin-volunteerday"
@@ -642,6 +657,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "resistandwin-volunteerday"
@@ -658,6 +674,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "resistandwin-volunteerday"
@@ -689,6 +706,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-with-no-events"
@@ -718,6 +736,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-mueller_load_events"
@@ -734,6 +753,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-mueller_load_events"
@@ -764,6 +784,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-mueller_load_events"
@@ -786,6 +807,7 @@ contexts = {
             "use_title": True,
             "show_venue": True,
             "show_title": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True,
             "name": "fakecampaign-mueller_load_events"
@@ -807,6 +829,7 @@ contexts = {
             "show_venue": True,
             "show_title": True,
             "show_address1": True,
+            "show_city": True,
             "show_zip": True,
             "show_public_description": True
         },
