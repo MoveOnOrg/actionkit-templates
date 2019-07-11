@@ -238,6 +238,7 @@ contexts = {
     'donate.16': compose([base('weekly recurring checkbox', layout="make_weekly_checkbox")]),
     'donate.17': compose([base('quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.18': compose([base('quickpay', entity='pac', layout='donate_5050_split donation_no_checkbox'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
+    'donate.22': compose([base('quickpay with monthly recurring'), user(0, payment_hash=True)], ["donation_type","payment_hash"]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
