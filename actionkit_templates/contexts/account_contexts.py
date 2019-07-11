@@ -1,5 +1,8 @@
 import datetime
 
+class subscriptions(list):
+    list_ids = [1, 3, 7]
+
 contexts = {
     'signup.html': {
         'filename': 'signup.html',
@@ -97,6 +100,11 @@ contexts = {
             'city': 'New York',
             'state': 'NY',
             'phone': '555-123-1233',
+            'subscriptions': subscriptions([
+                {'list_id': 1},
+                {'list_id': 3},
+                {'list_id': 7},
+            ])
         },
         'active': [{ #profile
             'id': '123',

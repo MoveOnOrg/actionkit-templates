@@ -126,12 +126,6 @@ def include_tmpl(field, *args):
     return safe('%s' % field)
 
 @register.simple_tag
-def url(lookup):
-    #override default django url
-    return '/someurl/blah/%s' % lookup
-
-
-@register.simple_tag
 def load_ak_context(somestring, *args, **kwargs):
     return ''
 
@@ -264,6 +258,10 @@ def date_add(value, arg):
 def multiply(value, arg):
     return float(value) * float(arg)
 
+@register.filter
+def percent_of(value, arg):
+    return '%.1f' % (100 * (float(value) / float(arg)))
+
 @register.simple_tag
 def authnet_js_libs():
     return ''
@@ -278,7 +276,7 @@ def client_domain_url(path):
 
 @register.simple_tag
 def divide(top, bottom, precision):
-    return '%.{}f'.format(precision) % (top/bottom)
+    return '%.{}f'.format(precision) % (float(top)/float(bottom))
 
 @register.filter
 def escapeall(value):
