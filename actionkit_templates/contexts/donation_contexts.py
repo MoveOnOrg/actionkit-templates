@@ -46,7 +46,7 @@ args_permutations = {
     "suggested_ask": ["20", "666"],
 }
 
-def user(recurring=1, payment_hash=False, customfields=None):
+def user(recurring=1, payment_hash=False, customfields=None, active={'count': 1}):
     if not customfields:
         customfields = {
             "occupation": "witch",
@@ -74,9 +74,7 @@ def user(recurring=1, payment_hash=False, customfields=None):
         })
     userbase['user'].update({
             'orderrecurring_set': {
-                'active': {
-                    'count': recurring,
-                },
+                'active': active,
                 'count': recurring
             }
         })
@@ -227,7 +225,8 @@ contexts = {
     'donate.14': compose([base('1 product'), products]),
     'donate.15': compose([base('2 products'), products2]),
     'donate.16': compose([base('weekly recurring checkbox', layout="make_weekly_checkbox")]),
-    'donate.17': compose([base('quickpay)]),
+    'donate.17': compose([base('quickpay recurring checkbox', entity='pac', layout="donate_5050_split"), user(0, payment_hash=True, active={}), candidates], ["payment_hash"], -1),
+    'donate.20': compose([base('quickpay', entity='pac', layout='weekly_only'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
