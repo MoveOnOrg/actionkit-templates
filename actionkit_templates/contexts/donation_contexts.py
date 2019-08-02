@@ -46,7 +46,7 @@ args_permutations = {
     "suggested_ask": ["20", "666"],
 }
 
-def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=False):
+def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=False, id=666):
     if not customfields:
         customfields = {
             "occupation": "witch",
@@ -54,8 +54,8 @@ def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=
         }
     userbase = {
         "user": {
-            "akid": 666,
-            "id": 666,
+            "akid": id,
+            "id": id,
             "name": "Morticia Addams",
             "first_name": "Morticia",
             "last_name": "Addams",
@@ -146,9 +146,10 @@ products2 = {
 
 
 
-def base(title='', entity='c4', layout='', filename="donate.html", fields={}):
+def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False):
     rv = {
         "filename": filename,
+        "show_paypal": show_paypal,
         "page": {
             "canonical_url": "https://example.actionkit.com/donate/give-me-the-money/",
             "type": "Donation",
@@ -162,7 +163,6 @@ def base(title='', entity='c4', layout='', filename="donate.html", fields={}):
             "name": "civ-donation",
             "id": 123,
             "currency_sym": "$",
-
         },
         "form": {
             "ask_text": "Contribute to Example.com (%s)" % title,
@@ -241,6 +241,7 @@ contexts = {
     'donate.19': compose([base('quickpay with weekly', entity='pac', layout="make_weekly_checkbox"), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.20': compose([base('quickpay', entity='pac', layout='weekly_only'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.22': compose([base('quickpay with monthly recurring'), user(0, payment_hash=True)], ["donation_type","payment_hash"]),
+    'donate.23': compose([base('civ', show_paypal=True), user(0, id=5079)]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
@@ -264,5 +265,4 @@ contexts = {
                                     ],
                                     'other_amount': 2.07
                                 })]),
-
 }
