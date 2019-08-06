@@ -227,9 +227,9 @@ contexts = {
     'donate.5': compose([base('other suggested_ask, single')], ["suggested_ask","donation_type"], -1),
     'donate.6': compose([base('suggested_ask, payment_hash'), user(0, payment_hash=True)], ["suggested_ask","payment_hash"]),
     'donate.7': compose([base('user'), user()]),
-    'donate.8': compose([base('pac', entity='pac')]),
+    'donate.8': compose([base('pac', entity='pac', show_paypal=True), user(id=507809)]),
     'donate.9': compose([base('candidate suggested', entity='pac', layout='donate_5050_split'), candidates], ["suggested_ask"], -1),
-    'donate.10': compose([base('two candidates suggested', entity='pac', layout='donate_5050_split'), candidates2], ["suggested_ask"], -1),
+    'donate.10': compose([base('two candidates suggested', entity='pac', layout='donate_5050_split'), user(id=507809), candidates2], ["suggested_ask"], -1),
     'donate.11': compose([base('two candidates suggested no 5050', entity='pac'), candidates2], ["suggested_ask"], -1),
     'donate.12': compose([base('candidate, quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.13': compose([base('two candidates quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates2], ["payment_hash"], -1),
@@ -265,4 +265,5 @@ contexts = {
                                     ],
                                     'other_amount': 2.07
                                 })]),
+    'donate.thanks.8': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
 }
