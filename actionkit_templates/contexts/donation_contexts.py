@@ -46,7 +46,7 @@ args_permutations = {
     "suggested_ask": ["20", "666"],
 }
 
-def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=False):
+def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=False, id=666):
     if not customfields:
         customfields = {
             "occupation": "witch",
@@ -54,8 +54,8 @@ def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=
         }
     userbase = {
         "user": {
-            "akid": 666,
-            "id": 666,
+            "akid": id,
+            "id": id,
             "name": "Morticia Addams",
             "first_name": "Morticia",
             "last_name": "Addams",
@@ -72,20 +72,20 @@ def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=
             'payment_hash': 'abc123abc123',
             'has_payment_token': True,
         })
-        if not previous_recurring:
-            userbase['user'].update({
-                    'orderrecurring_set': {
-                    }
-                })
-        else:
-            userbase['user'].update({
-                    'orderrecurring_set': {
-                        'active': {
-                            'count': recurring,
-                        },
-                        'count': recurring
-                    }
-                })
+    if not previous_recurring:
+        userbase['user'].update({
+                'orderrecurring_set': {
+                }
+            })
+    else:
+        userbase['user'].update({
+                'orderrecurring_set': {
+                    'active': {
+                        'count': recurring,
+                    },
+                    'count': recurring
+                }
+            })
     return userbase
 
 candidates = {
@@ -146,9 +146,10 @@ products2 = {
 
 
 
-def base(title='', entity='c4', layout='', filename="donate.html", fields={}):
+def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False):
     rv = {
         "filename": filename,
+        "show_paypal": show_paypal,
         "page": {
             "canonical_url": "https://example.actionkit.com/donate/give-me-the-money/",
             "type": "Donation",
@@ -162,7 +163,6 @@ def base(title='', entity='c4', layout='', filename="donate.html", fields={}):
             "name": "civ-donation",
             "id": 123,
             "currency_sym": "$",
-
         },
         "form": {
             "ask_text": "Contribute to Example.com (%s)" % title,
@@ -227,20 +227,21 @@ contexts = {
     'donate.5': compose([base('other suggested_ask, single')], ["suggested_ask","donation_type"], -1),
     'donate.6': compose([base('suggested_ask, payment_hash'), user(0, payment_hash=True)], ["suggested_ask","payment_hash"]),
     'donate.7': compose([base('user'), user()]),
-    'donate.8': compose([base('pac', entity='pac')]),
+    'donate.8': compose([base('pac', entity='pac', show_paypal=True), user(id=507809)]),
     'donate.9': compose([base('candidate suggested', entity='pac', layout='donate_5050_split'), candidates], ["suggested_ask"], -1),
-    'donate.10': compose([base('two candidates suggested', entity='pac', layout='donate_5050_split'), candidates2], ["suggested_ask"], -1),
+    'donate.10': compose([base('two candidates suggested', entity='pac', layout='donate_5050_split'), user(id=507809), candidates2], ["suggested_ask"], -1),
     'donate.11': compose([base('two candidates suggested no 5050', entity='pac'), candidates2], ["suggested_ask"], -1),
     'donate.12': compose([base('candidate, quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.13': compose([base('two candidates quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates2], ["payment_hash"], -1),
     'donate.14': compose([base('1 product'), products]),
     'donate.15': compose([base('2 products'), products2]),
     'donate.16': compose([base('weekly recurring checkbox', layout="make_weekly_checkbox")]),
-    'donate.17': compose([base('quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
+    'donate.17': compose([base('quickpay recurring checkbox', entity='pac', layout="donate_5050_split"), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
+    'donate.18': compose([base('quickpay', entity='pac', layout='donate_5050_split donation_no_checkbox'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.19': compose([base('quickpay with weekly', entity='pac', layout="make_weekly_checkbox"), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.20': compose([base('quickpay', entity='pac', layout='weekly_only'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
-    'donate.18': compose([base('quickpay', entity='pac', layout='donate_5050_split donation_no_checkbox'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.22': compose([base('quickpay with monthly recurring'), user(0, payment_hash=True)], ["donation_type","payment_hash"]),
+    'donate.23': compose([base('civ', show_paypal=True), user(0, id=5079)]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
@@ -264,5 +265,5 @@ contexts = {
                                     ],
                                     'other_amount': 2.07
                                 })]),
-
+    'donate.thanks.8': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
 }
