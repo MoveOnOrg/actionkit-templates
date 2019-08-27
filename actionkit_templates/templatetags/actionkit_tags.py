@@ -236,7 +236,9 @@ def mod(value, arg):
 
 @register.filter
 def add(value, arg):
-    return float(value) + float(arg)
+    value_mod = int(value) if int(float(value)) == float(value) else float(value)
+    arg_mod = int(arg) if int(float(arg)) == float(arg) else float(arg)
+    return value_mod + arg_mod
 
 @register.filter
 def subtract(value, arg):
@@ -256,7 +258,9 @@ def date_add(value, arg):
 
 @register.filter
 def multiply(value, arg):
-    return float(value) * float(arg)
+    value_mod = int(value) if int(float(value)) == float(value) else float(value)
+    arg_mod = int(arg) if int(float(arg)) == float(arg) else float(arg)
+    return value_mod * arg_mod
 
 @register.filter
 def percent_of(value, arg):
