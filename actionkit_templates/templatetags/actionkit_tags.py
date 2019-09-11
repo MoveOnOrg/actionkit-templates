@@ -48,7 +48,7 @@ class OnceNode(Node):
 
 class SetVarNode(Node):
     var_name = "now"
-    
+
     def render(self, context):
         context[self.var_name] = datetime.datetime.now(timezone.utc)
         return ''
@@ -187,7 +187,7 @@ def load_css(parser, token):
     <link rel="stylesheet" href="https:///static/yetmorestyles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" />
     """
-    
+
     nodelist = parser.parse(('end',))
     parser.delete_first_token()
     source = nodelist[0].s
@@ -265,6 +265,11 @@ def multiply(value, arg):
 @register.filter
 def percent_of(value, arg):
     return '%.1f' % (100 * (float(value) / float(arg)))
+
+@register.filter
+def get_fields(obj):
+    return [(i, obj[i]) for i in obj]
+    # return [(field.name, field.value_to_string(obj)) for field in obj._meta.fields]
 
 @register.simple_tag
 def authnet_js_libs():
@@ -397,7 +402,7 @@ def is_nonblank(value):
 
 @register.filter
 def ak_text(value, arg):
-    """e.g. 
+    """e.g.
      <meta content="{% filter ak_text:"org_name" %}{% client_name %}{% endfilter %}">
     {% filter ak_text:"notaf_thanks_banner" %}
     {% filter ak_text:"taf_ask" %}{% endfilter %}
