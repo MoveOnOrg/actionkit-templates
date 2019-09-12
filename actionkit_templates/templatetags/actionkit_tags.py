@@ -236,8 +236,8 @@ def mod(value, arg):
 
 @register.filter
 def add(value, arg):
-    value_mod = int(value) if int(float(value)) == float(value) else float(value)
-    arg_mod = int(arg) if int(float(arg)) == float(arg) else float(arg)
+    value_mod = int(float(value)) if int(float(value)) == float(value) else float(value)
+    arg_mod = int(float(arg)) if int(float(arg)) == float(arg) else float(arg)
     return value_mod + arg_mod
 
 @register.filter
@@ -258,8 +258,8 @@ def date_add(value, arg):
 
 @register.filter
 def multiply(value, arg):
-    value_mod = int(value) if int(float(value)) == float(value) else float(value)
-    arg_mod = int(arg) if int(float(arg)) == float(arg) else float(arg)
+    value_mod = int(float(value)) if int(float(value)) == float(value) else float(value)
+    arg_mod = int(float(arg)) if int(float(arg)) == float(arg) else float(arg)
     return value_mod * arg_mod
 
 @register.filter
