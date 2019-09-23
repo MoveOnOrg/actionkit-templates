@@ -47,10 +47,13 @@ class OnceNode(Node):
             return ''
 
 class SetVarNode(Node):
-    var_name = "now"
-    
+
+    def __init__ (self, var_name, var_value):
+        self.name = var_name
+        self.value = var_value
+
     def render(self, context):
-        context[self.var_name] = datetime.datetime.now(timezone.utc)
+        context[self.name] = self.value
         return ''
 
 
@@ -100,14 +103,17 @@ def record(parser, token):
         reportresult = True
         tokens = tokens[1:]
     return RecordNode(item=tokens[1], ary=tokens[3], reportresult=reportresult)
-
+@register.tag
+def remember(parser, token):
+    tokens = token.split_contents()
+    return SetVarNode(tokens[3],tokens[1])
 @register.tag
 def right_now(parser, token):
     """
     The tag right_now creates the variable {{ now }}
     that contains the Python datetime object datetime.now().
     """
-    return SetVarNode()
+    return SetVarNode("now", datetime.datetime.now(timezone.utc))
 
 @register.simple_tag
 def client_name():
@@ -187,7 +193,7 @@ def load_css(parser, token):
     <link rel="stylesheet" href="https:///static/yetmorestyles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" />
     """
-    
+
     nodelist = parser.parse(('end',))
     parser.delete_first_token()
     source = nodelist[0].s
@@ -397,7 +403,7 @@ def is_nonblank(value):
 
 @register.filter
 def ak_text(value, arg):
-    """e.g. 
+    """e.g.
      <meta content="{% filter ak_text:"org_name" %}{% client_name %}{% endfilter %}">
     {% filter ak_text:"notaf_thanks_banner" %}
     {% filter ak_text:"taf_ask" %}{% endfilter %}
