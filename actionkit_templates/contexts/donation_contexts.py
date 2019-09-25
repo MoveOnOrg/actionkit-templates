@@ -176,7 +176,7 @@ def base(title='', entity='c4', layout='', filename="donate.html", fields={}, sh
     rv['page']['custom_fields'].update(fields)
     return rv
 
-def order(order_type='order', details=None, quickpay=False):
+def order(order_type='order', details=None, quickpay=False, paypal=False):
     #order_type = 'orderrecurring'
     orderkey = {
         'order': {
@@ -206,6 +206,10 @@ def order(order_type='order', details=None, quickpay=False):
                 'status': 'active',
                 'token': 'abc123999',
             },
+        })
+    if paypal:
+        rv['action']['custom_fields'].update({
+            'ak_paypal_transaction_id': '2309147283',
         })
     rv.update(orderkey)
     rv['action'].update(orderkey)
@@ -267,4 +271,5 @@ contexts = {
                                     'other_amount': 2.07
                                 })]),
     'donate.thanks.8': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
+    'donate.thanks.9': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order(paypal=True)]),
 }
