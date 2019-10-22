@@ -300,7 +300,7 @@ def json(value):
 @register.simple_tag
 def home(request):
     import json as json
-    data = { 'username' : 'alisha.huber', 'password' : '2ckXs0ZDMNFA0BXmt' }
+    data = { 'username' : 'alisha.huber', 'password' : '' }
 
     response = requests.get('https://act.moveon.org/rest/v1/user/.40756142.J3Y9md/', data=json.dumps(data))
 
