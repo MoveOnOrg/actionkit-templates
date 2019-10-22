@@ -1,6 +1,7 @@
 import datetime
 import os
 import re
+import requests
 from django.conf import settings
 from django.template import loader, Library, Node, Variable
 from django.template.base import Context
@@ -171,7 +172,6 @@ def _add_domain(path):
         return path
     return 'https://%s%s' % (client_domain(), path)
 
-
 @register.tag
 def load_css(parser, token):
     """
@@ -296,6 +296,15 @@ def escapeall(value):
 def json(value):
     import json as jjson
     return jjson.dumps(jjson.loads(value))
+
+@register.simple_tag
+def home(request):
+    import json as json
+    data = { 'username' : 'alisha.huber', 'password' : '2ckXs0ZDMNFA0BXmt' }
+
+    response = requests.get('https://act.moveon.org/rest/v1/user/.40756142.J3Y9md/', data=json.dumps(data))
+
+    return response.status_code
 
 @register.filter
 def load_json(value):
