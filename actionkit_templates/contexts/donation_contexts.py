@@ -245,6 +245,7 @@ contexts = {
     'donate.23': compose([base('civ', show_paypal=True), user(0, id=5079)]),
     'donate.24': compose([base('pac with ach option', entity='pac', show_paypal=True, layout="accept_ach", payment_processor_information="use_vzero"), user(id=507809)]),
     'donate.25': compose([base('pac', entity='pac', show_paypal=True), user(id=507810)]),
+    'donate.26': compose([base('recognized user', entity='pac'), user(0)]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),

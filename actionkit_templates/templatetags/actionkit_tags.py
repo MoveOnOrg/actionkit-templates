@@ -297,15 +297,6 @@ def json(value):
     import json as jjson
     return jjson.dumps(jjson.loads(value))
 
-@register.simple_tag
-def home(request):
-    import json as json
-    data = { 'username' : 'alisha.huber', 'password' : '' }
-
-    response = requests.get('https://act.moveon.org/rest/v1/user/.40756142.J3Y9md/', data=json.dumps(data))
-
-    return response.status_code
-
 @register.filter
 def load_json(value):
     import json as jjson
