@@ -60,6 +60,8 @@ def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=
             "first_name": "Morticia",
             "last_name": "Addams",
             "address": "1313 Cemetery Lane",
+            "address1": "1313 Cemetery Lane",
+            "phone": "555-888-5939",
             "city": "Westfield",
             "state": "NJ",
             "zip": "07091",

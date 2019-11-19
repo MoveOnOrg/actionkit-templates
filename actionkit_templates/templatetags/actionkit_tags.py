@@ -272,6 +272,22 @@ def multiply(value, arg):
 def percent_of(value, arg):
     return '%.1f' % (100 * (float(value) / float(arg)))
 
+@register.filter
+def mask_end(value, arg):
+    # given a string and a number, it shows the first X characters of string, ending with "..."
+    short_string = value[:arg]
+    ellipses = "..."
+    with_ellipses = short_string + ellipses
+    return with_ellipses
+
+@register.filter
+def mask_beginning(value, arg):
+    # given a string and a number, it shows the last X characters of string, prepended with "..."
+    short_string = value[-arg:]
+    ellipses = "..."
+    with_ellipses = ellipses + short_string
+    return with_ellipses
+
 @register.simple_tag
 def authnet_js_libs():
     return ''
