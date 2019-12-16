@@ -58,6 +58,19 @@ class MST(datetime.tzinfo):
     def dst(self, dt):
         return datetime.timedelta(0)
 
+
+def rel_date(days_from_now=7, localtime=15, minutes_from_now=False):
+    if days_from_now == 0 and minutes_from_now:
+        event_day = datetime.datetime.now(MST()) + datetime.timedelta(minutes = minutes_from_now)
+        event_day = event_day.replace(tzinfo=timezone.FixedOffset(-420)) # matches MST
+    else:
+        today = datetime.date.today()
+        event_day = datetime.datetime.combine(today + datetime.timedelta(days=days_from_now),
+                                          datetime.time(localtime))
+        event_day = event_day.replace(tzinfo=timezone.FixedOffset(-300))
+    return event_day
+
+
 def event_create(days_from_now=7, localtime=15, id=343775,
                  max_attendees=100, attendee_count=20,
                  is_inactive=False,
@@ -73,14 +86,7 @@ def event_create(days_from_now=7, localtime=15, id=343775,
     """
     now_utc = datetime.datetime.now(timezone.utc)
 
-    if days_from_now == 0 and minutes_from_now:
-        event_day = datetime.datetime.now(MST()) + datetime.timedelta(minutes = minutes_from_now)
-        event_day = event_day.replace(tzinfo=timezone.FixedOffset(-420)) # matches MST
-    else:
-        today = datetime.date.today()
-        event_day = datetime.datetime.combine(today + datetime.timedelta(days=days_from_now),
-                                          datetime.time(localtime))
-        event_day = event_day.replace(tzinfo=timezone.FixedOffset(-300))
+    event_day = rel_date(days_from_now, localtime, minutes_from_now)
     event_day_utc = event_day.astimezone(timezone.utc)
     place_loc = {}
     if place_index:
@@ -865,6 +871,38 @@ contexts = {
              'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
          },
         ],
+    },
+    'event_search_rapidresponse_filter.html': {
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with only future events.</p>",
+        },
+        "page": {
+            "title": "Event Search - Future Only, Rapidresponse Date filter",
+            "name": "fakecampaign-with-future-events_attend",
+            "custom_fields": {
+                "rapid_response_active_event_start_date": rel_date(-1).strftime('%Y-%m-%d'),
+                "rapid_response_active_event_end_date": rel_date(3).strftime('%Y-%m-%d'),
+                "rapid_response_stranded_event_disclaimer": 'UNCONFIRMED event (we have not confirmed this event with the host yet)',
+            }
+        },
+        "campaign": {
+            "local_title": "Campaign Title for campaign with rapid-response filter",
+            "local_name": "fakecampaign-with-future-events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_city": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "name": "fakecampaign-with-future-events",
+            "public_create_page": True
+        },
+        "events": [event_create(1, 10, 343123),
+                   event_create(1, 15, 343124),
+                   event_create(4, 15, 343125),
+                   event_create(0, 15, 343130, place_index=57, minutes_from_now=5)
+               ],
     },
     'event_create-updating': {
         "filename": "event_create.html",
