@@ -2,6 +2,7 @@ from django.utils.html import format_html
 
 survey = {
     'filename': 'survey.html',
+    'sdk': '../smarty-streets-test-api',
     'page': {
         "title": "Survey page (stub)",
         "canonical_url": "http://example.com/survey/foobar"
@@ -63,5 +64,3 @@ contexts = {
      #kinda silly, but avoid appending to the bottom because then git merge conflicts arise more often.
     #let's do the context values in alphabetical order.
 }
-
-
