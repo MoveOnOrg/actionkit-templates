@@ -2,7 +2,7 @@ import json
 import os
 import sys
 import time
-import urlparse
+import urllib.parse
 
 from django.conf.urls import url
 from django.conf.urls.static import static
@@ -11,7 +11,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template.loader import render_to_string
 from django.template.base import add_to_builtins
 from django.views.static import serve
-from moveon_fakeapi import mo_event_data
+from .moveon_fakeapi import mo_event_data
 
 """
 try running with
@@ -78,7 +78,7 @@ def _get_context_data(request, name, page, use_referer=False):
     if use_referer:
         paths = None
         if request.META.get('HTTP_REFERER'):
-            paths = urlparse.urlparse(request.META['HTTP_REFERER']).path.split('/')
+            paths = urllib.parse.urlparse(request.META['HTTP_REFERER']).path.split('/')
         elif request.GET.get('path'):
             # e.g. &path=/events/event_search.html
             paths = request.GET['path'].split('/')

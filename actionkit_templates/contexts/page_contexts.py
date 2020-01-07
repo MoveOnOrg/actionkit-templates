@@ -1,7 +1,7 @@
-import account_contexts
-import donation_contexts
-import event_contexts
-import survey_contexts
+from . import account_contexts
+from . import donation_contexts
+from . import event_contexts
+from . import survey_contexts
 
 contexts = {
     'base': {
