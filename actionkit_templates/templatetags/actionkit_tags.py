@@ -312,7 +312,7 @@ def tag_links(value, arg):
     {% filter referring_akid:akid|tag_links:"source=taf" %}{% include_tmpl page.followup.taf_body escaped %}{% endfilter %}
     """
     # this hackily doesn't try to do good things with a pre-existing "?" in the url
-    return re.sub(r'https?://[^"\'() ]+', '\1?%s' % arg, value)
+    return re.sub(r'(https?://[^"\'() ]+)', '\\1?%s' % arg, value)
 
 @register.filter
 def commify(value):
@@ -368,7 +368,10 @@ def referring_akid(value, akid):
     """
     example:{% filter referring_akid:akid|tag_links:"source=taf" %}{% include_tmpl page.followup.taf_body escaped %}{% endfilter %}
     """
-    return value
+    return re.sub(r'(https?://[^"\'() ]+)', '\\1%sreferring_akid=%s' % (
+        ('&' if '?' in value else '?'),
+        akid
+    ), value)
 
 @register.filter
 def collapse_spaces(value):

@@ -126,6 +126,8 @@ def _get_context_data(request, name, page, use_referer=False):
     args = cxt.get('args', {}).copy()
     args.update(request.GET.dict())
     cxt['args'] = args
+    if 'akid' not in cxt:
+        cxt['akid'] = cxt['args'].get('akid')
     cxt['request'] = request
     return cxt
 
