@@ -15,8 +15,11 @@ import os
 import re
 from sys import platform
 import time
-from urllib2 import urlparse as urlparsemod
-urlparse = urlparsemod.urlparse
+try:
+    from urlparse import urlparse
+except ImportError:
+    # python3
+    from urllib.parse import urlparse
 
 from pyvirtualdisplay import Display
 
