@@ -2,7 +2,11 @@ import json
 import os
 import sys
 import time
-import urlparse
+try:
+    from urlparse import urlparse
+except ImportError:
+    # python3
+    from urllib.parse import urlparse
 
 from django.conf.urls import url
 from django.conf.urls.static import static
@@ -78,7 +82,7 @@ def _get_context_data(request, name, page, use_referer=False):
     if use_referer:
         paths = None
         if request.META.get('HTTP_REFERER'):
-            paths = urlparse.urlparse(request.META['HTTP_REFERER']).path.split('/')
+            paths = urlparse(request.META['HTTP_REFERER']).path.split('/')
         elif request.GET.get('path'):
             # e.g. &path=/events/event_search.html
             paths = request.GET['path'].split('/')
