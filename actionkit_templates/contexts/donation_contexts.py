@@ -146,11 +146,12 @@ products2 = {
 
 
 
-def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False):
+def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False, accept_ach=False):
     rv = {
         "filename": filename,
         "show_paypal": show_paypal,
         "page": {
+            "accept_ach": accept_ach,
             "canonical_url": "https://example.actionkit.com/donate/give-me-the-money/",
             "type": "Donation",
             "custom_fields": {
@@ -248,6 +249,7 @@ contexts = {
     'donate.23': compose([base('civ', show_paypal=True), user(0, id=5079)]),
     'donate.24': compose([base('pac', entity='pac', show_paypal=True, layout="accept_ach"), user(id=507809)]),
     'donate.25': compose([base('pac', entity='pac', show_paypal=True), user(id=507810)]),
+    'donate.26': compose([base('pac with ach option', entity='pac', accept_ach=True), user(id=507809)]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
