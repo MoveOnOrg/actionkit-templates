@@ -231,3 +231,6 @@ if STATIC_ROOT:
                             view=proxy_serve,
                             document_root=os.path.join(STATIC_ROOT, './media'))
     )
+
+if os.path.exists(os.path.join(PROJECT_ROOT_PATH, 'local_settings.py')):
+    from local_settings import *
