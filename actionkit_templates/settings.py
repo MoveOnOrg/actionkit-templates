@@ -15,7 +15,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template.loader import render_to_string
 from django.template.base import add_to_builtins
 from django.views.static import serve
-from moveon_fakeapi import mo_event_data
+from .moveon_fakeapi import mo_event_data
 
 """
 try running with
