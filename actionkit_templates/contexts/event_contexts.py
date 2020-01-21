@@ -134,6 +134,14 @@ def event_create(days_from_now=7, localtime=15, id=343775,
         "public_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "title": "Event Title {}".format(place_index),
         "venue": "Venue Name",
+        "local_campaign": {
+            "create_page": {
+                "name": "Local Event Creation Name"
+            },
+            "signup_page": {
+                "name": "Local Signup Page Name"
+            }
+        },
     }
     evt_obj.update(place_loc)
     return evt_obj
