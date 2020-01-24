@@ -250,6 +250,8 @@ contexts = {
     'donate.24': compose([base('pac', entity='pac', show_paypal=True, layout="accept_ach"), user(id=507809)]),
     'donate.25': compose([base('pac', entity='pac', show_paypal=True), user(id=507810)]),
     'donate.26': compose([base('pac with ach option', entity='pac', accept_ach=True), user(id=507809)]),
+    'donate.27': compose([base('quickpay with a good weekly param combination', entity='pac', layout='weekly_only'), user(0, payment_hash=True), candidates], ["donation_type","payment_hash"]),
+    'donate.28': compose([base('quickpay with a bad weekly param combination', entity='pac', layout='weekly_only'), user(0, payment_hash=True), candidates], ["payment_hash"]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
