@@ -159,7 +159,7 @@ contexts = {
                 "taf_body": "Hi, <a href='http://example.com/foo/bar/xyz'>blah blah</a> blah about the event!!<br />[[See the 'Tell-a-friend Body' in After-Action Info for the Host page of this event.]]"
             },
             "title": "Host Tools Page",
-            "type": "Event",
+            "type": "EventCreate",
             "name": "fakecampaign_create"
         },
         "attendees": attendees,
@@ -233,7 +233,7 @@ contexts = {
         ],
         "page": {
             "title": "Event Attend (standard)",
-            "type": "Event",
+            "type": "EventSignup",
             "name": "fakecampaign_attend"
         },
         "logged_in_user":user({
@@ -291,7 +291,7 @@ contexts = {
         ],
         "page": {
             "title": "Event Attend (cancelled event)",
-            "type": "Event",
+            "type": "EventSignup",
             "name": "fakecampaign_attend"
         },
         "logged_in_user":user({
@@ -349,7 +349,7 @@ contexts = {
         ],
         "page": {
             "title": "Event Attend (past event)",
-            "type": "Event",
+            "type": "EventSignup",
             "name": "fakecampaign_attend"
         },
         "logged_in_user":user({
@@ -407,7 +407,7 @@ contexts = {
         ],
         "page": {
             "title": "Event Attend (past event same day)",
-            "type": "Event",
+            "type": "EventSignup",
             "name": "fakecampaign_attend"
         },
         "logged_in_user":user({
@@ -441,7 +441,7 @@ contexts = {
         "page": {
             "title": "Event Attendee Tools",
             "name": "fakecampaign_attend",
-            "type": "Event",
+            "type": "EventSignup",
             "pagefollowup": {
                 "send_taf": True,
             },
@@ -463,7 +463,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Future Events Only",
-            "name": "fakecampaign-with-future-events_attend"
+            "name": "fakecampaign-with-future-events_attend",
+            "type": "EventSignup",
         },
         "campaign": {
             "local_title": "Campaign Title for campaign with only future events",
@@ -511,7 +512,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - with results",
-            "name": "fakecampaign-with-future-events_attend"
+            "name": "fakecampaign-with-future-events_attend",
+            "type": "EventSignup",
         },
     },
     'event_search_with_results_showaddress1': {
@@ -543,7 +545,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - with results",
-            "name": "fakecampaign-with-future-events_attend"
+            "name": "fakecampaign-with-future-events_attend",
+            "type": "EventSignup",
         },
     },
     'event_search_noevents.html': {
@@ -554,7 +557,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Campaign with no events",
-            "name": "fakecampaign-with-no-events_attend"
+            "name": "fakecampaign-with-no-events_attend",
+            "type": "EventSignup",
         },
         "campaign": {
             "local_title": "Campaign Title - no events",
@@ -591,7 +595,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - no results",
-            "name": "fakecampaign-with-no-events_attend"
+            "name": "fakecampaign-with-no-events_attend",
+            "type": "EventSignup",
         },
     },
     'event_search_past_events_only.html': {
@@ -601,7 +606,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Past Events Only",
-            "name": "fakecampaign-past-events-only_attend"
+            "name": "fakecampaign-past-events-only_attend",
+            "type": "EventSignup",
         },
         "events": [event_create(-1, 10, 343126),
                    event_create(-7, 15, 343127),
@@ -646,7 +652,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - with only past events in results",
-            "name": "fakecampaign_attend"
+            "name": "fakecampaign_attend",
+            "type": "EventSignup",
         },
     },
     'event_search_past_and_future_events.html': {
@@ -656,7 +663,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Past and Future Events",
-            "name": "fakecampaign-past-and_future_events_attend"
+            "name": "fakecampaign-past-and_future_events_attend",
+            "type": "EventSignup",
         },
         "events": [event_create(-1, 10, 343126),
                    event_create(-7, 15, 343127),
@@ -705,7 +713,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Past and Future Events",
-            "name": "fakecampaign_attend"
+            "name": "fakecampaign_attend",
+            "type": "EventSignup",
         },
     },
     'event_search_with_api_broken': {
@@ -731,7 +740,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - API Failure (should gracefully degrade)",
-            "name": "fakecampaign-with-no-events_attend"
+            "name": "fakecampaign-with-no-events_attend",
+            "type": "EventSignup",
         },
     },
     'event_search_with_mueller_load.html': {
@@ -741,7 +751,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - A Mueller Load of Events",
-            "name": "fakecampaign-mueller_load_events_attend"
+            "name": "fakecampaign-mueller_load_events_attend",
+            "type": "EventSignup",
         },
         "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
         "campaign": {
@@ -778,7 +789,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Mueller Load of Events all in Past",
-            "name": "fakecampaign_attend"
+            "name": "fakecampaign_attend",
+            "type": "EventSignup",
         },
     },
     'event_search_with_mueller_load_slow_api.html': {
@@ -789,7 +801,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - A Mueller Load of Events (slow api race test)",
-            "name": "fakecampaign-mueller_load_events_attend"
+            "name": "fakecampaign-mueller_load_events_attend",
+            "type": "EventSignup",
         },
         "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
         "campaign": {
@@ -812,7 +825,8 @@ contexts = {
         },
         "page": {
             "title": "Event Search - A Mueller Load of Events (slow search race test)",
-            "name": "fakecampaign-mueller_load_events_attend"
+            "name": "fakecampaign-mueller_load_events_attend",
+            "type": "EventSignup",
         },
         "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
         "campaign": {
@@ -831,7 +845,8 @@ contexts = {
         "filename": "event_create.html",
         'page': {
             "title": "Event Creation - March on Washington",
-            "canonical_url": "http://example.com/"
+            "canonical_url": "http://example.com/",
+            "type": "EventCreate",
         },
         'form': {
             'thank_you_text': '<p>Thanks!</p>'
@@ -888,6 +903,7 @@ contexts = {
         "page": {
             "title": "Event Search - Future Only, Rapidresponse Date filter",
             "name": "fakecampaign-with-future-events_attend",
+            "type": "EventSignup",
             "custom_fields": {
                 "rapid_response_active_event_start_date": rel_date(-1).strftime('%Y-%m-%d'),
                 "rapid_response_active_event_end_date": rel_date(3).strftime('%Y-%m-%d'),
@@ -930,6 +946,7 @@ contexts = {
         },
         'page': {
             "title": "Event Creation - update existing event",
+            "type": "EventCreate",
             "canonical_url": "http://example.com/",
             'custom_fields': {
                 'survey_always_show_user_fields': "1",
