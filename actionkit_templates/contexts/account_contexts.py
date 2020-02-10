@@ -170,4 +170,52 @@ contexts = {
         }],
         'inactive': [],
     },
+    'recurring_update_ach.html': {
+        'filename': 'recurring_update.html',
+        'page': {
+            'title': 'Update Account Information (ACH)',
+            'name': 'recurring_page',
+            'custom_fields': {
+                'proxypassword': 'abc123'
+            }
+
+        },
+        'logged_in_user': {
+            'name': 'Daddy Warbucks',
+            'address1': 'Easy Street',
+            'email': 'daddy.warbucks@example.com',
+            'city': 'New York',
+            'state': 'NY',
+            'phone': '555-123-1233',
+            'subscriptions': subscriptions([
+                {'list_id': 1},
+                {'list_id': 3},
+                {'list_id': 7},
+            ])
+        },
+        'active': [{ #profile
+            'id': '123',
+            'is_ach': True,
+            'payment_processor_information': {
+                'use_cse': False,
+                'cse_key': '123123',
+                'use_tr': True,
+            },
+            'status': 'active', #get actual data
+            'updated_at': datetime.datetime(2016, 1, 1), #get actual data
+            'created_at': datetime.datetime(2016, 1, 1), #get actual data
+            'start': datetime.datetime(2015, 1, 1), #get actual data
+            'payment_count': 10,
+            'get_period_display': 'Monthly', #get actual data
+            'payment_total_amt': '$200.00', #get actual data
+            'amt': '$20',
+            'order': {
+                'payment_method': 'cc'
+            },
+            'card_num': '1234',
+            'display_expiration_date': '05/2060',
+            'next_payment_date': datetime.datetime(2016, 9, 1),
+        }],
+        'inactive': [],
+    },
 }
