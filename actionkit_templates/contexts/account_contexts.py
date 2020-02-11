@@ -1,7 +1,9 @@
 import datetime
 
+
 class subscriptions(list):
     list_ids = [1, 3, 7]
+
 
 contexts = {
     'signup.html': {
@@ -23,24 +25,24 @@ contexts = {
             {'field_name': 'name',
              'label_text': 'Name',
              'input_tag': '<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />',
-         },
+             },
             {'field_name': 'email',
              'label_text': 'Email Address',
              'input_tag': '<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />',
-         },
+             },
             {'field_name': 'address1',
              'label_text': 'Street Address',
              'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
-         },
+             },
             {'field_name': 'zip',
              'label_text': 'ZIP Code',
              'input_tag': '<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />',
-         },
+             },
             {'field_name': 'phone',
              'label_text': 'Phone',
              'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
-         },
-            ],
+             },
+        ],
 
     },
     'signup.smssubscribe': {
@@ -63,24 +65,63 @@ contexts = {
             {'field_name': 'name',
              'label_text': 'Name',
              'input_tag': '<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />',
-         },
+             },
             {'field_name': 'email',
              'label_text': 'Email Address',
              'input_tag': '<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />',
-         },
+             },
             {'field_name': 'address1',
              'label_text': 'Street Address',
              'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
-         },
+             },
             {'field_name': 'zip',
              'label_text': 'ZIP Code',
              'input_tag': '<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />',
-         },
+             },
             {'field_name': 'phone',
              'label_text': 'Phone',
              'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
-         },
-            ],
+             },
+        ],
+
+    },
+    'user_update.html': {
+        'filename': 'user_update.html',
+        'page': {
+            'title': 'Update Your Information',
+            'name': 'user-update',
+            "custom_fields": {
+                "entity": "pac"
+            }
+        },
+        'form': {
+            'introduction_text': 'Please update your information below',
+            'user_fields': {
+                'first_name': 'Ann'
+            }
+        },
+        'user_fields': [
+            {'field_name': 'name',
+             'label_text': 'Name',
+             'input_tag': '<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />',
+             },
+            {'field_name': 'email',
+             'label_text': 'Email Address',
+             'input_tag': '<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />',
+             },
+            {'field_name': 'address1',
+             'label_text': 'Street Address',
+             'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
+             },
+            {'field_name': 'zip',
+             'label_text': 'ZIP Code',
+             'input_tag': '<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />',
+             },
+            {'field_name': 'phone',
+             'label_text': 'Phone',
+             'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
+             },
+        ],
 
     },
     'recurring_update.html': {
@@ -106,20 +147,20 @@ contexts = {
                 {'list_id': 7},
             ])
         },
-        'active': [{ #profile
+        'active': [{  # profile
             'id': '123',
             'payment_processor_information': {
                 'use_cse': False,
                 'cse_key': '123123',
                 'use_tr': True,
             },
-            'status': 'active', #get actual data
-            'updated_at': datetime.datetime(2016, 1, 1), #get actual data
-            'created_at': datetime.datetime(2016, 1, 1), #get actual data
-            'start': datetime.datetime(2015, 1, 1), #get actual data
+            'status': 'active',  # get actual data
+            'updated_at': datetime.datetime(2016, 1, 1),  # get actual data
+            'created_at': datetime.datetime(2016, 1, 1),  # get actual data
+            'start': datetime.datetime(2015, 1, 1),  # get actual data
             'payment_count': 10,
-            'get_period_display': 'Monthly', #get actual data
-            'payment_total_amt': '$200.00', #get actual data
+            'get_period_display': 'Monthly',  # get actual data
+            'payment_total_amt': '$200.00',  # get actual data
             'amt': '$20',
             'order': {
                 'payment_method': 'cc'
@@ -146,20 +187,20 @@ contexts = {
         },
         "show_paypal": True,
         "paypal_cohort": 0,
-        'active': [{ #profile
+        'active': [{  # profile
             'id': '123',
             'payment_processor_information': {
                 'use_cse': False,
                 'cse_key': '123123',
                 'use_tr': True,
             },
-            'status': 'active', #get actual data
-            'updated_at': datetime.datetime(2016, 1, 1), #get actual data
-            'created_at': datetime.datetime(2016, 1, 1), #get actual data
-            'start': datetime.datetime(2015, 1, 1), #get actual data
+            'status': 'active',  # get actual data
+            'updated_at': datetime.datetime(2016, 1, 1),  # get actual data
+            'created_at': datetime.datetime(2016, 1, 1),  # get actual data
+            'start': datetime.datetime(2015, 1, 1),  # get actual data
             'payment_count': 10,
-            'get_period_display': 'Monthly', #get actual data
-            'payment_total_amt': '$200.00', #get actual data
+            'get_period_display': 'Monthly',  # get actual data
+            'payment_total_amt': '$200.00',  # get actual data
             'amt': '$20',
             'order': {
                 'payment_method': 'paypal'
@@ -193,7 +234,7 @@ contexts = {
                 {'list_id': 7},
             ])
         },
-        'active': [{ #profile
+        'active': [{  # profile
             'id': '123',
             'is_ach': True,
             'payment_processor_information': {
@@ -201,13 +242,13 @@ contexts = {
                 'cse_key': '123123',
                 'use_tr': True,
             },
-            'status': 'active', #get actual data
-            'updated_at': datetime.datetime(2016, 1, 1), #get actual data
-            'created_at': datetime.datetime(2016, 1, 1), #get actual data
-            'start': datetime.datetime(2015, 1, 1), #get actual data
+            'status': 'active',  # get actual data
+            'updated_at': datetime.datetime(2016, 1, 1),  # get actual data
+            'created_at': datetime.datetime(2016, 1, 1),  # get actual data
+            'start': datetime.datetime(2015, 1, 1),  # get actual data
             'payment_count': 10,
-            'get_period_display': 'Monthly', #get actual data
-            'payment_total_amt': '$200.00', #get actual data
+            'get_period_display': 'Monthly',  # get actual data
+            'payment_total_amt': '$200.00',  # get actual data
             'amt': '$20',
             'order': {
                 'payment_method': 'cc'
