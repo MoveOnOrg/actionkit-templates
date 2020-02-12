@@ -129,6 +129,7 @@ def _get_context_data(request, name, page, use_referer=False):
     if 'akid' not in cxt:
         cxt['akid'] = cxt['args'].get('akid')
     cxt['request'] = request
+    cxt['js_context'] = '""' # FUTURE: what should go in here?
     return cxt
 
 #############

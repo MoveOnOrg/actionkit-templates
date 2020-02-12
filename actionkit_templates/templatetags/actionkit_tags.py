@@ -136,6 +136,10 @@ def load_ak_context(somestring, *args, **kwargs):
     return ''
 
 @register.simple_tag
+def load_prefill(*args, **kwargs):
+    return ''
+
+@register.simple_tag
 def braintree_js_libs():
     return '''
     <script src="https://js.braintreegateway.com/web/3.27.0/js/client.min.js"></script>
