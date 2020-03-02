@@ -144,12 +144,13 @@ products2 = {
 
 
 
-def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False, allow_international=False):
+def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False, allow_international=False, accept_ach=False):
     rv = {
         "filename": filename,
         "show_paypal": show_paypal,
         "page": {
             "allow_international": allow_international,
+            "accept_ach": accept_ach,
             "canonical_url": "https://example.actionkit.com/donate/give-me-the-money/",
             "type": "Donation",
             "custom_fields": {
@@ -249,6 +250,11 @@ contexts = {
     'donate.25': compose([base('pac', entity='pac', show_paypal=True)]),
     'donate.26': compose([base('weekly and two candidates', entity='pac', layout="weekly_only"), candidates2]),
     'donate.27': compose([base('two candidates', entity='pac'), candidates2]),
+    'donate.28': compose([base('pac', entity='pac', show_paypal=True, layout="accept_ach"), user(id=507809)]),
+    'donate.29': compose([base('pac', entity='pac', show_paypal=True), user(id=507810)]),
+    'donate.30': compose([base('pac with ach option', entity='pac', accept_ach=True), user(id=507809)]),
+    'donate.31': compose([base('quickpay with a good weekly param combination', entity='pac', layout='weekly_only'), user(0, payment_hash=True), candidates], ["donation_type","payment_hash"]),
+    'donate.32': compose([base('quickpay with a bad weekly param combination', entity='pac', layout='weekly_only'), user(0, payment_hash=True), candidates], ["payment_hash"]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),

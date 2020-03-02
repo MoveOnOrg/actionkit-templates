@@ -13,6 +13,7 @@ survey = {
                 {'question_label': "How do you feel?",
                  'question_html': '<input type="text" name="action_howfeel" />',
                  'input_html': format_html('<input type="text" name="action_howfeel" />'),
+                 'placeholder': 'Share your feelings',
              },
             ],
         },

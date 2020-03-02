@@ -136,6 +136,10 @@ def load_ak_context(somestring, *args, **kwargs):
     return ''
 
 @register.simple_tag
+def load_prefill(*args, **kwargs):
+    return ''
+
+@register.simple_tag
 def braintree_js_libs():
     return '''
     <script src="https://js.braintreegateway.com/web/3.27.0/js/client.min.js"></script>
@@ -281,7 +285,7 @@ def braintree_js_libs():
     return ''
 
 @register.simple_tag
-def client_domain_url(path):
+def client_domain_url(path=''):
     return '%s/%s' % (client_domain(), path)
 
 @register.simple_tag
@@ -312,7 +316,7 @@ def tag_links(value, arg):
     {% filter referring_akid:akid|tag_links:"source=taf" %}{% include_tmpl page.followup.taf_body escaped %}{% endfilter %}
     """
     # this hackily doesn't try to do good things with a pre-existing "?" in the url
-    return re.sub(r'https?://[^"\'() ]+', '\1?%s' % arg, value)
+    return re.sub(r'(https?://[^"\'() ]+)', '\\1?%s' % arg, value)
 
 @register.filter
 def commify(value):
@@ -368,7 +372,10 @@ def referring_akid(value, akid):
     """
     example:{% filter referring_akid:akid|tag_links:"source=taf" %}{% include_tmpl page.followup.taf_body escaped %}{% endfilter %}
     """
-    return value
+    return re.sub(r'(https?://[^"\'() ]+)', '\\1%sreferring_akid=%s' % (
+        ('&' if '?' in value else '?'),
+        akid
+    ), value)
 
 @register.filter
 def collapse_spaces(value):
