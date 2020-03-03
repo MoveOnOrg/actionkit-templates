@@ -221,6 +221,8 @@ urlpatterns = [
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
     url(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results'),
     url(r'^fake/api/events', event_api_moveon_fake, name="event_api_moveon_fake"),
+    # ActionKit urls or {% url %} template tag:
+    url(r'^fake/stub/reverse', event_api_moveon_fake, name="reverse_donation"),
 ]
 if STATIC_ROOT:
     urlpatterns = (urlpatterns
