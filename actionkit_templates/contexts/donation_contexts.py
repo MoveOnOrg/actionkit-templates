@@ -206,6 +206,7 @@ def order(order_type='order', details=None, quickpay=False, paypal=False):
             'payment_token': {
                 'status': 'active',
                 'token': 'abc123999',
+                'last_four': '1234'
             },
         })
     if paypal:
@@ -277,4 +278,5 @@ contexts = {
                                 })]),
     'donate.thanks.8': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.9': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order(paypal=True)]),
+    'verify_donor': compose([base('civ', filename='verify_donor.html'), user(0, payment_hash=True)]),
 }
