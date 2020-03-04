@@ -289,13 +289,13 @@ contexts = {
                 'cse_key': '123123',
                 'use_tr': True,
             },
-            'status': 'active',  # get actual data
-            'updated_at': datetime.datetime(2016, 1, 1),  # get actual data
-            'created_at': datetime.datetime(2016, 1, 1),  # get actual data
-            'start': datetime.datetime(2015, 1, 1),  # get actual data
+            'status': 'active', #get actual data
+            'updated_at': datetime.datetime(2016, 1, 1), #get actual data
+            'created_at': datetime.datetime(2016, 1, 1), #get actual data
+            'start': datetime.datetime(2015, 1, 1), #get actual data
             'payment_count': 10,
-            'get_period_display': 'Monthly',  # get actual data
-            'payment_total_amt': '$200.00',  # get actual data
+            'get_period_display': 'Monthly', #get actual data
+            'payment_total_amt': '$200.00', #get actual data
             'amt': '$20',
             'order': {
                 'payment_method': 'cc'
