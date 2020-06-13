@@ -249,6 +249,7 @@ contexts = {
     'donate.25': compose([base('pac', entity='pac', show_paypal=True)]),
     'donate.26': compose([base('weekly and two candidates', entity='pac', layout="weekly_only"), candidates2]),
     'donate.27': compose([base('two candidates', entity='pac'), candidates2]),
+    'donate.28': compose([base('mobile opt-in', layout="mobile_opt-in")]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
