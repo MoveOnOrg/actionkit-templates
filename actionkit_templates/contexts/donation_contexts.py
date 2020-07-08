@@ -130,7 +130,7 @@ products2 = {
     "has_shippable_products": True,
     "products": [
         {"name": "This fight is our fight: the battle to save america's middle class",
-         "desc": "This is a cool product that you should want",
+         "desc": "<img src='https://i.ytimg.com/vi/aaqzPMOd_1g/maxresdefault.jpg' alt='Alternative text' height='200' width='200'/>",
          "price": "55.23",
          "id": "1"
         },
@@ -249,7 +249,7 @@ contexts = {
     'donate.25': compose([base('pac', entity='pac', show_paypal=True)]),
     'donate.26': compose([base('weekly and two candidates', entity='pac', layout="weekly_only"), candidates2]),
     'donate.27': compose([base('two candidates', entity='pac'), candidates2]),
-    'donate.28': compose([base('mobile opt-in', layout="mobile_opt-in")]),
+    'donate.28': compose([base('mobile opt-in', layout="mobile_opt_in")]),
     'donate.thanks.1': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
     'donate.thanks.2': compose([base('recurring civ', entity='pac', filename='thanks.html'),
                                 user(), order('orderrecurring')]),
