@@ -6,6 +6,13 @@ class subscriptions(list):
 
 
 contexts = {
+    'user_view.html': {
+        'filename': 'user_view.html',
+        'page': {
+        'title': 'User self serve',
+        'name': 'user view',
+        },
+    },
     'signup.html': {
         'filename': 'signup.html',
         'page': {
