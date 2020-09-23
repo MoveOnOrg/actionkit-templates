@@ -142,10 +142,10 @@ def load_prefill(*args, **kwargs):
 @register.simple_tag
 def braintree_js_libs():
     return '''
-    <script src="https://js.braintreegateway.com/web/3.27.0/js/client.min.js"></script>
-    <script src="https://js.braintreegateway.com/web/3.27.0/js/hosted-fields.min.js"></script>
-    <script src="https://js.braintreegateway.com/web/3.27.0/js/data-collector.min.js"></script>
-    <script src="https://js.braintreegateway.com/web/3.27.0/js/us-bank-account.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.63.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.63.0/js/hosted-fields.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.63.0/js/data-collector.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.63.0/js/us-bank-account.min.js"></script>
     '''
 
 @register.simple_tag
