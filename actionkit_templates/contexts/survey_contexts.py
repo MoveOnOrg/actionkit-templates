@@ -2,6 +2,7 @@ from django.utils.html import format_html
 
 survey = {
     'filename': 'survey.html',
+    'sdk': '../smarty-streets-test-api',
     'page': {
         "title": "Survey page (stub)",
         "canonical_url": "http://example.com/survey/foobar"

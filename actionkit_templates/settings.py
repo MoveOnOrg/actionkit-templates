@@ -15,7 +15,8 @@ from django.shortcuts import render_to_response, redirect
 from django.template.loader import render_to_string
 from django.template.base import add_to_builtins
 from django.views.static import serve
-from .moveon_fakeapi import mo_event_data
+from moveon_fakeapi import mo_event_data
+from moveon_fakeapi import smartystreets_data
 
 """
 try running with
@@ -106,7 +107,9 @@ def _get_context_data(request, name, page, use_referer=False):
             'port': port,
             'STATIC_URL': STATIC_URL,
             'STATIC_LOCAL': STATIC_LOCAL,
-            'MO_EVENTS_API': '/fake/api/events'
+            'MO_EVENTS_API': '/fake/api/events',
+            'SMARTYSTREETS_FAKE_API': 'smarty-streets-test-api'
+            # 'SMARTYSTREETS_API': '/fake/api/smartystreets'
         }
     )
     context_data = contexts.get(name, {})
@@ -191,6 +194,18 @@ def event_api_moveon_fake(request):
     search_results = [mo_event_data(evt) for evt in events]
     return HttpResponse(json.dumps({'events': search_results}), content_type='application/json')
 
+def smartystreets_api_fake(request):
+    """Fake representation of SmartyStreets api"""
+    cxt = _get_context_data(request, 'smartystreets', 'WILL_USE_REFERER_HEADER', use_referer=True)
+    addresses = cxt.get('smartystreets', [])
+    if cxt.get('SLOW_API'):
+        # This allows us to test for race conditions
+        time.sleep(2)
+    if cxt.get('500_API'):
+        raise Exception('Cause failure to allow graceful degradation')
+    search_results = smartystreets_data()
+    return HttpResponse(json.dumps({'addresses': search_results}), content_type='application/json')
+
 def proxy_serve(request, path, document_root=None, show_indexes=False):
     try_proxy = True
     try:
@@ -221,8 +236,7 @@ urlpatterns = [
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
     url(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results'),
     url(r'^fake/api/events', event_api_moveon_fake, name="event_api_moveon_fake"),
-    # ActionKit urls or {% url %} template tag:
-    url(r'^fake/stub/reverse', event_api_moveon_fake, name="reverse_donation"),
+    url(r'^fake/api/smartystreets', smartystreets_api_fake, name="smartystreets_api_fake"),
 ]
 if STATIC_ROOT:
     urlpatterns = (urlpatterns
