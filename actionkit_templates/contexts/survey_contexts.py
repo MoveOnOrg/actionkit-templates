@@ -156,6 +156,75 @@ survey = {
     ],
 }
 
+shipping_survey = {
+    'filename': 'survey.html',
+    'page': {
+        "title": "Shipping survey",
+        "canonical_url": "http://example.com/survey/foobar"
+    },
+    'form': {
+        'introduction_text': 'verify shipping!',
+        'surveyquestion_set': {
+            'all': [
+                {'question_label': "How do you feel?",
+                 'question_html': '<input type="text" name="action_howfeel" />',
+                 'input_html': format_html('<input type="text" name="action_howfeel" />'),
+                 'placeholder': 'Share your feelings',
+                 'field_name': 'howfeel',
+             },
+            {'question_label': "Address",
+              'question_html': '<input type="text" name="action_shipping_address" />',
+              'input_html': format_html('<input type="text" name="action_shipping_address" />'),
+              'field_name': 'shipping_address',
+              },
+              {'question_label': "Address Line 2",
+               'question_html': '<input type="text" name="action_shipping_address2" />',
+               'input_html': format_html('<input type="text" name="action_shipping_address2" />'),
+               'field_name': 'shipping_address2',
+               },
+               {'question_label': "City",
+                'question_html': '<input type="text" name="action_shipping_city" />',
+                'input_html': format_html('<input type="text" name="action_shipping_city" />'),
+                'field_name': 'shipping_city',
+                },
+                {'question_label': "zip",
+                 'question_html': '<input type="text" name="action_shipping_zip" />',
+                 'input_html': format_html('<input type="text" name="action_shipping_zip" />'),
+                 'placeholder': 'Share your feelings',
+                 'field_name': 'shipping_zip',
+                 },
+            ],
+        },
+    },
+    'user_fields': [
+        {'field_name': 'name',
+         'label_text': 'Name',
+         'input_tag': '<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />',
+         'input_html': format_html('<input id="id_name" type="text" class="form-control mo-userfield-input ak-has-overlay" name="name" />'),
+        },
+        {'field_name': 'email',
+         'label_text': 'Email Address',
+         'input_tag': '<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />',
+         'input_html': format_html('<input id="id_email" type="text" class="form-control mo-userfield-input ak-has-overlay"  name="email" />'),
+        },
+        {'field_name': 'address1',
+         'label_text': 'Street Address',
+         'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
+         'input_html': format_html('<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />'),
+        },
+        {'field_name': 'zip',
+         'label_text': 'ZIP Code',
+         'input_tag': '<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />',
+         'input_html': format_html('<input id="id_zip" type="text" class="form-control mo-userfield-input ak-has-overlay" name="zip" />'),
+        },
+        {'field_name': 'phone',
+         'label_text': 'Phone',
+         'input_tag': '<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />',
+         'input_html': format_html('<input id="id_phone" type="text" class="form-control mo-userfield-input ak-has-overlay" name="phone" />'),
+         },
+        ],
+}
+
 logged_in_data = {
     "user": {
         "akid": 666,
@@ -169,6 +238,7 @@ logged_in_data.update(survey)
 
 contexts = {
     'survey.html': survey,
+    'shipping_survey.html': shipping_survey,
     'survey_logged_in': logged_in_data,
     'survey_logged_in_hide_recognized': logged_in_data_with_hide_recognized_block,
     'survey_no_questions': no_questions,
