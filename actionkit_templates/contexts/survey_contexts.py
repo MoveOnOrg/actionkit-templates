@@ -78,7 +78,7 @@ lost_pages_redesign = {
         },
         {'field_name': 'user_postal_mail_status',
          'label_text': 'Postal Mail Status',
-         'input_tag': lib.postal_mail_statuses(),
+         'input_tag': lib.states(),
         },
         {'field_name': 'name',
          'label_text': 'Name',
