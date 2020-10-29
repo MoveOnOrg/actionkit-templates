@@ -1,3 +1,4 @@
+from . import lib
 from django.utils.html import format_html
 
 logged_in_data_with_hide_recognized_block = {
@@ -84,6 +85,10 @@ lost_pages_redesign = {
          'label_text': 'Street Address',
          'input_tag': '<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />',
          'input_html': format_html('<input id="id_address1" type="text" class="form-control mo-userfield-input ak-has-overlay" />'),
+        },
+        {'field_name': 'state',
+         'label_text': 'State',
+         'input_tag': lib.states(),
         },
         {'field_name': 'zip',
          'label_text': 'ZIP Code',
