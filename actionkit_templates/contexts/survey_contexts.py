@@ -63,7 +63,7 @@ lost_pages_redesign = {
         "title": "Change Do Not Mail Status",
         "canonical_url": "http://example.com/survey/foobar",
         "custom_fields": {
-            "layout_options": ["lost-pages-redesign"]
+            "layout_options": ["lost_pages_redesign"]
         }
     },
     'form': {
