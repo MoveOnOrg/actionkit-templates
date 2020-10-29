@@ -41,6 +41,12 @@ class userform(dict):
             },
         })
 
+def postal_mail_statuses():
+    return """<select name="user_postal_mail_status" id="id_user_postal_mail_status">
+    <option value="OK to mail">OK to mail</option>
+    <option value="Do not mail">Do not mail</option>
+    </select>
+    """
 
 def states():
     return """<select name="state" id="id_state">
