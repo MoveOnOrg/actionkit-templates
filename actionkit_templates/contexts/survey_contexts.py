@@ -78,7 +78,7 @@ lost_pages_redesign = {
         },
         {'field_name': 'user_postal_mail_status',
          'label_text': 'Postal Mail Status',
-         'input_tag': lib.states(),
+         'input_tag': '<select id="id_user_postal_mail_status" name="user_postal_mail_status"><option selected value="OK to mail">OK to mail</option><option value="Do not mail">Do not mail</option></select>',
         },
         {'field_name': 'name',
          'label_text': 'Name',
