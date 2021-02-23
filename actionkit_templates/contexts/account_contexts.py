@@ -19,7 +19,8 @@ contexts = {
             'title': 'Signup!',
             'name': 'signup',
             "custom_fields": {
-                "entity": "pac"
+                "entity": "pac",
+                "layout_options": "lost_pages_redesign"
             }
         },
         'form': {
