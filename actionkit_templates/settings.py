@@ -72,7 +72,7 @@ MIDDLEWARE_CLASSES = []
 
 add_to_builtins('actionkit_templates.templatetags.actionkit_tags')
 
-def _get_context_data(request, name, page, use_referer=False):
+def _get_context_data(request, name=None, page=None, use_referer=False):
     from actionkit_templates.contexts.page_contexts import contexts
     port = '4000'
     hostport = request.get_host().split(':')
@@ -144,6 +144,7 @@ def index(request, name, page=None):
     return render_to_response(template, cxt)
 
 def login_context(request):
+    cxt = _get_context_data(request, use_referer=True)
     from actionkit_templates.contexts.event_context_json import event_json
     event_json_copy = event_json.copy()
     coming_from = request.GET.get('url','')
@@ -154,6 +155,8 @@ def login_context(request):
             del event_json_copy['name']
         return HttpResponse(
             'actionkit.forms.onContextLoaded(%s)' % json.dumps(event_json_copy))
+    elif cxt.get('context'):
+        return HttpResponse('actionkit.forms.onContextLoaded(%s)' % json.dumps(cxt['context']))
     else:
         return HttpResponse(
             #text key has all the generic error messages
@@ -216,6 +219,7 @@ ROOT_URLCONF = 'actionkit_templates.settings'
 
 urlpatterns = [
     url(r'^context', login_context),
+    url(r'^progress', login_context, name='progress'),
     url(r'^logout', logout, name="logout"),
     url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
     url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
