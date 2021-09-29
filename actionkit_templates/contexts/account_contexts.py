@@ -243,6 +243,7 @@ contexts = {
         "show_paypal": True,
         "paypal_cohort": 0,
         'active': [{  # profile
+            'account': 'MoveOnPAC PayPal',
             'id': '123',
             'payment_processor_information': {
                 'use_cse': False,
