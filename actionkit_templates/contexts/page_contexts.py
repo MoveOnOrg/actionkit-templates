@@ -16,7 +16,12 @@ contexts = {
             }
         },
         'logout.html': {
-            'filename': 'logout.html'
+            'filename': 'logout.html',
+            'page': {
+                "title": "You are logged out",
+                "canonical_url": "http://example.com/"
+            },
+
         }
     }
     #kinda silly, but avoid appending to the bottom because then git merge conflicts arise more often.

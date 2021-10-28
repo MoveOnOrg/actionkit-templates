@@ -463,7 +463,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Future Events Only",
-            "name": "fakecampaign-with-future-events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
         "campaign": {
@@ -512,7 +512,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - with results",
-            "name": "fakecampaign-with-future-events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
     },
@@ -545,7 +545,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - with results",
-            "name": "fakecampaign-with-future-events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
     },
@@ -557,7 +557,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Campaign with no events",
-            "name": "fakecampaign-with-no-events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
         "campaign": {
@@ -595,7 +595,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - no results",
-            "name": "fakecampaign-with-no-events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
     },
@@ -606,7 +606,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Past Events Only",
-            "name": "fakecampaign-past-events-only_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
         "events": [event_create(-1, 10, 343126),
@@ -663,7 +663,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Past and Future Events",
-            "name": "fakecampaign-past-and_future_events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
         "events": [event_create(-1, 10, 343126),
@@ -740,7 +740,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - API Failure (should gracefully degrade)",
-            "name": "fakecampaign-with-no-events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
     },
@@ -751,7 +751,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - A Mueller Load of Events",
-            "name": "fakecampaign-mueller_load_events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
         "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
@@ -801,7 +801,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - A Mueller Load of Events (slow api race test)",
-            "name": "fakecampaign-mueller_load_events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
         "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
@@ -825,7 +825,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - A Mueller Load of Events (slow search race test)",
-            "name": "fakecampaign-mueller_load_events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
         },
         "events": [event_create(1, 17, 10000+place, place_index=place) for place in range(1000)],
@@ -902,7 +902,7 @@ contexts = {
         },
         "page": {
             "title": "Event Search - Future Only, Rapidresponse Date filter",
-            "name": "fakecampaign-with-future-events_attend",
+            "name": "fakecampaign_attend",
             "type": "EventSignup",
             "custom_fields": {
                 "rapid_response_active_event_start_date": rel_date(-1).strftime('%Y-%m-%d'),

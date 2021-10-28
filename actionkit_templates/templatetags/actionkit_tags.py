@@ -226,7 +226,7 @@ def split(value, arg=' '):
 
 @register.filter
 def truncateletters(value, arg):
-    return value[:arg]
+    return value[:int(arg)]
 
 @register.filter
 def is_in(value, arg):
