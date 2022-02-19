@@ -42,6 +42,7 @@ args_permutations = {
     "donation_type": ["recurring", "single"],
     "payment_hash": ["abc123"],
     "suggested_ask": ["20", "666"],
+    "weekly": ["1"]
 }
 
 def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=False, id=666):
@@ -70,9 +71,13 @@ def user(recurring=1, payment_hash=False, customfields=None, previous_recurring=
             'payment_hash': 'abc123abc123',
             'has_payment_token': True,
         })
-    if not previous_recurring:
+    if previous_recurring==False:
         userbase['user'].update({
                 'orderrecurring_set': {
+                'active': {
+                    'count': 0,
+                },
+                'count': 0
                 }
             })
     else:
@@ -176,7 +181,7 @@ def base(title='', entity='c4', layout='', filename="donate.html", fields={}, sh
     rv['page']['custom_fields'].update(fields)
     return rv
 
-def order(order_type='order', details=None, quickpay=False, paypal=False):
+def order(order_type='order', details=None, quickpay=False, paypal=False, apple=False):
     #order_type = 'orderrecurring'
     orderkey = {
         'order': {
@@ -211,6 +216,10 @@ def order(order_type='order', details=None, quickpay=False, paypal=False):
         rv['action']['custom_fields'].update({
             'ak_paypal_transaction_id': '2309147283',
         })
+    if apple:
+        rv['action']['custom_fields'].update({
+            'mobile_payment': 'apple_pay',
+        })
     rv.update(orderkey)
     rv['action'].update(orderkey)
     return rv
@@ -239,7 +248,7 @@ contexts = {
     'donate.13': compose([base('two candidates quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates2], ["payment_hash"], -1),
     'donate.14': compose([base('1 product'), products]),
     'donate.15': compose([base('2 products'), products2]),
-    'donate.16': compose([base('weekly recurring checkbox', layout="make_weekly_checkbox")]),
+    'donate.16': compose([base('weekly recurring checkbox', layout="make_weekly_checkbox")], ["weekly"]),
     'donate.17': compose([base('quickpay recurring checkbox', entity='pac', layout="donate_5050_split"), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.18': compose([base('quickpay', entity='pac', layout='donate_5050_split donation_no_checkbox'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.19': compose([base('quickpay with weekly', entity='pac', layout="make_weekly_checkbox"), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
@@ -279,5 +288,11 @@ contexts = {
                                     'other_amount': 2.07
                                 })]),
     'donate.thanks.8': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order()]),
-    'donate.thanks.9': compose([base('civ with payment_hash', filename='thanks.html'), user(0, payment_hash=True), order(paypal=True)]),
+    'donate.thanks.9': compose([base('civ with payment_hash', filename='thanks.html'), user(recurring=0, payment_hash=True, previous_recurring=False), order(paypal=True)]),
+    'donate.thanks.10': compose([base('civ with payment_hash', filename='thanks.html'), user(recurring=1, payment_hash=True, previous_recurring=True), order(paypal=True)]),
+    'donate.thanks.11': compose([base('civ with payment_hash', filename='thanks.html'), user(recurring=0, payment_hash=True, previous_recurring=False), order()]),
+    'donate.thanks.12': compose([base('civ with payment_hash', filename='thanks.html'), user(recurring=1, payment_hash=True, previous_recurring=True), order()]),
+    'donate.thanks.13': compose([base('civ with payment_hash', filename='thanks.html'), user(recurring=1, payment_hash=True, previous_recurring=False), order(apple=True)]),
+    'donate.thanks.14': compose([base('civ with payment_hash', filename='thanks.html'), user(recurring=1, payment_hash=True, previous_recurring=True), order(apple=True)]),
+
 }

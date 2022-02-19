@@ -19,7 +19,8 @@ contexts = {
             'title': 'Signup!',
             'name': 'signup',
             "custom_fields": {
-                "entity": "pac"
+                "entity": "pac",
+                "layout_options": "lost_pages_redesign"
             }
         },
         'form': {
@@ -242,6 +243,7 @@ contexts = {
         "show_paypal": True,
         "paypal_cohort": 0,
         'active': [{  # profile
+            'account': 'MoveOnPAC PayPal',
             'id': '123',
             'payment_processor_information': {
                 'use_cse': False,
