@@ -225,7 +225,7 @@ def split(value, arg=' '):
     return value.split(arg)
 
 @register.filter
-def startswith(value, arg=' '):
+def startswith(value, arg):
     return value.startswith(arg)
 
 @register.filter
