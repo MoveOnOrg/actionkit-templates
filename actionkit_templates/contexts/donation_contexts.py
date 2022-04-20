@@ -149,7 +149,7 @@ products2 = {
 
 
 
-def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False, allow_international=False, accept_ach=False):
+def base(title='', entity='c4', layout='', filename="donate.html", fields={}, show_paypal=False, allow_international=False, accept_ach=False, liveaddress=None):
     rv = {
         "filename": filename,
         "show_paypal": show_paypal,
@@ -160,7 +160,8 @@ def base(title='', entity='c4', layout='', filename="donate.html", fields={}, sh
             "type": "Donation",
             "custom_fields": {
                 "layout_options": "2col,no_social,%s" % layout,
-                "entity": entity, # "pac", "joint_pac_c4"
+                "entity": entity, # "pac", "joint_pac_c4",
+                "liveaddress": liveaddress
                 #"thanks_header_text": "You are the best!", #optional
                 #"sharing_prompt": False, #optional
             },
@@ -181,7 +182,7 @@ def base(title='', entity='c4', layout='', filename="donate.html", fields={}, sh
     rv['page']['custom_fields'].update(fields)
     return rv
 
-def order(order_type='order', details=None, quickpay=False, paypal=False, apple=False):
+def order(order_type='order', details=None, quickpay=False, paypal=False, apple=False): #get rid of paypal and applepay and switch to "payment method"
     #order_type = 'orderrecurring'
     orderkey = {
         'order': {
@@ -246,8 +247,8 @@ contexts = {
     'donate.11': compose([base('two candidates suggested no 5050', entity='pac'), candidates2], ["suggested_ask"], -1),
     'donate.12': compose([base('candidate, quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.13': compose([base('two candidates quickpay', entity='pac', layout='donate_5050_split'), user(0, payment_hash=True), candidates2], ["payment_hash"], -1),
-    'donate.14': compose([base('1 product'), products]),
-    'donate.15': compose([base('2 products'), products2]),
+    'donate.14': compose([base('1 product', liveaddress="shipping"), products]),
+    'donate.15': compose([base('2 products', liveaddress="shipping"), products2]),
     'donate.16': compose([base('weekly recurring checkbox', layout="make_weekly_checkbox")], ["weekly"]),
     'donate.17': compose([base('quickpay recurring checkbox', entity='pac', layout="donate_5050_split"), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
     'donate.18': compose([base('quickpay', entity='pac', layout='donate_5050_split donation_no_checkbox'), user(0, payment_hash=True), candidates], ["payment_hash"], -1),
