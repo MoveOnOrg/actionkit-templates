@@ -36,7 +36,7 @@ def do_switch(parser, token):
     bits = token.contents.split()
     tag_name = bits[0]
     if len(bits) != 2:
-        raise template.TemplateSyntaxError("'%s' tag requires one argument" % tag_name)
+        raise TemplateSyntaxError("'%s' tag requires one argument" % tag_name)
     variable = parser.compile_filter(bits[1])
 
     class BlockTagList(object):
@@ -59,7 +59,7 @@ def do_switch(parser, token):
         nodelist = parser.parse(BlockTagList('case', 'else', 'endswitch'))
 
         if got_else:
-            raise template.TemplateSyntaxError("'else' must be last tag in '%s'." % tag_name)
+            raise TemplateSyntaxError("'else' must be last tag in '%s'." % tag_name)
 
         contents = token.contents.split()
         token_name, token_args = contents[0], contents[1:]
@@ -76,7 +76,7 @@ def do_switch(parser, token):
         token = parser.next_token()
 
     if not got_case:
-        raise template.TemplateSyntaxError("'%s' must have at least one 'case'." % tag_name)
+        raise TemplateSyntaxError("'%s' must have at least one 'case'." % tag_name)
 
     return SwitchNode(variable, cases)
 
