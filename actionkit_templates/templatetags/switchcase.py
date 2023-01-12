@@ -1,4 +1,5 @@
-from django.template import loader, Library, Node
+from django.template import loader, Library, Node, TemplateSyntaxError
+from django.template.base import VariableDoesNotExist
 
 register = Library()
 
