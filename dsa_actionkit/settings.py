@@ -24,7 +24,7 @@ aktemplates runserver 0.0.0.0:1234
 
 DEBUG = True
 SECRET_KEY = 'who cares!'
-INSTALLED_APPS = ['actionkit_templates', ]
+INSTALLED_APPS = ['dsa_actionkit', ]
 try:
     INSTALLED_APPS.append('django_extensions')
 except:
@@ -65,7 +65,7 @@ TEMPLATES = [
         'DIRS': DIR_TEMPLATES,
         'APP_DIRS': True,
         'OPTIONS': {
-            'builtins': ['actionkit_templates.templatetags.actionkit_tags'],
+            'builtins': ['dsa_actionkit.templatetags.actionkit_tags'],
         },
     },
 ]
@@ -74,7 +74,7 @@ MIDDLEWARE_CLASSES = []
 
 
 def _get_context_data(request, name=None, page=None, use_referer=False):
-    from actionkit_templates.contexts.page_contexts import contexts
+    from dsa_actionkit.contexts.page_contexts import contexts
     port = '4000'
     hostport = request.get_host().split(':')
     if len(hostport) > 1:
@@ -146,7 +146,7 @@ def index(request, name=None, page=None):
 
 def login_context(request):
     cxt = _get_context_data(request, use_referer=True)
-    from actionkit_templates.contexts.event_context_json import event_json
+    from dsa_actionkit.contexts.event_context_json import event_json
     event_json_copy = event_json.copy()
     coming_from = request.GET.get('url','')
     if 'event' in coming_from \
@@ -216,7 +216,7 @@ def proxy_serve(request, path, document_root=None, show_indexes=False):
 # URLS
 #############
 
-ROOT_URLCONF = 'actionkit_templates.settings'
+ROOT_URLCONF = 'dsa_actionkit.settings'
 
 urlpatterns = [
     re_path(r'^context', login_context),

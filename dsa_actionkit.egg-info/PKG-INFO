@@ -16,6 +16,7 @@ Classifier: Environment :: Console
 Classifier: Intended Audience :: Developers
 Classifier: Natural Language :: English
 Classifier: Operating System :: OS Independent
+Requires-Python: <3.12
 License-File: LICENSE
 Requires-Dist: django==3.2.6
 Requires-Dist: requests>=2.22.0

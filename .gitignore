@@ -14,7 +14,6 @@ ve
 s3cfg
 site.css.map
 template_set
-actionkit_templates.egg-info
 build
 .venv
 dist
