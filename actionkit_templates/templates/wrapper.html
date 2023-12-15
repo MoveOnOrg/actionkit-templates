@@ -1,31 +1,35 @@
-{% load actionkit_tags %}<!DOCTYPE html>
+{% load actionkit_tags %}
+<!DOCTYPE html>
 <!--[if IE 8]>     <html class="ie8"> <![endif]-->
 <!--[if IE 7]>     <html class="ie7"> <![endif]-->
 <!--[if IE 9]>     <html class="ie9"> <![endif]-->
-<html lang="{{page.lang.iso_code|default:"en"}}"{% if page.lang.is_rtl %} dir="rtl"{% endif %}>
+<html lang="{{page.lang.iso_code|default:" en"}}"{% if page.lang.is_rtl %} dir="rtl" {% endif %}>
+
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}{{ page.title }} | {% filter ak_text:"org_name" %}{% client_name %}{% endfilter %}{% endblock %}</title>
-  <script>startTime=new Date()</script>
+  <title>
+    {% block title %}
+    {{ page.title }} | {% filter ak_text:"org_name" %}{% client_name %}{% endfilter %}
+    {% endblock %}</title>
+  <script>startTime = new Date()</script>
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
-        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Fix for Internet Explorer prior to version 9-->
   <!--[if lt IE 9]>
   <script src="//html5shim.googlecode.com/svn/trunk/html5.js">
   </script>
   <![endif]-->
   {% if not page.custom_fields.layout_options or 'no_mo_css' not in page.custom_fields.layout_options %}
-    {% if args.env = "dev" or devenv.enabled or 'devdevdev' in page.custom_fields.layout_options %}
-      <!-- one of these will work, at least! -->
-      <link href="/static/stylesheets/site.css" rel="stylesheet">
-    {% else %}
-        <!--link rel="stylesheet" /-->
-    {% endif %}
+  {% if args.env == "dev" or devenv.enabled or 'devdevdev' in page.custom_fields.layout_options %}
+  <!-- one of these will work, at least! -->
+  <link href="/static/stylesheets/site.css" rel="stylesheet">
+  {% else %}
+  <!--link rel="stylesheet" /-->
+  {% endif %}
   {% endif %}
   {% block css_additions %}{% endblock %}
 
@@ -37,11 +41,14 @@
   {% block script_additions %}{% endblock %}
 
   {% if page.custom_fields.code_head %}
-    {% include_tmpl page.custom_fields.code_head %}
+  {% include_tmpl page.custom_fields.code_head %}
   {% endif %}
 
 </head>
-<body class="{{ filename|split:'.'|nth:0 }}-page {{page.type|default:"nopage"|lower}}-pagetype lang-{{page.lang.iso_code|default:"unknown"}}{% if page.lang.is_rtl %} ak-rtl{% endif %} ak-no-js pagename-{{page.name}}" role="document">
+
+<body class="{{ filename|split:'.'|nth:0 }}-page {{page.type|default:" nopage"|lower}}-pagetype
+  lang-{{page.lang.iso_code|default:"unknown"}}{% if page.lang.is_rtl %} ak-rtl{% endif %} ak-no-js
+  pagename-{{page.name}}" role="document">
 
   <div class="container" role="main">
     <div class="row">
@@ -49,42 +56,43 @@
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Error:</span>
         Default python-actionkit (djanger) template is running.
-        If you have your own template set from actionkit download it and put it locally in 
+        If you have your own template set from actionkit download it and put it locally in
         <code>./template_set</code> directory.
       </div>
       {% block content %}{% endblock %}
     </div><!-- .row -->
-</div><!-- .container -->
+  </div><!-- .container -->
 
 
-{% block below_form %}
-<script type="text/javascript">
-actionkit.forms.contextRoot = '/context/';
-actionkit.forms.initForm('act');
-actionkit.utils.appendHiddenInput('action_referrer', document.referrer);
-</script>
-{% endblock %}
+  {% block below_form %}
+  <script type="text/javascript">
+    actionkit.forms.contextRoot = '/context/';
+    actionkit.forms.initForm('act');
+    actionkit.utils.appendHiddenInput('action_referrer', document.referrer);
+  </script>
+  {% endblock %}
 
 
-<!-- INCLUDE FOOTER.HTML -->
-<div class="ak-cc-box ak-clear"></div>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        {% if page.custom_fields.footer_text %}
-           {{ page.custom_fields.footer_text|safe }}
-        {% endif %}
+  <!-- INCLUDE FOOTER.HTML -->
+  <div class="ak-cc-box ak-clear"></div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if page.custom_fields.footer_text %}
+          {{ page.custom_fields.footer_text|safe }}
+          {% endif %}
+        </div>
       </div>
     </div>
-  </div>
-</footer>
-<!-- END FOOTER.HTML -->
+  </footer>
+  <!-- END FOOTER.HTML -->
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
-        crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 
 </body>
+
 </html>
