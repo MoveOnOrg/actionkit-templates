@@ -10,7 +10,7 @@ locally.
 
 Python & Docker
 
-## Installation
+## Install Dependencies
 
 1. Create and activate a virtual environment (optional, encouraged):
 
@@ -26,6 +26,12 @@ Python & Docker
     ```pwsh
     py -m venv .venv
     .\.venv\Scripts\Activate.ps1
+    ```
+
+  2. Install Python packages with pip:
+
+    ```
+    pip install -e .
     ```
 
 ## Customize

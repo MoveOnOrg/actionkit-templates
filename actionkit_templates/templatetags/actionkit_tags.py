@@ -2,8 +2,7 @@ import datetime
 import os
 import re
 from django.conf import settings
-from django.template import loader, Library, Node, Variable
-from django.template.base import Context
+from django.template import Library, Node, Variable
 from django.template.defaultfilters import safe
 from django.utils import timezone
 from django.utils.html import strip_tags

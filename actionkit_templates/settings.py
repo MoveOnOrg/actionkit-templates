@@ -1,20 +1,20 @@
 import json
 import os
-import sys
 import time
+
 try:
     from urlparse import urlparse
 except ImportError:
     # python3
     from urllib.parse import urlparse
 
-from django.conf.urls import url
+from django.urls import re_path
 from django.conf.urls.static import static
-from django.http import HttpResponse, Http404
-from django.shortcuts import render_to_response, redirect
+from django.http import Http404, HttpResponse
+from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
-from django.template.base import add_to_builtins
 from django.views.static import serve
+
 from .moveon_fakeapi import mo_event_data
 
 """
@@ -26,9 +26,6 @@ DEBUG = True
 SECRET_KEY = 'who cares!'
 INSTALLED_APPS = ['actionkit_templates', ]
 try:
-    import template_debug #django-template-debug
-    INSTALLED_APPS.append('template_debug')
-    import django_extensions #django-extensions
     INSTALLED_APPS.append('django_extensions')
 except:
     pass
@@ -63,14 +60,18 @@ else:
 DIR_TEMPLATES.append(DEFAULT_TEMPLATES)
 
 TEMPLATES = [
-    { 'BACKEND': 'django.template.backends.django.DjangoTemplates',
-      'DIRS': DIR_TEMPLATES,
-  },
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': DIR_TEMPLATES,
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'builtins': ['actionkit_templates.templatetags.actionkit_tags'],
+        },
+    },
 ]
 
 MIDDLEWARE_CLASSES = []
 
-add_to_builtins('actionkit_templates.templatetags.actionkit_tags')
 
 def _get_context_data(request, name=None, page=None, use_referer=False):
     from actionkit_templates.contexts.page_contexts import contexts
@@ -136,12 +137,12 @@ def _get_context_data(request, name=None, page=None, use_referer=False):
 # HOME PAGE TEST
 #############
 
-def index(request, name, page=None):
+def index(request, name=None, page=None):
     cxt = _get_context_data(request, name, page)
     template = request.GET.get('template',
                                cxt.get('filename', "homepagetest.html"))
 
-    return render_to_response(template, cxt)
+    return render(template, cxt)
 
 def login_context(request):
     cxt = _get_context_data(request, use_referer=True)
@@ -218,15 +219,15 @@ def proxy_serve(request, path, document_root=None, show_indexes=False):
 ROOT_URLCONF = 'actionkit_templates.settings'
 
 urlpatterns = [
-    url(r'^context', login_context),
-    url(r'^progress', login_context, name='progress'),
-    url(r'^logout', logout, name="logout"),
-    url(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
-    url(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
-    url(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results'),
-    url(r'^fake/api/events', event_api_moveon_fake, name="event_api_moveon_fake"),
+    re_path(r'^context', login_context),
+    re_path(r'^progress', login_context, name='progress'),
+    re_path(r'^logout', logout, name="logout"),
+    re_path(r'^(?P<name>[-.\w]+)?(/(?P<page>[-.\w]+))?$', index),
+    re_path(r'^forgot/$', user_password_forgot, name='user_password_forgot'),
+    re_path(r'^cms/event/(?P<page>[-.\w]+)/search_results/', event_search_results, name='event_search_results'),
+    re_path(r'^fake/api/events', event_api_moveon_fake, name="event_api_moveon_fake"),
     # ActionKit urls or {% url %} template tag:
-    url(r'^fake/stub/reverse', event_api_moveon_fake, name="reverse_donation"),
+    re_path(r'^fake/stub/reverse', event_api_moveon_fake, name="reverse_donation"),
 ]
 if STATIC_ROOT:
     urlpatterns = (urlpatterns

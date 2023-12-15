@@ -10,7 +10,12 @@ authors = [
     { name = "DSA NTC", email = "ntc@dsacommittees.org" },
 ]
 description = "actionkit-templates allows you to view your ActionKit templates locally testing different configurations for each page type.  It also documents by-code many context variables for each page"
-dependencies = ["django==3.2.6", "requests>=2.22.0", "setuptools"]
+dependencies = [
+    "django==3.2.6",
+    "requests>=2.22.0",
+    "setuptools",
+    "django_extensions",
+]
 keywords = ["actionkit"]
 classifiers = [
     "Development Status :: 4 - Beta",
