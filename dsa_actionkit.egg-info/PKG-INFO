@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: dsa-actionkit
-Version: 0.1.0
+Version: 0.1.3
 Summary: actionkit-templates allows you to view your ActionKit templates locally testing different configurations for each page type.  It also documents by-code many context variables for each page
 Author-email: DSA NTC <ntc@dsacommittees.org>, Schuyler Duveen <opensource@moveon.org>
 License: Copyright MoveOn.org written by Schuyler Duveen

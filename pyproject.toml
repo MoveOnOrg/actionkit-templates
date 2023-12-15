@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dsa-actionkit"
-version = "0.1.0"
+version = "0.1.3"
 authors = [
     { name = "DSA NTC", email = "ntc@dsacommittees.org" },
     { name = "Schuyler Duveen", email = "opensource@moveon.org" },
