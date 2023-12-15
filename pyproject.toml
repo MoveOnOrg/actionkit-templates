@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "actionkit-templates"
+name = "dsa-actionkit"
 version = "0.1.2"
 authors = [
     { name = "Schuyler Duveen", email = "opensource@moveon.org" },
