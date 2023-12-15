@@ -5,7 +5,7 @@ import sys
 
 
 def serve_templates():
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "actionkit_templates.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dsa_actionkit.settings")
     sys.path.append(os.getcwd()) # run `aktemplate test` from the same dir where tests live
     from django.core.management import execute_from_command_line
 
