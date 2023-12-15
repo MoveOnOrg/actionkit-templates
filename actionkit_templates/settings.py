@@ -142,7 +142,7 @@ def index(request, name=None, page=None):
     template = request.GET.get('template',
                                cxt.get('filename', "homepagetest.html"))
 
-    return render(template, cxt)
+    return render(request, template, cxt)
 
 def login_context(request):
     cxt = _get_context_data(request, use_referer=True)
