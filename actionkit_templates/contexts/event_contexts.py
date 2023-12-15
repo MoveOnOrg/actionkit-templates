@@ -62,12 +62,12 @@ class MST(datetime.tzinfo):
 def rel_date(days_from_now=7, localtime=15, minutes_from_now=False):
     if days_from_now == 0 and minutes_from_now:
         event_day = datetime.datetime.now(MST()) + datetime.timedelta(minutes = minutes_from_now)
-        event_day = event_day.replace(tzinfo=timezone.FixedOffset(-420)) # matches MST
+        event_day = event_day.replace(tzinfo=datetime.timezone(datetime.timedelta(minutes=-420))) # matches MST
     else:
         today = datetime.date.today()
         event_day = datetime.datetime.combine(today + datetime.timedelta(days=days_from_now),
                                           datetime.time(localtime))
-        event_day = event_day.replace(tzinfo=timezone.FixedOffset(-300))
+        event_day = event_day.replace(tzinfo=datetime.timezone(datetime.timedelta(minutes=-300)))
     return event_day
 
 
@@ -78,9 +78,9 @@ def event_create(days_from_now=7, localtime=15, id=343775,
                  place_index=None, minutes_from_now=False,
                  attend_page=False):
 
-    """ 
+    """
         localtime = hour of the day
-        To get an event time with more precision to the current time, 
+        To get an event time with more precision to the current time,
         set days_from_now=0 and minutes_from_now to an integer, and
         choose a place_index with an MST locale.
     """
@@ -119,8 +119,8 @@ def event_create(days_from_now=7, localtime=15, id=343775,
         # all overridden by place_loc
         "address1": "1 Main St.",
         "city": "Somewhere, OH 44444",
-        # "longitude": 
-        # "latitude": 
+        # "longitude":
+        # "latitude":
 
         "directions": "Directions.",
         "get_starts_at_display": dateformat.format(event_day, 'l, M j, g:i A'),  # "Monday, Jan 1, 1:00 AM",
@@ -499,7 +499,7 @@ contexts = {
             "show_city": True,
             "show_zip": True,
             "show_public_description": True,
-            "name": "fakecampaign-with-future-events", 
+            "name": "fakecampaign-with-future-events",
             "public_create_page": True
         },
         "events": [event_create(1, 10, 343123),
