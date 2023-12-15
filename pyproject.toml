@@ -27,7 +27,7 @@ classifiers = [
 license = { file = "LICENSE" }
 
 [project.scripts]
-aktemplates = "dsa_actionkit:serve_templates"
+aktemplates = "dsa_actionkit.aktemplates:serve_templates"
 
 [project.optional-dependencies]
 test = ["selenium>=3.8.0", "pyvirtualdisplay"]
