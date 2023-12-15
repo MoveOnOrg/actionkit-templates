@@ -9,31 +9,35 @@ locally.
 ## Prerequisites
 
 - Python < 3.12
-- Docker
 
-## Install Dependencies
+## Quickstart
 
-1. Create and activate a virtual environment (optional, encouraged):
+```console
+$ mkdir myproject && cd myproject
+$ python --version
+Python 3.11.7
+$ python -m venv .venv
+$ source .venv/bin/activate
+(myproject) $ pip install dsa-actionkit
+(myproject) $ aktemplates runserver
 
-  - Unix (macOS, Linux (including WSL)):
+Watching for file changes with StatReloader
+Performing system checks...
 
-    ```shell
-    python -m venv .venv
-    source .venv/bin/activate
-    ```
+System check identified no issues (0 silenced).
+December 14, 2023 - 22:24:28
+Django version 3.2.6, using settings 'dsa_actionkit.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+```
 
-  - Windows + Powershell:
+## Developing
 
-    ```pwsh
-    py -m venv .venv
-    .\.venv\Scripts\Activate.ps1
-    ```
+Clone the repo and install the project package and all dependencies in editable mode:
 
-  2. Install Python packages with pip:
-
-    ```
-    pip install -e .
-    ```
+  ```
+  pip install -e .
+  ```
 
 ## Customize
 
@@ -100,25 +104,6 @@ In the occasional moment when you are developing without an internet connection 
 ```
 
 In that situation, if you set STATIC_FALLBACK to a directory where, e.g. `jquery.min.js` is present, then it will look for all the internet-external files in that directory. Note that this only works with `load_js` and `load_css` template tags.
-
-## Usage
-
-Run:
-
-  ```
-  aktemplates runserver
-  ```
-
-
-You can also run it on a different port than the default like so:
-
-   aktemplates runserver 0.0.0.0:1234
-
-in a directory where you have a set of ActionKit templates (`wrapper.html`, etc), then you can
-view them on from a local port.  This runs Django in a similar environment that ActionKit
-runs itself.
-
-
 
 Adding Tests
 ============
