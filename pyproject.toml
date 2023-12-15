@@ -23,7 +23,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Topic :: Internet :: WWWW/HTTP",
 ]
 license = { file = "LICENSE" }
 
