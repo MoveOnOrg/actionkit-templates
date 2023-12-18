@@ -1,7 +1,7 @@
 # ActionKit Templates
 ---
 
-> This is a public fork of the [MoveOnOrg/actionkit-templates](https://github.com/MoveOnOrg/actionkit-templates), reproduced with permission via MIT License. All code contained is open-source. Contributors MUST abide by the DSA NTC's [Code of Conduct](https://docs.google.com/document/d/12JOWHitVxx8ZR15Ea46JrD1fTpqO2xhBzag1cHRmFwE/edit?usp=sharing).
+> This is a public fork of the [MoveOnOrg/actionkit-templates](https://github.com/MoveOnOrg/actionkit-templates) repository, reproduced with permission via MIT License. All code contained is open-source. Contributors MUST abide by the DSA NTC's [Code of Conduct](https://docs.google.com/document/d/12JOWHitVxx8ZR15Ea46JrD1fTpqO2xhBzag1cHRmFwE/edit?usp=sharing).
 
 
 ## Quickstart
