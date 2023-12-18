@@ -8,10 +8,7 @@
 				"ms-python.python",
 				"tamasfe.even-better-toml",
 				"samuelcolvin.jinjahtml"
-			],
-			"settings": {
-				"python.defaultInterpreterPath": ".venv/bin/python"
-			}
+			]
 		}
 	}
 }
