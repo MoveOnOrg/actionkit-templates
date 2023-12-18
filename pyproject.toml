@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dsa-actionkit"
-version = "0.1.6"
+version = "0.1.7"
 authors = [
     { name = "DSA NTC", email = "ntc@dsacommittees.org" },
     { name = "Schuyler Duveen", email = "opensource@moveon.org" },
@@ -25,6 +25,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 license = { file = "LICENSE" }
+# Django 3.6 depends on distutils, which is deprecated in 3.12
+requires-python = "<3.12"
 
 [project.scripts]
 aktemplates = "dsa_actionkit.aktemplates:serve_templates"
