@@ -31,3 +31,6 @@ aktemplates = "dsa_actionkit.aktemplates:serve_templates"
 
 [project.optional-dependencies]
 test = ["selenium>=3.8.0", "pyvirtualdisplay"]
+
+[tool.setuptools.package-data]
+"dsa_actionkit.contexts" = ["*.csv"]
