@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dsa-actionkit"
-version = "0.1.5"
+version = "0.1.6"
 authors = [
     { name = "DSA NTC", email = "ntc@dsacommittees.org" },
     { name = "Schuyler Duveen", email = "opensource@moveon.org" },
@@ -33,4 +33,4 @@ aktemplates = "dsa_actionkit.aktemplates:serve_templates"
 test = ["selenium>=3.8.0", "pyvirtualdisplay"]
 
 [tool.setuptools.package-data]
-"dsa_actionkit.contexts" = ["*.csv"]
+"dsa_actionkit" = ["contexts/*.csv", "templates/*.html"]
