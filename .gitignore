@@ -17,3 +17,4 @@ build
 .venv
 dist
 *.egg-info
+db.sqlite
