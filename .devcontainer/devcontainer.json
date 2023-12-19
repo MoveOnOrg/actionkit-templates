@@ -22,6 +22,7 @@
 			"[jinja-html]": {
 				"editor.defaultFormatter": "samuelcolvin.jinjahtml",
 				"editor.formatOnSave": true
-			},
+			}
+		}
 	}
 }
