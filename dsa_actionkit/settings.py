@@ -212,11 +212,6 @@ def proxy_serve(request, path, document_root=None, show_indexes=False):
     raise Http404
 
 
-
-
-if os.path.exists(os.path.join(PROJECT_ROOT_PATH, 'local_settings.py')):
-    from local_settings import *
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
