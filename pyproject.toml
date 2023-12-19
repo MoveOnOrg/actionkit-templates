@@ -14,7 +14,7 @@ dependencies = [
     "django==3.2.6",
     "requests>=2.22.0",
     "django_extensions",
-    "build",
+    "werkzeug",
 ]
 keywords = ["actionkit"]
 classifiers = [

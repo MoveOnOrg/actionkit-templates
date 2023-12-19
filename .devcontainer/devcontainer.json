@@ -2,6 +2,9 @@
 	"name": "DSA - ActionKit Templates",
 	"image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
 	"postCreateCommand": "pip install -e .",
+	"containerEnv": {
+		"DJANGO_SETTINGS_MODULE": "dsa_actionkit.settings"
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
