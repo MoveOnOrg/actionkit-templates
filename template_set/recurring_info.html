@@ -1,188 +1,172 @@
 {% with profile.payment_processor_information as pp %}
-<form id="change_profile_{{ profile.id }}" {% if pp.processor=="stripe" %}data-stripe-pub-key="{{ pp.pub_key }}" {%
-    endif %} class="action_form" name="act_{{ profile.id }}" method="POST" action="/act/" accept-charset="utf-8"
-    onsubmit="return true;">
+<form id="change_profile_{{ profile.id }}" {% if pp.processor == "stripe" %}data-stripe-pub-key="{{ pp.pub_key }}"{% endif %} class="action_form" name="act_{{ profile.id }}" method="POST" action="/act/" accept-charset="utf-8" onsubmit="return true;">
     <input type="hidden" name="page" value="{{ page.name }}">
     <input type="hidden" name="profile_id" value="{{ profile.id }}">
-    {% comment %} akid is needed to tell javascript required field checking we have a user, but the view requires a user
-    to be logged in. {% endcomment %}
+    {% comment %} akid is needed to tell javascript required field checking we have a user, but the view requires a user to be logged in. {% endcomment %}
     <input type="hidden" name="akid" value="{{ logged_in_user.token }}">
 
     <div class="ak-field-box">
-        <div class="ak-styled-fields ak-labels-before {{templateset.custom_fields.field_errors_class|default:"
-            ak-err-above"}}">
-            {% once %}<ul id="ak-errors"></ul>{% endonce %}
-            <ul class="ak-errors"></ul>
-
-            <div>
-                <label>
-                    Next Payment
-               </label>
-                <div class="ak-readonly-value">
-                    <div>
-                        {{ profile.next_payment_date|date }}
-                    </div>
-                    {% if not profile.is_import_stub %}
-                    <div>
-                        <a href="/cms/pledge/cancel/monthly/">Cancel donation</a>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-
-      <div class="ak-show-amount">
-                <label>
-                    {{ profile.get_period_display }} Amount
-                </label>
-                <div class="ak-readonly-value">
-                    <div>
-                        {{ profile.amt }}
-                    </div>
-                    <div>
-                        {%if not profile.is_import_stub %}<a href="#"
-                            onclick="return ak_recurring_change_amount('{{ profile.id }}');"
-                            class="ak-change-amount-link">Change amount</a>{% endif %}
-                    </div>
-                </div>
-            </div>
-            <div class="ak-change-amount" style="display: none">
-                <label>
-                    {{ profile.get_period_display }} Amount
-                </label>
-                <input type="text" name="amount" size="6" value="{{ profile.amount }}">
-            </div>
+        <div class="ak-styled-fields ak-labels-before {{templateset.custom_fields.field_errors_class|default:"ak-err-above"}}">
+{% once %}<ul id="ak-errors"></ul>{% endonce %}
+          <ul class="ak-errors"></ul>
 
         <div>
-                <label>
-                    First Payment
-                </label>
-                <div class="ak-readonly-value">
-                    <div>
-                        {{ profile.first_payment_date|date }}
-                    </div>
+            <label>
+                Next Payment
+            </label>
+            <div class="ak-readonly-value">
+                <div>
+                    {{ profile.next_payment_date|date }}
+                </div>
+                {% if not profile.is_import_stub %}
+                <div>
+                    <a href = "/cms/pledge/cancel/monthly/">Cancel donation</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="ak-show-amount">
+            <label>
+                {{ profile.get_period_display }} Amount
+            </label>
+            <div class="ak-readonly-value">
+                <div>
+                    {{ profile.amt }}
+                </div>
+                <div>
+                    {%if not profile.is_import_stub %}<a href="#" onclick="return ak_recurring_change_amount('{{ profile.id }}');" class="ak-change-amount-link">Change amount</a>{% endif %}
                 </div>
             </div>
+        </div>
+        <div class="ak-change-amount" style="display: none">
+            <label>
+                {{ profile.get_period_display }} Amount
+            </label>
+            <input type="text" name="amount" size="6" value="{{ profile.amount }}">
+        </div>
+
+        <div>
+            <label>
+                First Payment
+            </label>
+            <div class="ak-readonly-value">
+                <div>
+                    {{ profile.first_payment_date|date }}
+                </div>
+            </div>
+        </div>
 
         {% if profile.order.payment_method == "cc" %}
-            <div class="ak-show-cc">
-                <label>
-                    Credit Card
-                </label>
-                <div class="ak-readonly-value">
-                    <div>
-                        Card ending in {{ profile.card_num }}
-                        <br>
-                        Expiration {{ profile.display_expiration_date }}
-                    </div>
-                    <div>
-                        {%if not profile.is_import_stub %} <a href="#"
-                            onclick="return ak_recurring_change_card('{{ profile.id }}');">Change credit card
-                            information</a>{% endif %}
-                    </div>
+        <div class="ak-show-cc">
+            <label>
+                Credit Card
+            </label>
+            <div class="ak-readonly-value">
+                <div>
+                    Card ending in {{ profile.card_num }}
+                    <br>
+                    Expiration {{ profile.display_expiration_date }}
+                </div>
+                <div>
+                   {%if not profile.is_import_stub %} <a href="#" onclick="return ak_recurring_change_card('{{ profile.id }}');">Change credit card information</a>{% endif %}
                 </div>
             </div>
+        </div>
 
-    <div class="ak-change-cc" style="display: none">
-                <label for="card_num_{{ profile.id }}">
-                    Credit Card Number
-                </label>
-                <input id="card_num_{{ profile.id }}" type="text" name="card_num" disabled=true>
-                <div class="ak-card_num-hosted"></div>
-            </div>
+        <div class="ak-change-cc" style="display: none">
+            <label for="card_num_{{ profile.id }}">
+                Credit Card Number
+            </label>
+            <input id="card_num_{{ profile.id }}" type="text" name="card_num" disabled=true>
+            <div class="ak-card_num-hosted"></div>
+        </div>
 
-    <div class="ak-change-cc" style="display: none">
-                <label for="exp_date_{{ profile.id }}">
-                    Expiration Date
-                </label>
-                <input id="exp_date_{{ profile.id }}" type="text" name="exp_date" size="6" placeholder="MMYY"
-                    style="max-width: 33%" disabled=true>
-                <div class="ak-exp_date-hosted"></div>
-            </div>
+        <div class="ak-change-cc" style="display: none">
+            <label for="exp_date_{{ profile.id }}">
+                Expiration Date
+            </label>
+            <input id="exp_date_{{ profile.id }}" type="text" name="exp_date" size="6" placeholder="MMYY" style="max-width: 33%" disabled=true>
+            <div class="ak-exp_date-hosted"></div>
+        </div>
 
-       <div class="ak-change-cc" style="display: none">
-                <label for="card_code_{{ profile.id }}">
-                    Verification Number
-                </label>
-                <input id="card_code_{{ profile.id }}" type="text" name="card_code" size="6" style="max-width: 33%"
-                    disabled=true>
-                <div class="ak-card_code-hosted"></div>
-            </div>
+        <div class="ak-change-cc" style="display: none">
+            <label for="card_code_{{ profile.id }}">
+                Verification Number
+            </label>
+            <input id="card_code_{{ profile.id }}" type="text" name="card_code" size="6"  style="max-width: 33%" disabled=true>
+            <div class="ak-card_code-hosted"></div>
+        </div>
 
-            {% endif %}
+        {% endif %}
 
-            {% if profile.is_ach %}
-            <input type="hidden" name="payment_method" value="ach">
-            <input type="hidden" name="first_name" value="{{ user.first_name }}">
-            <input type="hidden" name="last_name" value="{{ user.last_name }}">
+        {% if profile.is_ach %}
+        <input type="hidden" name="payment_method" value="ach">
+        <input type="hidden" name="first_name" value="{{ user.first_name }}">
+        <input type="hidden" name="last_name" value="{{ user.last_name }}">
 
-       <div class="ak-show-cc">
-                <label>
-                    Bank Account
-                </label>
-                <div class="ak-readonly-value">
-                    <div>
-                        {% if profile.card_num %}
-                        Account ending in {{ profile.card_num }}
-                        {% endif %}
-                    </div>
-                    <div>
-                        {%if not profile.is_import_stub %} <a href="#"
-                            onclick="return ak_recurring_change_card('{{ profile.id }}');">Change bank information</a>{%
-                        endif %}
-                    </div>
+        <div class="ak-show-cc">
+            <label>
+                Bank Account
+            </label>
+            <div class="ak-readonly-value">
+                <div>
+                  {% if profile.card_num %}
+                  Account ending in {{ profile.card_num }}
+                  {% endif %}
+                </div>
+                <div>
+                   {%if not profile.is_import_stub %} <a href="#" onclick="return ak_recurring_change_card('{{ profile.id }}');">Change bank information</a>{% endif %}
                 </div>
             </div>
+        </div>
 
-            <div class="ak-change-cc" style="display: none">
-                <label for="ak-routing_number_{{ profile.id }}">
-                    Routing Number
-                </label>
-                <input id="ak-routing_number_{{ profile.id }}" type="text" name="routing_number" size="9"
-                    style="max-width: 33%" onvalidate="return valid_bank_routing_number(this.value)" disabled=true>
-                <input type="hidden" name="required" value="routing_number" />
-            </div>
+        <div class="ak-change-cc" style="display: none">
+            <label for="ak-routing_number_{{ profile.id }}">
+                Routing Number
+            </label>
+            <input id="ak-routing_number_{{ profile.id }}" type="text" name="routing_number" size="9" style="max-width: 33%" onvalidate="return valid_bank_routing_number(this.value)" disabled=true>
+            <input type="hidden" name="required" value="routing_number"/>
+        </div>
 
-            <div class="ak-change-cc" style="display: none">
-                <label for="ak-bank_account_{{ profile.id }}">
-                    Bank Account
-                </label>
-                <input id="ak-bank_account_{{ profile.id }}" type="text" name="bank_account" size="17"
-                    style="max-width: 33%" onvalidate="return valid_bank_account_number(this.value)" disabled=true>
-                <input type="hidden" name="required" value="bank_account" />
-            </div>
+        <div class="ak-change-cc" style="display: none">
+            <label for="ak-bank_account_{{ profile.id }}">
+                Bank Account
+            </label>
+            <input id="ak-bank_account_{{ profile.id }}" type="text" name="bank_account" size="17" style="max-width: 33%" onvalidate="return valid_bank_account_number(this.value)" disabled=true>
+            <input type="hidden" name="required" value="bank_account"/>
+        </div>
 
-            <div class="ak-change-cc" style="display: none">
-                <label for="ak-account_type_{{ profile.id }}">
-                    Account Type
-                </label>
-                <select id="ak-account_type_{{ profile.id }}" type="text" name="account_type" style="max-width: 33%"
-                    disabled=true>
-                    <option value="checking">checking</option>
-                    <option value="savings">savings</option>
-                </select>
-            </div>
+        <div class="ak-change-cc" style="display: none">
+            <label for="ak-account_type_{{ profile.id }}">
+                Account Type
+            </label>
+            <select id="ak-account_type_{{ profile.id }}" type="text" name="account_type" style="max-width: 33%" disabled=true>
+              <option value="checking">checking</option>
+              <option value="savings">savings</option>
+            </select>
+        </div>
 
-            <div class="ak-change-cc" style="display: none">
-                <label for="ak-ownership_type_{{ profile.id }}">
-                    Ownership Type
-                </label>
-                <select id="ak-ownership_type_{{ profile.id }}" type="text" name="ownership_type" style="max-width: 33%"
-                    onvalidate="return validate_business_name(this)" disabled=true>
-                    <option value="personal">personal</option>
-                    <option value="business">business</option>
-                </select>
-            </div>
+        <div class="ak-change-cc" style="display: none">
+            <label for="ak-ownership_type_{{ profile.id }}">
+                Ownership Type
+            </label>
+            <select id="ak-ownership_type_{{ profile.id }}" type="text" name="ownership_type" style="max-width: 33%" onvalidate="return validate_business_name(this)" disabled=true>
+              <option value="personal">personal</option>
+              <option value="business">business</option>
+            </select>
+        </div>
 
-            <div class="ak-change-cc ak-business_name" style="display: none">
-                <label for="ak-business_name_{{ profile.id }}">
-                    Business Name
-                </label>
-                <input id="ak-business_name_{{ profile.id }}" type="text" name="business_name" disabled=true>
-            </div>
+        <div class="ak-change-cc ak-business_name" style="display: none">
+            <label for="ak-business_name_{{ profile.id }}">
+                Business Name
+            </label>
+            <input id="ak-business_name_{{ profile.id }}" type="text" name="business_name" disabled=true>
+        </div>
 
-            {% endif %}
+        {% endif %}
 
-            {% if profile.order.payment_method == "cc" or profile.is_ach %}
+        {% if profile.order.payment_method == "cc" or profile.is_ach %}
             <div class="ak-show-address" style="display: none">
                 <label>
                     Address
@@ -191,8 +175,7 @@
                     <div class="ak-full-address">{{ profile.user.full_address }}</div>
                     {% if pp.recurring_update_supports_address %}
                     <div>
-                        <a href="#" onclick="return ak_recurring_change_address('{{ profile.id }}');">Change billing
-                            information</a>
+                        <a href="#" onclick="return ak_recurring_change_address('{{ profile.id }}');">Change billing information</a>
                     </div>
                     {% endif %}
                 </div>
@@ -201,19 +184,18 @@
             {% if pp.recurring_update_supports_address %}
 
             <div class="ak-change-address" style="display: none">
-                {% if not profile.is_ach %}
+              {% if not profile.is_ach %}
                 <div style="text-align: center">
                     Optionally also enter your credit card billing address:
                 </div>
-                {% endif %}
+              {% endif %}
                 <div>
                     <label for="id_address1_{{ profile.id }}">
                         Street Address
                     </label>
-                    <input name="address1" id="id_address1_{{ profile.id }}" type="text"
-                        value="{{ profile.order.user_detail.address1 }}" disabled=true>
+                    <input name="address1" id="id_address1_{{ profile.id }}" type="text" value="{{ profile.order.user_detail.address1 }}" disabled=true>
                     {% if profile.is_ach %}
-                    <input type="hidden" name="required" value="address1" />
+                    <input type="hidden" name="required" value="address1"/>
                     {% endif %}
                 </div>
 
@@ -221,10 +203,9 @@
                     <label for="id_city_{{ profile.id }}">
                         City
                     </label>
-                    <input name="city" id="id_city_{{ profile.id }}" type="text"
-                        value="{{ profile.order.user_detail.city }}" disabled=true>
+                    <input name="city" id="id_city_{{ profile.id }}" type="text" value="{{ profile.order.user_detail.city }}" disabled=true>
                     {% if profile.is_ach %}
-                    <input type="hidden" name="required" value="city" />
+                    <input type="hidden" name="required" value="city"/>
                     {% endif %}
                 </div>
 
@@ -234,7 +215,7 @@
                     </label>
                     {% include "./state_select.html" %}
                     {% if profile.is_ach %}
-                    <input type="hidden" name="required" value="state" />
+                    <input type="hidden" name="required" value="state"/>
                     {% endif %}
                 </div>
 
@@ -242,10 +223,9 @@
                     <label for="id_zip_{{ profile.id }}">
                         ZIP Code
                     </label>
-                    <input name="zip" id="id_zip_{{ profile.id }}" type="text"
-                        value="{{ profile.order.user_detail.zip }}" disabled=true>
+                    <input name="zip" id="id_zip_{{ profile.id }}" type="text" value="{{ profile.order.user_detail.zip }}" disabled=true>
                     {% if profile.is_ach %}
-                    <input type="hidden" name="required" value="zip" />
+                    <input type="hidden" name="required" value="zip"/>
                     {% endif %}
                 </div>
                 {% if not profile.is_ach %}
@@ -253,56 +233,49 @@
                     <label for="id_region_{{ profile.id }}">
                         Region
                     </label>
-                    <input name="region" id="id_region_{{ profile.id }}" type="text"
-                        value="{{ profile.order.user_detail.region }}" disabled=true>
+                    <input name="region" id="id_region_{{ profile.id }}" type="text" value="{{ profile.order.user_detail.region }}" disabled=true>
                 </div>
 
                 <div>
                     <label for="id_postal_{{ profile.id }}">
                         Postal
                     </label>
-                    <input name="postal" id="id_postal_{{ profile.id }}" type="text"
-                        value="{{ profile.order.user_detail.postal }}" disabled=true>
+                    <input name="postal" id="id_postal_{{ profile.id }}" type="text" value="{{ profile.order.user_detail.postal }}" disabled=true>
                 </div>
 
                 <div class="country_select_box">
                     <label>
                         Country
                     </label>
-                    {% include "./country_select.html" with onchange="actionkit.forms.setForm(this.form);actionkit.forms.reflectCountryChange();" %}
+                    {% include "./country_select.html" with onchange="actionkit.forms.setForm(this.form); actionkit.forms.reflectCountryChange();" %}
                 </div>
                 {% endif %}
                 <script>
-                    $(function () {
-                        var profile_el = $("#change_profile_{{ profile.id }}");
-                        {% if profile.order.user_detail.country %}
-                        profile_el.find(".country_select_box select").val("{{ profile.order.user_detail.country }}");
-                        {% endif %}
-                        {% if profile.order.user_detail.state %}
-                        profile_el.find(".state_select_box select").val("{{ profile.order.user_detail.state }}");
-                        {% endif %}
-                        actionkit.forms.initForm('act_{{ profile.id }}');
-                    });
+                  $(function () {
+                     var profile_el = $("#change_profile_{{ profile.id }}");
+                     {% if profile.order.user_detail.country %}
+                       profile_el.find(".country_select_box select").val("{{ profile.order.user_detail.country }}");
+                     {% endif %}
+                     {% if profile.order.user_detail.state %}
+                       profile_el.find(".state_select_box select").val("{{ profile.order.user_detail.state }}");
+                     {% endif %}
+                     actionkit.forms.initForm('act_{{ profile.id }}');
+                  });
                 </script>
             </div>
 
             {% endif %}
-            {% endif %}
+        {% endif %}
 
-            {% if profile.is_ach %}
-            <div class="ak-change-cc" style="display: none">
-                <div class="ak-mandate">By clicking "Save Changes", I authorize Braintree, a service of PayPal, on
-                    behalf of <span class="ak-client-name">{% filter ak_text:"org_name" %}{% client_name %}{% endfilter
-                        %}</span> (i) to verify my bank account information using bank information and consumer reports
-                    and (ii) to debit my bank account.</div>
-            </div>
-            {% endif %}
+        {% if profile.is_ach %}
+        <div class="ak-change-cc" style="display: none">
+          <div class="ak-mandate">By clicking "Save Changes", I authorize Braintree, a service of PayPal, on behalf of <span class="ak-client-name">{% filter ak_text:"org_name" %}{% client_name %}{% endfilter %}</span> (i) to verify my bank account information using bank information and consumer reports and (ii) to debit my bank account.</div>
+        </div>
+        {% endif %}
 
-            <div class="ak-change-submit ak-align-right" style="display: none">
-                <button name="submit_form" type="submit" {% if profile.is_ach
-                    %}onclick="return ach_validation(this.form);" {% else
-                    %}onclick="return disable_invisibles(this.form);" {% endif %}">Save Changes</button>
-            </div>
+        <div class="ak-change-submit ak-align-right" style="display: none">
+            <button name="submit_form" type="submit" {% if profile.is_ach %}onclick="return ach_validation(this.form);"{% else %}onclick="return disable_invisibles(this.form);"{% endif %}">Save Changes</button>
+        </div>
 
         </div>
     </div>
@@ -310,46 +283,40 @@
 </form>
 {% if pp.use_vzero %}
 <script>
-    initVZeroForForm('#change_profile_{{ profile.id }}', '{{ pp.client_token }}', {% if profile.is_ach %}true{% else %} false{% endif %}, {% if pp.use_3d_secure %} true, {% using profile.payment_nonce_info %}'{{nonce}}', '{{bin}}'{% endusing %} {% else %} false, '', ''{% endif %});
+initVZeroForForm('#change_profile_{{ profile.id }}', '{{ pp.client_token }}', {% if profile.is_ach %}true{% else %}false{% endif %});
 
-    var ownership_type_menu = $('#change_profile_{{ profile.id }} [name=ownership_type]');
-    if (ownership_type_menu.length) {
-        ownership_type_menu.change(function () {
-            if (this.value == 'business') {
-                $(this.form).find('.ak-business_name').show();
-            } else {
-                $(this.form).find('.ak-business_name').hide();
-            }
-        });
-    }
+var ownership_type_menu = $('#change_profile_{{ profile.id }} [name=ownership_type]');
+if (ownership_type_menu.length) {
+    ownership_type_menu.change(function() {
+        if (this.value == 'business') {
+            $(this.form).find('.ak-business_name').show();
+        } else {
+            $(this.form).find('.ak-business_name').hide();
+        }
+    });
+}
 </script>
 {% endif %}
 {% if pp.use_vgs %}
 <script>
-    var $akForm = $('#change_profile_{{profile.id}}');
-    var vgsOptions = {
-        form: $akForm[0], token: '{{pp.client_token}}',
-        rawFieldSelectors: ['#card_num_{{profile.id}}', '#card_code_{{profile.id}}'],
-        fields: [{
-            selector: '#' + $akForm[0].id + ' .ak-card_num-hosted',
-            name: 'card_num', type: 'card-number',
-            placeholder: '', autoComplete: 'cc-number',
-            color: 'black', fontSize: '15.5px',
-            successColor: 'green', errorColor: '#d00'
-        }]
-    };
-    if ($akForm.find('input[name=card_code]').length) {
-        vgsOptions.fields.push({
-            selector: '#' + $akForm[0].id + ' .ak-card_code-hosted',
-            name: 'card_code', type: 'card-security-code',
-            placeholder: '', fontSize: '15.5px',
-            color: 'black', successColor: 'green',
-            errorColor: '#d00'
-        });
-    }
-    $akForm.find('.ak-card_num-hosted, .ak-card_code-hosted')
-        .addClass('hosted-field');
-    actionkit.donations.vgs.initClient(vgsOptions);
+   var $akForm = $('#change_profile_{{profile.id}}');
+   var vgsOptions = {form: $akForm[0], token: '{{pp.client_token}}',
+                     rawFieldSelectors: ['#card_num_{{profile.id}}', '#card_code_{{profile.id}}'],
+                     fields: [{selector: '#' + $akForm[0].id + ' .ak-card_num-hosted',
+                         name: 'card_num', type: 'card-number',
+                         placeholder: '', autoComplete: 'cc-number',
+                         color: 'black', fontSize: '15.5px',
+                         successColor: 'green', errorColor: '#d00'}]};
+   if ($akForm.find('input[name=card_code]').length){
+       vgsOptions.fields.push({selector: '#' + $akForm[0].id + ' .ak-card_code-hosted',
+                  name: 'card_code', type: 'card-security-code',
+                  placeholder: '', fontSize: '15.5px',
+                  color: 'black', successColor: 'green',
+                  errorColor: '#d00'});
+   }
+   $akForm.find('.ak-card_num-hosted, .ak-card_code-hosted')
+          .addClass('hosted-field');
+   actionkit.donations.vgs.initClient(vgsOptions);
 </script>
 
 {% endif %}
