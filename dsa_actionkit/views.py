@@ -1,3 +1,17 @@
+import json
+import os
+import time
+from pathlib import Path
+from urllib import urlparse
+
+import requests
+from django.conf import settings
+from django.http import Http404, HttpResponse
+from django.shortcuts import redirect, render
+from django.views.static import serve
+
+from dsa_actionkit.moveon_fakeapi import mo_event_data
+
 
 def _get_context_data(request, name=None, page=None, use_referer=False):
     from dsa_actionkit.contexts.page_contexts import contexts
@@ -11,31 +25,35 @@ def _get_context_data(request, name=None, page=None, use_referer=False):
         if request.META.get("HTTP_REFERER"):
             paths = urlparse(request.META["HTTP_REFERER"]).path.split("/")
         elif request.GET.get("path"):
-            # e.g. &path=/events/event_search.html
             paths = request.GET["path"].split("/")
         if paths and len(paths) > 1:
             name = paths[1]
             if len(paths) > 2:
                 page = paths[2]
 
-    custom_contexts_file = os.path.join(PROJECT_ROOT_PATH,
-                                        os.environ.get("CUSTOM_CONTEXTS", "contexts.json"))
-    if os.path.exists(custom_contexts_file):
+    custom_contexts_file = settings.PROJECT_ROOT_PATH / os.environ.get(
+        "CUSTOM_CONTEXTS",
+        "contexts.json",
+    )
+    if Path.exists(custom_contexts_file):
         try:
             contexts.update({"Custom": json.loads(open(custom_contexts_file).read())})
         except ValueError as e:
-            raise Exception("JSON Parsing Error for context file %s %s" % (
-                custom_contexts_file, e.message))
+            msg = (
+                "JSON Parsing Error for context file {} {}".format(
+                custom_contexts_file, e.message)
+            )
+            raise Exception(msg)
     #first use ?template= if there, otherwise name's template, otherwise homepage
-    cxt = dict(
-        devenv={
+    cxt = {
+        "devenv": {
             "enabled": True,
             "port": port,
-            "STATIC_URL": STATIC_URL,
-            "STATIC_LOCAL": STATIC_LOCAL,
+            "STATIC_URL": settings.STATIC_URL,
+            "STATIC_LOCAL": settings.STATIC_LOCAL,
             "MO_EVENTS_API": "/fake/api/events",
         },
-    )
+    }
     context_data = contexts.get(name, {})
     if page:
         context_data = contexts.get(name, {}).get(page, {})
@@ -102,7 +120,7 @@ def event_search_results(request, page):
     if cxt.get("SLOW_SEARCH"):
         # This allows us to test for race conditions
         time.sleep(2)
-    search_results = render_to_string("event_search_results.html", cxt)
+    search_results = render(request, "event_search_results.html", cxt)
     return HttpResponse("actionkit.forms.onEventSearchResults({})"
                         .format(json.dumps(search_results)))
 
@@ -119,17 +137,16 @@ def event_api_moveon_fake(request):
     return HttpResponse(json.dumps({"events": search_results}), content_type="application/json")
 
 def proxy_serve(request, path, document_root=None, show_indexes=False):
-    try_proxy = True
-    try:
-        import requests
-    except ImportError:
-        try_proxy = False
+
     try:
         return serve(request, path, document_root, show_indexes)
     except Http404:
-        if try_proxy:
-            prefix = request.path.split("/")[1]
-            content = requests.get(f"https://roboticdogs.actionkit.com/{prefix}/{path}", verify=False)
-            if content.status_code == 200:
-                return HttpResponse(content.content, content_type=content.headers["Content-Type"])
+        prefix = request.path.split("/")[1]
+        content = requests.get(
+            f"https://roboticdogs.actionkit.com/{prefix}/{path}",
+            verify=False,
+            timeout=10,
+        )
+        if content.status_code == 200:
+            return HttpResponse(content.content, content_type=content.headers["Content-Type"])
     raise Http404
