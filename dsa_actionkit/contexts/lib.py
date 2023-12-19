@@ -1,21 +1,22 @@
 from django.utils.html import format_html
 
+
 class user(dict):
 
     def __str__(self):
-        return self.get('name')
+        return self.get("name")
 
 
 def field(fielddict):
-    field = format_html(fielddict.get('input_tag'))
-    field.name = fielddict.get('field_name')
-    field.id_for_label = 'id_{}'.format(fielddict.get('field_name', ''))
+    field = format_html(fielddict.get("input_tag"))
+    field.name = fielddict.get("field_name")
+    field.id_for_label = "id_{}".format(fielddict.get("field_name", ""))
     field.label_tag = format_html('<label for="{}">{}</label>',
                                   field.id_for_label,
-                                  fielddict.get('label_text',  ''))
-    field.label = fielddict.get('label_text',  '')
+                                  fielddict.get("label_text",  ""))
+    field.label = fielddict.get("label_text",  "")
     return field
-                        
+
 
 class userform(dict):
 
@@ -25,19 +26,19 @@ class userform(dict):
         class formobj(dict):
             def __iter__(self, source=None):
                 if not source:
-                    source = self.get('user_fields', [])
+                    source = self.get("user_fields", [])
                 return iter([field(f) for f in source])
 
             def visible_fields(self):
-                return self.__iter__(self.get('visible_fields'))
-            
+                return self.__iter__(self.get("visible_fields"))
+
         self.update({
-            'form': formobj(formdict),
-            'user_fields': formdict.get('user_fields'),
-            'templateset': {
+            "form": formobj(formdict),
+            "user_fields": formdict.get("user_fields"),
+            "templateset": {
                 "lang": {
-                    "country_names_us_first": [(c,c) for c in country_list]
-                }
+                    "country_names_us_first": [(c,c) for c in country_list],
+                },
             },
         })
 
@@ -355,6 +356,6 @@ country_list = ["United States",
 ]
 
 def countries():
-    return ''.join([
-        '<option value="%(c)s">%(c)s</option>' % {'c': c}
+    return "".join([
+        '<option value="%(c)s">%(c)s</option>' % {"c": c}
         for c in country_list])

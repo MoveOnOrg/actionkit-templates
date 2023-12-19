@@ -1,3 +1,3 @@
-from django.template import loader, Library, Node
+from django.template import Library
 
 register = Library()

@@ -16,6 +16,7 @@ dependencies = [
     "pytest-django",
     "django_extensions",
     "werkzeug",
+    "ruff"
 ]
 keywords = ["actionkit"]
 classifiers = [

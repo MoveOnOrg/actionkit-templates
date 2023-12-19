@@ -1,4 +1,4 @@
-#this is for /context/ loading for updating page in 
+#this is for /context/ loading for updating page in
 #https://roboticdogs.actionkit.com/context/test_create?callback=actionkit.forms.onContextLoaded&form_name=act&action_id=117202230&ar=1&required=email&required=country&want_prefill_data=1&r=0.20345950596532325&url=https://roboticdogs.actionkit.com/event/scott-test_create/create/?action_id=117202230&update=1&want_prefill_data=1
 #should be wrapped in actionkit.forms.onContextLoaded()
 event_json = {
@@ -75,14 +75,14 @@ event_json = {
         "work_phone": 1,
         "x": 1,
         "y": 1,
-        "zip": 1
+        "zip": 1,
     },
     "blank": [
         "suffix",
         "prefix",
         "middle_name",
         "address2",
-        "region"
+        "region",
     ],
     "form_name": "act",
     "move_fields": [],
@@ -91,8 +91,8 @@ event_json = {
     "page": {
         "custom_fields": {
             "entity": "pac",
-            "test_custom_event_field": "random text up to 100 characters"
-        }
+            "test_custom_event_field": "random text up to 100 characters",
+        },
     },
     "prefill_data": {
         "action_id": "117202230",
@@ -144,7 +144,7 @@ event_json = {
         "prefix": "",
         "state": "CO",
         "suffix": "",
-        "zip": "80210"
+        "zip": "80210",
     },
     "required": [
         "event_starts_at_date",
@@ -155,7 +155,7 @@ event_json = {
         "event_starts_at_time",
         "event_starts_at_ampm",
         "event_host_requirements",
-        "event_venue"
+        "event_venue",
     ],
     "text": {
         "error_TEMPLATE:invalid": "{0} is invalid.",
@@ -258,6 +258,6 @@ event_json = {
         "field_shipping_zip": "shipping ZIP Code",
         "field_state": "state",
         "field_taf_emails": "one or more friends' email addresses",
-        "field_zip": "ZIP Code"
-    }
+        "field_zip": "ZIP Code",
+    },
 }

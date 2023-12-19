@@ -1,4 +1,4 @@
-from django.template import loader, Library, Node, TemplateSyntaxError
+from django.template import Library, Node, TemplateSyntaxError
 from django.template.base import VariableDoesNotExist
 
 register = Library()
@@ -8,8 +8,7 @@ register = Library()
 
 @register.tag(name="switch")
 def do_switch(parser, token):
-    """
-    The ``{% switch %}`` tag compares a variable against one or more values in
+    """The ``{% switch %}`` tag compares a variable against one or more values in
     ``{% case %}`` tags, and outputs the contents of the matching block.  An
     optional ``{% else %}`` tag sets off the default output if no matches
     could be found::
@@ -39,7 +38,7 @@ def do_switch(parser, token):
         raise TemplateSyntaxError("'%s' tag requires one argument" % tag_name)
     variable = parser.compile_filter(bits[1])
 
-    class BlockTagList(object):
+    class BlockTagList:
         # This is a bit of a hack, as it embeds knowledge of the behaviour
         # of Parser.parse() relating to the "parse_until" argument.
         def __init__(self, *names):
@@ -49,14 +48,14 @@ def do_switch(parser, token):
             return name in self.names
 
     # Skip over everything before the first {% case %} tag
-    parser.parse(BlockTagList('case', 'endswitch'))
+    parser.parse(BlockTagList("case", "endswitch"))
 
     cases = []
     token = parser.next_token()
     got_case = False
     got_else = False
-    while token.contents != 'endswitch':
-        nodelist = parser.parse(BlockTagList('case', 'else', 'endswitch'))
+    while token.contents != "endswitch":
+        nodelist = parser.parse(BlockTagList("case", "else", "endswitch"))
 
         if got_else:
             raise TemplateSyntaxError("'else' must be last tag in '%s'." % tag_name)
@@ -64,7 +63,7 @@ def do_switch(parser, token):
         contents = token.contents.split()
         token_name, token_args = contents[0], contents[1:]
 
-        if token_name == 'case':
+        if token_name == "case":
             tests = list(map(parser.compile_filter, token_args))
             case = (tests, nodelist)
             got_case = True
