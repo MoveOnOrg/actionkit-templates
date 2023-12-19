@@ -40,3 +40,18 @@ test = ["selenium>=3.8.0", "pyvirtualdisplay"]
 
 [tool.setuptools.packages]
 find = { namespaces = false }
+
+[tool.ruff]
+fix = true
+select = ["ALL"]
+per-file-ignores = { "tests/**/*.py" = [
+    "S101",
+    "D100",
+    "D103",
+    "ANN201",
+    "ANN001",
+    "INP001",
+] }
+
+[tool.ruff.pydocstyle]
+convention = "google"
