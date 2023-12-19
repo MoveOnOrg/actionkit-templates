@@ -2,7 +2,7 @@ import json
 import os
 import time
 from pathlib import Path
-from urllib import urlparse
+from urllib import parse
 
 import requests
 from django.conf import settings
@@ -23,7 +23,7 @@ def _get_context_data(request, name=None, page=None, use_referer=False):
     if use_referer:
         paths = None
         if request.META.get("HTTP_REFERER"):
-            paths = urlparse(request.META["HTTP_REFERER"]).path.split("/")
+            paths = parse(request.META["HTTP_REFERER"]).path.split("/")
         elif request.GET.get("path"):
             paths = request.GET["path"].split("/")
         if paths and len(paths) > 1:

@@ -9,7 +9,7 @@ with contextlib.suppress(Exception):
     INSTALLED_APPS.append("django_extensions")
 
 ROOT_URLCONF = "dsa_actionkit.urls"
-APP_PATH = Path.parent(__file__)
+APP_PATH = Path().parent
 PROJECT_ROOT_PATH = Path.resolve(Path.cwd())
 
 STATIC_ROOT = os.environ.get("STATIC_ROOT", PROJECT_ROOT_PATH / "static")
