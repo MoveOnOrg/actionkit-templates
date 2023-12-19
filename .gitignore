@@ -13,7 +13,6 @@ ve
 .#*
 s3cfg
 site.css.map
-template_set
 build
 .venv
 dist

@@ -1,0 +1,355 @@
+{% extends "./wrapper.html" %}
+{% load humanize %}
+
+{% block css_additions %}
+{% for profile in active %}
+{% if profile.payment_processor_information.use_vzero or profile.payment_processor_information.use_vgs %}
+{% once %}
+<style type="text/css">
+.hosted-field {
+    height: 2.375em;;
+    display: inline-block;
+    padding: 7px 7px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+</style>{% endonce %}
+{% endif %}
+{% if profile.payment_processor_information.use_vzero %}
+{% once %}
+<style type="text/css">
+.hosted-field.braintree-hosted-fields-invalid {
+    border-color: {{ templateset.custom_fields.color_error|default:"#d00" }};
+    background-color: #FFC8C8;
+}
+</style>
+{% endonce %}
+{% endif %}
+{% if profile.payment_processor_information.use_vgs %}
+  {% once %}
+  <style type="text/css">
+  .hosted-field iframe {width: 100%; height:100%; }
+  </style>
+  {% endonce %}
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block script_additions %}
+
+<script language="javascript">
+    function ak_recurring_change_amount(profile_id) {
+        var profile_el = $('#change_profile_' + profile_id);
+        profile_el.find('.ak-show-amount').hide();
+        profile_el.find('.ak-change-amount').fadeIn();
+        profile_el.find('.ak-change-submit').fadeIn();
+        return false;
+    }
+
+    function ak_recurring_change_card(profile_id) {
+        var profile_el = $('#change_profile_' + profile_id);
+        profile_el.find('.ak-show-cc').hide();
+        profile_el.find('.ak-change-cc').not('.ak-business_name').fadeIn();
+        profile_el.find('.ak-change-address').fadeIn();
+        profile_el.find('.ak-change-submit').fadeIn();
+        profile_el.find(':input').prop('disabled', false);
+        return false;
+    }
+
+    function ak_recurring_change_address(profile_id) {
+        var profile_el = $('#change_profile_' + profile_id);
+        profile_el.find('.ak-show-address').hide();
+        profile_el.find('.ak-change-address').fadeIn();
+        profile_el.find('.ak-change-submit').fadeIn();
+        profile_el.find(':input').prop('disabled', false);
+        return false;
+    }
+
+    $(document).ready(function() {
+        var match = /profile_id=(\d+)/.exec(window.location.search);
+        if (match) {
+            var profile_id = match[1];
+            if (/error_card_num/.test(window.location.search) ||
+                /error_address1/.test(window.location.search) ||
+                /error_city/.test(window.location.search) ||
+                /error_profile_id/.test(window.location.search)) {
+                ak_recurring_change_card(profile_id);
+            } else if (/amount=/.test(window.location.search)) {
+                ak_recurring_change_amount(profile_id);
+            }
+        }
+    });
+</script>
+
+{% for profile in active %}
+
+{% if profile.payment_processor_information.use_accept %}
+{% once %}
+<script src="/resources/ak_authnet_accept.js"></script>
+{% authnet_js_libs %}
+<script>
+$(function() {
+    var form = $("#change_profile_{{ profile.id }}").get(0);
+    options = {
+            form: form,
+            submit: $("#change_profile_{{ profile.id }} .ak-change-submit button").get(0),
+    };
+    actionkit.authnet.initClient('{{ profile.payment_processor_information.login }}', '{{ profile.payment_processor_information.public_key }}', options);
+});
+</script>
+{% endonce %}
+{% endif %}
+{% if profile.payment_processor_information.use_vgs %}
+{% once %}
+ <script type="text/javascript" src="https://js.verygoodvault.com/vgs-collect/2.8/vgs-collect.js"></script>
+ <script type="text/javascript" src="/resources/ak_vgs.js"></script>
+{% endonce %}
+{% endif %}
+{% if profile.payment_processor_information.use_vzero %}
+{% once %}
+{% braintree_js_libs %}
+<script src="/resources/ak_braintree_vzero.js"></script>
+<script>
+function initVZeroForForm(form_id, clientToken, is_ach, use_3d_secure, nonce, bin) {
+    var form = document.querySelector(form_id),
+        options = {
+            form: form,
+            fields: {
+                number: {
+                    selector: form_id + ' .ak-card_num-hosted'
+                },
+                cvv: {
+                    selector: form_id + ' .ak-card_code-hosted'
+                },
+                expirationDate: {
+                    selector: form_id + ' .ak-exp_date-hosted',
+                    placeholder: 'MM / YYYY'
+                }
+            },
+            styles: {
+                'input': {
+                    'font-family': '{{ templateset.custom_fields.font_family|default:"sans-serif"|safe }}',
+                    'font-size': '{{ templateset.custom_fields.font_size|default:"16.5px" }}',
+                    'color': '#4b4b4b'
+                },
+                'input.invalid': {
+                    'color': '{{templateset.custom_fields.color_error|default:"#d00" }}',
+                    'background-color': '#FFC8C8'
+                },
+                'input.valid': {
+                    'color': 'green'
+                }
+            },
+            submit: form.querySelector("button[type=submit]"),
+            use_3d_secure: !!use_3d_secure,
+            nonce: nonce,
+            bin: bin,
+            isRecurringUpdate: true,
+            // allow empty submit so just amount can be changed
+            submitOnEmpty: function() { return true; }
+        },
+        toRemove = ["input[name=card_num]", "input[name=card_code]",
+                    "input[name=exp_date]"];
+
+    if (is_ach) {
+        options['fields'] = {};
+        options['ach'] = true;
+    } else {
+        toRemove.forEach(function(el) {
+            form.querySelector(el).remove();
+        });
+        Object.keys(options.fields).forEach(function(key) {
+            var field = options.fields[key];
+            document.querySelector(field.selector).classList.add('hosted-field');
+        });
+    }
+
+    actionkit.donations.initClient(clientToken, options);
+}
+</script>
+
+{% endonce %}
+{% endif %}
+{% if profile.payment_processor_information.processor == 'stripe' %}
+{% once %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+$(function() {
+    $('[data-stripe-pub-key] [name=card_num]').attr('data-stripe', 'number');
+    $('[data-stripe-pub-key] [name=exp_date]').attr('data-stripe', 'exp');
+    $('[data-stripe-pub-key] [name=card_code]').attr('data-stripe', 'cvc');
+});
+window.actionkitBeforeSubmit = function() {
+    var $form = $(actionkit.form);
+    // user can have non-stripe and stripe recurrings--don't interfere with
+    // non-stripe forms
+    var stripePubKey = $form.attr('data-stripe-pub-key');
+    if ( stripePubKey ) {
+        Stripe.setPublishableKey(stripePubKey)
+    }
+    else {
+        return;
+    }
+    // user might just be changing amount
+    if ( !$form.find('[name=card_num]').is(':visible') )
+        return;
+    
+    var $expField = $form.find('[name=exp_date]');
+    var exp = $expField.val();
+    // Stripe wants exp as 12/99 not 1299
+    exp = exp.replace(/[^0-9]/g, '').replace(/^([0-9][0-9])/, function(match) { return match + '/' });
+    $expField.val(exp);
+    try {
+        Stripe.card.createToken(actionkit.form, onStripeResponse);
+    } catch(e) {
+        // Stripe will throw (rather than return a failed response) for an
+        // out of range exp date month.
+        $expField.val(
+            $expField.val().replace('/', '')
+        );
+        alert('Sorry, we could not process your credit card information. Check your entries, such as your expiration date format, and try again.')
+        throw e;
+    }
+    return false;
+}
+function onStripeResponse(status, response) {
+    var $form = $(actionkit.form);
+    var $cardNumField = $form.find('[name=card_num]')
+    if ( response.error ) {
+        alert('We could not process your credit card information: ' + response.error.message);
+        $cardNumField.focus();
+        return;
+    }
+    $cardNumField.attr('disabled', true);
+    $cardNumField.after('<input type="hidden" name="card_num" value="token:' + response.id + '">')
+    // Stripe got exp_date in the format it wants, but set it back to the
+    // format ActionKit wants:
+    var $expField = $form.find('[name=exp_date]');
+    $expField.val(
+        $expField.val().replace('/', '')
+    );
+    actionkit.form.submit()
+}
+</script>
+{% endonce %}
+{% endif %}
+{% endfor %}
+
+<script type="text/javascript">
+function valid_bank_account_number(value) {
+    return /^\d{4,17}$/.test(value);
+}
+
+function valid_bank_routing_number(value) {
+    value = value.replace(/\D/g,'');
+
+    if (value.length != 9) { return false; }
+
+    var checksum = 0;
+    for (var i = 0; i < value.length; i += 3) {
+        checksum += parseInt(value.charAt(i), 10) * 3
+                 +  parseInt(value.charAt(i + 1), 10) * 7
+                 +  parseInt(value.charAt(i + 2), 10);
+    }
+
+    if (checksum == 0 || checksum % 10 != 0) { return false; }
+
+    return true;
+}
+
+function validate_business_name(input) {
+    form = input.form;
+    if (input.value == 'business' && !form['business_name'].value) {
+        return "Business name is required for business accounts.";
+    }
+
+    return true;
+}
+
+function ach_validation(form) {
+    actionkit.forms.setForm(form);
+
+    // allow changing amount separately
+    if ($(form['bank_account']).is(':hidden')) { return true; }
+
+    // clear_errors will delete these inputs from other
+    // forms if we don't remove the error class from them here
+    $(':input.ak-error, label.ak-error').removeClass('ak-error');
+
+    // address is required for ACH changes, even for logged in users
+    var saved_state = actionkit.forms.alwaysRequireUserFields;
+    actionkit.forms.alwaysRequireUserFields = true;
+    var is_valid = actionkit.forms.validate();
+    actionkit.forms.alwaysRequireUserField = saved_state;
+
+    return is_valid;
+}
+
+/* This prevents the invisible inputs from being submitted. Needed
+ because reflectCountryChange() messes with the disabled prop. */
+function disable_invisibles(form) {
+    $(form).find(':input:hidden[type!="hidden"]').prop('disabled', true);
+    return true;
+}
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="ak-grid-row">
+    <div class="ak-grid-col ak-grid-col-12-of-12">
+        <h2>{{ page.title }}</h2>
+    </div>
+</div>
+
+<div class="ak-grid-row ak-grid-row-inverted">
+    {% if page.custom_fields.featured_image %}
+        <div class="ak-grid-col ak-grid-col-3-of-12">
+            <img class="ak-featured-img" src="{{page.custom_fields.featured_image}}">
+        </div>
+    {% endif %}
+    <div class="ak-grid-col {% if page.custom_fields.featured_image %} ak-grid-col-9-of-12 {% else %}ak-grid-col-12-of-12 {% endif %}">
+
+        <div>
+            <p>Logged in as <a href="/me/">{{ logged_in_user.name }}</a>. <a href="/logout/">Log out</a></p>
+        </div>
+        <div style="display:none">{% comment %}actionkit.js wants this, but we don't{% endcomment %}
+            <p id="unknown_user"></p>
+            <div id="known_user"><span id="known_user_name"></span></div>
+        </div>
+        {% if action %}
+            <h3>Update saved!</h3>
+            <div>
+                {% include_tmpl form.thank_you_text %}
+            </div>
+        {% endif %}
+
+        <p>{% include_tmpl form.update_card_text %}</p>
+
+        {% if not active %}
+            <p>Whoops! You don't have any active recurring donations to update.</p>
+        {% else %}
+            {% for profile in active %}
+                {% include "./recurring_info.html" %}
+            {% endfor %}
+        {% endif %}
+
+        {% comment %}
+            This is an example of how to show inactive profiles.
+            {% if inactive %}
+
+                <label class="ak-label-above">Your old, no longer active recurring donations</label>
+                <ul>
+                    {% for profile in inactive %}
+                    <li>{{ profile.status }} on {{ profile.updated_at }}. Started on {{ profile.start }}, {% with profile.payment_count as count %} {{ count }} {{ profile.get_period_display|lower }} payment{{ count|pluralize }}{% endwith %} were made for a total of {{ profile.payment_total_amt }}.</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endcomment %}
+
+    </div>
+
+</div>
+
+{% endblock %}
