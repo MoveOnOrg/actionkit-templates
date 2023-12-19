@@ -36,3 +36,6 @@ test = ["selenium>=3.8.0", "pyvirtualdisplay"]
 
 [tool.setuptools.package-data]
 "dsa_actionkit" = ["contexts/*.csv", "templates/*.html"]
+
+[tool.setuptools.packages]
+find = { namespaces = false }
