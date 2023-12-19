@@ -11,7 +11,8 @@
 				"ms-python.python",
 				"tamasfe.even-better-toml",
 				"samuelcolvin.jinjahtml",
-				"batisteo.vscode-django"
+				"batisteo.vscode-django",
+				"charliermarsh.ruff"
 			]
 		},
 		"settings": {
