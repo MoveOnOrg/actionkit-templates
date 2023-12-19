@@ -10,8 +10,18 @@
 			"extensions": [
 				"ms-python.python",
 				"tamasfe.even-better-toml",
-				"samuelcolvin.jinjahtml"
+				"samuelcolvin.jinjahtml",
+				"batisteo.vscode-django"
 			]
-		}
+		},
+		"settings": {
+			"editor.defaultFormatter": null,
+			"files.associations": {
+				"*.html": "jinja-html"
+			},
+			"[jinja-html]": {
+				"editor.defaultFormatter": "samuelcolvin.jinjahtml",
+				"editor.formatOnSave": true
+			},
 	}
 }
