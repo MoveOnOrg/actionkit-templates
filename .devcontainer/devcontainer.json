@@ -4,7 +4,8 @@
 	"postAttachCommand": "pip install -e .",
 	"containerEnv": {
 		"DJANGO_SETTINGS_MODULE": "dsa_actionkit.settings",
-		"ROOT_URLCONF": "dsa_actionkit.urls"
+		"ROOT_URLCONF": "dsa_actionkit.urls",
+		"DJANGO_SECRET_KEY": "solidarityforever"
 	},
 	"customizations": {
 		"vscode": {
