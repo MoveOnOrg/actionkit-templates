@@ -52,7 +52,7 @@ DIR_TEMPLATES = []
 if os.environ.get('TEMPLATE_DIR'):
     DIR_TEMPLATES.append(os.environ.get('TEMPLATE_DIR'))
 else:
-    for d in ('./', 'template_set', '_layouts', '_includes'):
+    for d in ('template_set/', '_layouts/', '_includes/'):
         dd = os.path.join(PROJECT_ROOT_PATH, d)
         if os.path.exists(dd):
             DIR_TEMPLATES.append(dd)
