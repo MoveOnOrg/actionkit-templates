@@ -315,6 +315,7 @@ contexts = {
             "show_city": True,
             "show_zip": True,
             "show_public_description": True,
+            "show_completed_events": True
         },
         "event": event_create(-2, place_index=20, attend_page=True),
         "events": [event_create(-2, place_index=20)],
@@ -623,6 +624,7 @@ contexts = {
             "show_city": True,
             "show_zip": True,
             "show_public_description": True,
+            "show_completed_events": True,
             "name": "resistandwin-volunteerday"
         },
     },
@@ -640,6 +642,7 @@ contexts = {
             "show_city": True,
             "show_zip": True,
             "show_public_description": True,
+            "show_completed_events": True,
             "name": "resistandwin-volunteerday"
         },
         "events": [event_create(-1, 10, 343126),
@@ -682,6 +685,37 @@ contexts = {
             "show_city": True,
             "show_zip": True,
             "show_public_description": True,
+            "show_completed_events": True,
+            "name": "resistandwin-volunteerday"
+        },
+    },
+    'event_search_show_completed_disabled.html': {
+        "filename": "event_search.html",
+        "form": {
+            "search_page_text": "<p>Search page text for campaign with past and future events but only show future.</p>",
+        },
+        "page": {
+            "title": "Event Search - Past and Future Events",
+            "name": "fakecampaign-past-and_future_events_attend",
+            "type": "EventSignup",
+        },
+        "events": [event_create(-1, 10, 343126),
+                   event_create(-7, 15, 343127),
+                   event_create(-5, 15, 343128),
+                   event_create(1, 15, 343123),
+                   event_create(3, 15, 343124),
+                   event_create(3, 10, 343125)
+               ],
+        "campaign": {
+            "local_title": "Campaign Title - Campaign with past and future events",
+            "local_name": "fakecampaign-past-and_future_events_attend",
+            "use_title": True,
+            "show_venue": True,
+            "show_title": True,
+            "show_city": True,
+            "show_zip": True,
+            "show_public_description": True,
+            "show_completed_events": False,
             "name": "resistandwin-volunteerday"
         },
     },
@@ -699,6 +733,7 @@ contexts = {
             "show_city": True,
             "show_zip": True,
             "show_public_description": True,
+            "show_completed_events": True,
             "name": "resistandwin-volunteerday"
         },
         "events": [event_create(-1, 10, 343126),
